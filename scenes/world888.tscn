@@ -13,7 +13,7 @@ size = Vector3(1, 3, 1)
 
 [node name="Ground" parent="." unique_id=2127213363 instance=ExtResource("1_rog5d")]
 
-[node name="Player" parent="." unique_id=930000287 instance=ExtResource("2_qkubx")]
+[node name="Player" parent="." unique_id=930000287 groups=["player"] instance=ExtResource("2_qkubx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4536276, 2.022138, -0.70806026)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2067169274]
