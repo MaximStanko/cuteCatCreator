@@ -6,11 +6,47 @@
 [ext_resource type="Script" uid="uid://qy6yon44rqwu" path="res://assets/scripts/entryway.gd" id="4_ksl1v"]
 [ext_resource type="PackedScene" uid="uid://ch7gt84l234dy" path="res://assets/prefabs/pickup_detector.tscn" id="5_31f11"]
 [ext_resource type="PackedScene" uid="uid://cyi15lwt7c0uh" path="res://assets/prefabs/2d/pause_menu.tscn" id="6_f1eln"]
+[ext_resource type="Environment" uid="uid://denvworld001" path="res://assets/environments/default_env.tres" id="7_env"]
+[ext_resource type="Script" uid="uid://5q5fyr5caqpc" path="res://assets/scripts/sun.gd" id="8_sun"]
+[ext_resource type="PackedScene" uid="uid://begd7fmlfl6lg" path="res://assets/prefabs/water.tscn" id="9_xvndt"]
+[ext_resource type="Shader" uid="uid://cneyw035hahlm" path="res://assets/shaders/water.gdshader" id="10_is3qo"]
+[ext_resource type="Shader" uid="uid://cxmry2dovapvp" path="res://assets/shaders/frac_test.gdshader" id="11_grade"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ak1ww"]
 size = Vector3(1, 3, 1)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ct31b"]
+render_priority = 0
+shader = ExtResource("10_is3qo")
+shader_parameter/shallow_color = Color(0.34, 0.66, 0.69, 1)
+shader_parameter/deep_color = Color(0.05, 0.2, 0.33, 1)
+shader_parameter/depth_fade = 1.6
+shader_parameter/water_opacity = 0.8400000399
+shader_parameter/surface_opacity = 0.25
+shader_parameter/wave_height = 0.06
+shader_parameter/wave_scale = 1.4
+shader_parameter/wave_speed = 0.35
+shader_parameter/ripple_scale = 12.0
+shader_parameter/ripple_speed = 0.25
+shader_parameter/normal_strength = 0.35
+shader_parameter/water_roughness = 0.04
+shader_parameter/fresnel_power = 5.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_grade"]
+shader = ExtResource("11_grade")
+shader_parameter/warmth = 0.35
+shader_parameter/shadow_tint = Color(0.97, 0.86, 0.72, 1)
+shader_parameter/highlight_tint = Color(1, 0.94, 0.82, 1)
+shader_parameter/saturation = 1.12
+shader_parameter/contrast = 1.04
+shader_parameter/lift = 0.02
+shader_parameter/vignette = 0.4
+shader_parameter/vignette_warmth = 0.5
+
 [node name="World888" type="Node3D" unique_id=1683946744]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1492837465]
+environment = ExtResource("7_env")
 
 [node name="Ground" parent="." unique_id=2127213363 instance=ExtResource("1_rog5d")]
 
@@ -20,6 +56,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.89783, 0.87627983, -15.0391
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1818446518]
 transform = Transform3D(0.19706473, 0.5476947, -0.8131397, -0.12899978, 0.8366784, 0.53228617, 0.97186655, 1.1041386e-09, 0.2355323, -12.732248, 6.465296, 3.2310834)
 light_energy = 0.683
+light_angular_distance = 0.5
+shadow_enabled = true
+shadow_blur = 7.089
+directional_shadow_max_distance = 60.0
+script = ExtResource("8_sun")
 
 [node name="Entry" parent="." unique_id=1395549002 instance=ExtResource("3_ak1ww")]
 
@@ -36,7 +77,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8213315, 1.2033753, 4.02432
 pickupName = "test"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1593481710]
+layer = 101
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=1200248516 instance=ExtResource("6_f1eln")]
+
+[node name="Water" parent="." unique_id=363647662 instance=ExtResource("9_xvndt")]
+transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, -10, 0)
+surface_material_override/0 = SubResource("ShaderMaterial_ct31b")
+
+[node name="PostProcess" type="CanvasLayer" parent="." unique_id=1771038300]
+layer = 100
+
+[node name="Grade" type="ColorRect" parent="PostProcess" unique_id=1771038301]
+material = SubResource("ShaderMaterial_grade")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [connection signal="body_shape_entered" from="Entry/Entryway" to="Entry/Entryway" method="_on_body_shape_entered"]
