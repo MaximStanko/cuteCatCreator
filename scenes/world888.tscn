@@ -73,8 +73,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0.386)
 shape = SubResource("BoxShape3D_ak1ww")
 
 [node name="PickupDetector" parent="." unique_id=2056313107 instance=ExtResource("5_31f11")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8213315, 1.2033753, 4.0243216)
-pickupName = "test"
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 5)
+pickupName = "Item"
+
+[node name="PickupDetector2" parent="." unique_id=1401066777 instance=ExtResource("5_31f11")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 5)
+pickupName = "AwesomeItem"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1593481710]
 layer = 101
