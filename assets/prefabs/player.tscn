@@ -1,10 +1,26 @@
 [gd_scene format=3 uid="uid://cn3oofyl5w3x3"]
 
 [ext_resource type="Script" uid="uid://c267evwlsgefv" path="res://assets/scripts/player.gd" id="1_8cprv"]
-[ext_resource type="PackedScene" uid="uid://br7oysspooek4" path="res://assets/KayKit_Adventurers_2.0_FREE/Characters/fbx/Mage.fbx" id="1_bcxd0"]
 [ext_resource type="Script" uid="uid://v210ho0q82jc" path="res://assets/prefabs/camera_spring_arm.gd" id="3_5ov36"]
+[ext_resource type="PackedScene" uid="uid://cym143qnnr8ss" path="res://assets/KayKit_Adventurers_2.0_FREE/Characters/gltf/Mage.glb" id="3_6rjsx"]
+[ext_resource type="Animation" uid="uid://7x4hgo0ouhxw" path="res://assets/Running_B.res" id="4_6rjsx"]
+[ext_resource type="Animation" uid="uid://dt5ea35b5uekk" path="res://assets/chill.res" id="5_chill"]
+[ext_resource type="Animation" uid="uid://c3qfrnkvg6uxf" path="res://assets/jump_idle.res" id="6_k4x4q"]
+[ext_resource type="Animation" uid="uid://bd61bkqrsobxp" path="res://assets/jump_land.res" id="7_mr52g"]
+[ext_resource type="Animation" uid="uid://0bxr1giwcvvu" path="res://assets/jump_start.res" id="8_e5sg8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8cprv"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hdmdu"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dyjkh"]
+_data = {
+&"Chill": ExtResource("5_chill"),
+&"Rennen": ExtResource("4_6rjsx"),
+&"jump_idle": ExtResource("6_k4x4q"),
+&"jump_land": ExtResource("7_mr52g"),
+&"jump_start": ExtResource("8_e5sg8")
+}
 
 [node name="Player" type="CharacterBody3D" unique_id=930000287]
 script = ExtResource("1_8cprv")
@@ -12,8 +28,6 @@ script = ExtResource("1_8cprv")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1368474575]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_8cprv")
-
-[node name="Mage" parent="." unique_id=26892280 instance=ExtResource("1_bcxd0")]
 
 [node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=1439379130]
 transform = Transform3D(1, 0, 0, 0, 0.9659258, -0.25881904, 0, 0.25881904, 0.9659258, 0, 1.5, 0)
@@ -23,3 +37,9 @@ max_vertical_angle = -0.08726646259971647
 
 [node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=1086966273]
 current = true
+
+[node name="Mage" parent="." unique_id=1666179047 instance=ExtResource("3_6rjsx")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Mage" unique_id=1979769739]
+libraries/ = SubResource("AnimationLibrary_hdmdu")
+"libraries/Player Animationen" = SubResource("AnimationLibrary_dyjkh")
