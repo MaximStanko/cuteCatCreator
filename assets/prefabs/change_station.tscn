@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dyc0pq5fetrky"]
+
+[ext_resource type="Script" uid="uid://d0deydiwrfyig" path="res://assets/scripts/change_station.gd" id="1_station"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_station"]
+bg_color = Color(0.27, 0.27, 0.32, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_range"]
+radius = 70.0
+
+[node name="ChangeStation" type="Area2D" unique_id=844947012]
+script = ExtResource("1_station")
+
+[node name="Body" type="Panel" parent="." unique_id=737852112]
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_station")
+
+[node name="Label" type="Label" parent="Body" unique_id=652932848]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_font_sizes/font_size = 32
+text = "+5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1652476034]
+shape = SubResource("CircleShape2D_range")

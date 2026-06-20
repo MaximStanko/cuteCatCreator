@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b3gqp1a23p0n0"]
+
+[ext_resource type="PackedScene" uid="uid://dq7jludkmer5j" path="res://assets/prefabs/ground.tscn" id="1_rog5d"]
+[ext_resource type="PackedScene" uid="uid://cn3oofyl5w3x3" path="res://assets/prefabs/player.tscn" id="2_qkubx"]
+
+[node name="World888" type="Node3D" unique_id=1683946744]
+
+[node name="Ground" parent="." unique_id=2127213363 instance=ExtResource("1_rog5d")]
+
+[node name="Player" parent="." unique_id=930000287 instance=ExtResource("2_qkubx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.89783, 2.022138, -0.70806026)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2067169274]
+transform = Transform3D(1, 0, 0, 0, 0.7640551, 0.645151, 0, -0.645151, 0.7640551, 0, 7, 14)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1818446518]
+transform = Transform3D(0.19706473, 0.5476947, -0.8131397, -0.12899978, 0.8366784, 0.53228617, 0.97186655, 1.1041386e-09, 0.2355323, -12.732248, 6.465296, 3.2310834)
+light_energy = 0.683
