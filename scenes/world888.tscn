@@ -21,11 +21,17 @@
 [ext_resource type="PackedScene" uid="uid://w718vay83uid" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color1/Tree_1_C_Color1.gltf" id="3_31f11"]
 [ext_resource type="PackedScene" uid="uid://bq4muowkvgqb4" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color1/Tree_1_B_Color1.gltf" id="4_f1eln"]
 [ext_resource type="PackedScene" uid="uid://dvxcokyeg6a6c" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color1/Tree_1_A_Color1.gltf" id="5_rohao"]
+[ext_resource type="PackedScene" uid="uid://cyi15lwt7c0uh" path="res://assets/prefabs/2d/pause_menu.tscn" id="6_f1eln"]
 [ext_resource type="PackedScene" uid="uid://dig6ngbjalgfv" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Hill_4x4x8_Color3.gltf" id="6_rt1yw"]
+[ext_resource type="Environment" uid="uid://denvworld001" path="res://assets/environments/default_env.tres" id="7_env"]
 [ext_resource type="PackedScene" uid="uid://bx2qt0r3h8m8s" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Hill_8x4x2_Color3.gltf" id="7_jk26s"]
 [ext_resource type="PackedScene" uid="uid://b8qi82th3ksbp" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Hill_12x12x8_Color3.gltf" id="8_b28dm"]
+[ext_resource type="Script" uid="uid://5q5fyr5caqpc" path="res://assets/scripts/sun.gd" id="8_sun"]
 [ext_resource type="PackedScene" uid="uid://c5awyoo6c4fp6" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Rock_3_G_Color3.gltf" id="9_nkce2"]
+[ext_resource type="PackedScene" uid="uid://begd7fmlfl6lg" path="res://assets/prefabs/water.tscn" id="9_xvndt"]
 [ext_resource type="PackedScene" uid="uid://nceek51yctbd" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Rock_3_M_Color3.gltf" id="10_6g32d"]
+[ext_resource type="Shader" uid="uid://cneyw035hahlm" path="res://assets/shaders/water.gdshader" id="10_is3qo"]
+[ext_resource type="Shader" uid="uid://cxmry2dovapvp" path="res://assets/shaders/frac_test.gdshader" id="11_grade"]
 [ext_resource type="PackedScene" uid="uid://bwluljqixlfbn" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Tree_7_A_Color3.gltf" id="11_une3w"]
 [ext_resource type="PackedScene" uid="uid://bfk2li1np53m5" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Tree_7_B_Color3.gltf" id="12_x224o"]
 [ext_resource type="PackedScene" uid="uid://dl1h3ay81gj53" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Rock_3_C_Color3.gltf" id="13_6g32d"]
@@ -33,11 +39,27 @@
 [ext_resource type="PackedScene" uid="uid://bky7cxpll16j3" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Hill_12x12x2_Color3.gltf" id="15_x224o"]
 [ext_resource type="PackedScene" uid="uid://u14lysx3va18" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Hill_4x2x4_Color3.gltf" id="16_pcyi0"]
 [ext_resource type="PackedScene" uid="uid://chaagfktwhbb6" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Bush_1_G_Color3.gltf" id="17_une3w"]
-
-[sub_resource type="Environment" id="Environment_une3w"]
-ambient_light_source = 2
-ambient_light_color = Color(1, 1, 1, 1)
-ambient_light_energy = 0.4
+[ext_resource type="PackedScene" uid="uid://bt31y5xd2j5f" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Hill_2x2x8_Color3.gltf" id="24_yi2um"]
+[ext_resource type="PackedScene" uid="uid://dmr7hvv47l6qo" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Rock_3_N_Color3.gltf" id="25_1bhpc"]
+[ext_resource type="PackedScene" uid="uid://dslbtdcf5p4y8" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Rock_3_F_Color3.gltf" id="25_s0xgi"]
+[ext_resource type="PackedScene" uid="uid://dd0nthgk71wqu" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Rock_3_J_Color3.gltf" id="26_rxbnq"]
+[ext_resource type="PackedScene" uid="uid://b4tac6tn1rh6f" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Rock_3_E_Color3.gltf" id="27_qjt8p"]
+[ext_resource type="PackedScene" uid="uid://d15dgwrif14er" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Tree_1_B_Color3.gltf" id="28_aw363"]
+[ext_resource type="PackedScene" uid="uid://d1hpkra686mo8" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Tree_1_C_Color3.gltf" id="29_3dywd"]
+[ext_resource type="PackedScene" uid="uid://b8613mol2322g" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Bush_1_F_Color3.gltf" id="30_qjt8p"]
+[ext_resource type="PackedScene" uid="uid://c3owvyumtft0c" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Rock_3_H_Color3.gltf" id="31_aw363"]
+[ext_resource type="PackedScene" uid="uid://cvd1xbi3ov40c" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Rock_3_R_Color3.gltf" id="32_aw363"]
+[ext_resource type="PackedScene" uid="uid://ceg556mikske3" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Tree_7_C_Color3.gltf" id="34_3hj7f"]
+[ext_resource type="PackedScene" uid="uid://cgubcylexnbm4" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Hill_8x4x8_Color3.gltf" id="35_ay7lf"]
+[ext_resource type="PackedScene" uid="uid://cplyhayvrtisx" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Hill_8x8x8_Color3.gltf" id="36_3hj7f"]
+[ext_resource type="PackedScene" uid="uid://c8g26easa112v" path="res://assets/itemsnshit/gltf/Gems_Chest.gltf" id="37_lyt3f"]
+[ext_resource type="PackedScene" uid="uid://ctpf1fukt2xy6" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Hill_12x12x4_Color3.gltf" id="38_sk1hx"]
+[ext_resource type="PackedScene" uid="uid://ckkm275mppeh3" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Hill_8x4x4_Color3.gltf" id="39_qx0cg"]
+[ext_resource type="PackedScene" uid="uid://y1aown0v4qib" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Hill_4x4x4_Color3.gltf" id="40_v3rym"]
+[ext_resource type="PackedScene" uid="uid://bkvka3saacfff" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color4/Rock_3_D_Color4.gltf" id="41_8bgh2"]
+[ext_resource type="PackedScene" uid="uid://8ulet0hunwva" path="res://assets/itemsnshit/gltf/Gems_Pile_Large.gltf" id="42_v3rym"]
+[ext_resource type="PackedScene" uid="uid://bxt6oyxe0v7dy" path="res://assets/itemsnshit/gltf/Gems_Pile_Small.gltf" id="43_8bgh2"]
+[ext_resource type="PackedScene" uid="uid://ca7umy0df8kf6" path="res://assets/itemsnshit/gltf/Gems_Sack.gltf" id="44_pjchn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ct31b"]
 render_priority = 0
@@ -126,6 +148,7 @@ layer = 101
 
 [node name="Water" parent="." unique_id=363647662 instance=ExtResource("9_xvndt")]
 transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, -10, 0)
+visible = false
 surface_material_override/0 = SubResource("ShaderMaterial_ct31b")
 
 [node name="PostProcess" type="CanvasLayer" parent="." unique_id=1771038300]
@@ -142,41 +165,48 @@ mouse_filter = 2
 
 [node name="Hill_4x4x8_Color32" parent="." unique_id=551344792 instance=ExtResource("6_rt1yw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0257845, -3.1390429, -11.4979925)
+[node name="Node" type="Node" parent="." unique_id=1676418086]
 
-[node name="Hill_8x4x2_Color32" parent="." unique_id=1778484606 instance=ExtResource("7_jk26s")]
-transform = Transform3D(0.10813812, 0, -0.99413586, 0, 1, 0, 0.99413586, 0, 0.10813812, -2.0229495, 0.5, -6.645324)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Hill_8x4x2_Color32" unique_id=891788412]
-environment = SubResource("Environment_une3w")
-
-[node name="Hill_12x12x8_Color32" parent="." unique_id=808668680 instance=ExtResource("8_b28dm")]
-transform = Transform3D(0.9954079, 0, 0.09572414, 0, 1, 0, -0.09572414, 0, 0.9954079, -9.589575, -1.3145618, -5.9890943)
-
-[node name="Rock_3_G_Color32" parent="." unique_id=554455015 instance=ExtResource("9_nkce2")]
-transform = Transform3D(0.6692344, 0, -0.7430514, 0, 1, 0, 0.7430514, 0, 0.6692344, 5.1795406, 0.7668874, -0.06275058)
-
-[node name="Rock_3_M_Color32" parent="." unique_id=701490266 instance=ExtResource("10_6g32d")]
+[node name="Rock_3_M_Color32" parent="Node" unique_id=701490266 instance=ExtResource("10_6g32d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0821357, 0.53909874, -1.6722531)
 
-[node name="Tree_7_A_Color32" parent="." unique_id=1283353234 instance=ExtResource("11_une3w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.793771, 6.526566, -6.709033)
+[node name="Tree_7_A_Color32" parent="Node" unique_id=1283353234 instance=ExtResource("11_une3w")]
+transform = Transform3D(0.994024, 0.10916181, 0, -0.10916181, 0.994024, 0, 0, 0, 1, -2.542072, 2.1885967, -3.9194226)
 
-[node name="Tree_7_B_Color32" parent="." unique_id=285867295 instance=ExtResource("12_x224o")]
-transform = Transform3D(0.99908596, 0, -0.042747557, 0, 1, 0, 0.042747557, 0, 0.99908596, -11.110691, 6.1139545, -3.0025897)
+[node name="Tree_7_B_Color32" parent="Node" unique_id=285867295 instance=ExtResource("12_x224o")]
+transform = Transform3D(-0.12805137, 0, -0.9917676, 0, 1, 0, 0.9917676, 0, -0.12805137, -4.908207, 5.857924, -3.2085814)
 
-[node name="Rock_3_C_Color32" parent="." unique_id=2126462558 instance=ExtResource("13_6g32d")]
+[node name="Tree_7_B_Color32" parent="Node/Tree_7_B_Color32" unique_id=764725490 instance=ExtResource("12_x224o")]
+transform = Transform3D(0.6582296, 0, -0.7528172, 0, 1, 0, 0.7528172, 0, 0.6582296, -21.747671, 2.7729993, -8.100495)
+
+[node name="Rock_3_C_Color32" parent="Node" unique_id=2126462558 instance=ExtResource("13_6g32d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5903788, 0.5714754, 0.2622658)
 
-[node name="Rock_3_D_Color32" parent="." unique_id=700932915 instance=ExtResource("14_une3w")]
+[node name="Rock_3_D_Color32" parent="Node" unique_id=700932915 instance=ExtResource("14_une3w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.638651, 0.48462296, -1.2986395)
 
-[node name="Hill_12x12x2_Color32" parent="." unique_id=1801529080 instance=ExtResource("15_x224o")]
+[node name="Hill_12x12x2_Color32" parent="Node" unique_id=1801529080 instance=ExtResource("15_x224o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.566488, 0.5, -9.402723)
 
-[node name="Hill_4x4x8_Color33" parent="." unique_id=155998010 instance=ExtResource("6_rt1yw")]
+[node name="Hill_4x4x8_Color35" parent="Node" unique_id=1946091663 instance=ExtResource("6_rt1yw")]
+transform = Transform3D(0.9999923, -0.0013713691, 0.0036762708, 0.0013669805, 0.99999833, 0.0011969971, -0.0036779048, -0.0011919668, 0.99999255, 7.458997, -3.153522, -15.998823)
+
+[node name="Hill_4x4x8_Color34" parent="Node" unique_id=1326769065 instance=ExtResource("6_rt1yw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.213846, 3.6357517, -20.409664)
+
+[node name="Hill_4x4x8_Color34" parent="Node/Hill_4x4x8_Color34" unique_id=551344792 instance=ExtResource("6_rt1yw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.802794, 0.98271275, -4.5984535)
+
+[node name="Hill_4x4x8_Color33" parent="Node" unique_id=155998010 instance=ExtResource("6_rt1yw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6319046, 0.5, -7.862076)
 
-[node name="Hill_4x2x4_Color32" parent="." unique_id=1169927837 instance=ExtResource("16_pcyi0")]
+[node name="Hill_4x4x8_Color33" parent="Node/Hill_4x4x8_Color33" unique_id=1444037927 instance=ExtResource("6_rt1yw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.600739, 3.1676059, 0.4876175)
+
+[node name="Hill_4x4x8_Color34" parent="Node/Hill_4x4x8_Color33/Hill_4x4x8_Color33" unique_id=518393083 instance=ExtResource("6_rt1yw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.836576, -4.255515, -5.625577)
+
+[node name="Hill_4x2x4_Color32" parent="Node" unique_id=1169927837 instance=ExtResource("16_pcyi0")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5.550068, 0.5, -10.60119)
 
 [node name="Bush_1_G_Color32" parent="." unique_id=2138820066 instance=ExtResource("17_une3w")]
@@ -184,3 +214,209 @@ transform = Transform3D(0.8291547, 0, 0.55901927, 0.107499026, 0.9813363, -0.159
 
 [node name="FishingSpot" parent="." unique_id=1125504034 instance=ExtResource("6_f1eln")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.707153)
+[node name="Bush_1_G_Color32" parent="Node" unique_id=2138820066 instance=ExtResource("17_une3w")]
+transform = Transform3D(1.0765179, 0, 0.6831791, 0, 1.275, 0, -0.6831791, 0, 1.0765179, -2.4129794, 0.3731197, -1.5667372)
+
+[node name="Rock_3_G_Color32" parent="Node" unique_id=554455015 instance=ExtResource("9_nkce2")]
+transform = Transform3D(0.6692344, 0, -0.7430514, 0, 1, 0, 0.7430514, 0, 0.6692344, 5.1795406, 0.7668874, -0.06275058)
+
+[node name="Hill_12x12x8_Color32" parent="Node" unique_id=808668680 instance=ExtResource("8_b28dm")]
+transform = Transform3D(0.9954079, 0, 0.09572414, 0, 1, 0, -0.09572414, 0, 0.9954079, -9.589575, -1.3145618, -5.9890943)
+
+[node name="Hill_12x12x8_Color32" parent="Node/Hill_12x12x8_Color32" unique_id=1768091575 instance=ExtResource("8_b28dm")]
+transform = Transform3D(0.9975639, 0, -0.06975646, 0, 1, 0, 0.06975649, 0, 0.99756396, 23.543407, -0.43442345, -13.167305)
+
+[node name="Hill_12x12x8_Color32" parent="Node/Hill_12x12x8_Color32/Hill_12x12x8_Color32" unique_id=410705285 instance=ExtResource("8_b28dm")]
+transform = Transform3D(0.9975634, 0, -0.06975646, 0, 1, 0, 0.06975646, 0, 0.9975635, -20.327324, 1.6553478, -1.8024559)
+
+[node name="Hill_4x4x8_Color32" parent="Node" unique_id=1182006439 instance=ExtResource("6_rt1yw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0257845, -3.1390429, -11.4979925)
+
+[node name="Hill_8x4x2_Color32" parent="Node" unique_id=1778484606 instance=ExtResource("7_jk26s")]
+transform = Transform3D(0.10813812, 0, -0.99413586, 0, 1, 0, 0.99413586, 0, 0.10813812, -2.0229495, 0.5, -6.645324)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Node/Hill_8x4x2_Color32" unique_id=891788412]
+environment = SubResource("Environment_une3w")
+
+[node name="Hill_8x4x2_Color32" parent="Node/Hill_8x4x2_Color32" unique_id=600710140 instance=ExtResource("7_jk26s")]
+transform = Transform3D(0.10813814, 0, -0.99413633, 0, 1, 0, 0.99413633, 0, 0.10813814, 2.453889, -0.00831008, 3.6363456)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Node/Hill_8x4x2_Color32/Hill_8x4x2_Color32" unique_id=2028735611]
+environment = SubResource("Environment_une3w")
+
+[node name="Hill_8x4x2_Color33" parent="Node/Hill_8x4x2_Color32" unique_id=1860642407 instance=ExtResource("7_jk26s")]
+transform = Transform3D(0.99690515, 0, -0.078615785, 0, 1, 0, 0.078615785, 0, 0.99690515, -10.187748, -0.23224497, -1.5406667)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Node/Hill_8x4x2_Color32/Hill_8x4x2_Color33" unique_id=428804980]
+environment = SubResource("Environment_une3w")
+
+[node name="Hill_8x4x2_Color32" parent="Node/Hill_8x4x2_Color32/Hill_8x4x2_Color33" unique_id=580261283 instance=ExtResource("7_jk26s")]
+transform = Transform3D(0.10813814, 0, -0.99413633, 0, 1, 0, 0.99413633, 0, 0.10813814, 2.453889, -0.00831008, 3.6363456)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Node/Hill_8x4x2_Color32/Hill_8x4x2_Color33/Hill_8x4x2_Color32" unique_id=198484978]
+environment = SubResource("Environment_une3w")
+
+[node name="Hill_8x4x2_Color34" parent="Node/Hill_8x4x2_Color32" unique_id=1546368286 instance=ExtResource("7_jk26s")]
+transform = Transform3D(-0.9892936, 0, 0.14594507, 0, 1, 0, -0.14594507, 0, -0.9892936, -19.91738, 8.282296, -4.689925)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Node/Hill_8x4x2_Color32/Hill_8x4x2_Color34" unique_id=828439094]
+environment = SubResource("Environment_une3w")
+
+[node name="Tree_1_C_Color12" parent="Node/Hill_8x4x2_Color32/Hill_8x4x2_Color34" unique_id=1670295416 instance=ExtResource("3_31f11")]
+transform = Transform3D(0.6561113, 0, -0.7546632, 0, 1, 0, 0.7546632, 0, 0.6561113, -0.26870537, -4.3491135, -5.9808807)
+
+[node name="Tree_1_C_Color12" parent="Node" unique_id=1710188337 instance=ExtResource("3_31f11")]
+transform = Transform3D(0.94316465, 0, 0.33232573, 0, 1, 0, -0.33232573, 0, 0.94316465, -7.058832, 6.2293634, -15.149004)
+
+[node name="Tree_1_C_Color12" parent="Node/Tree_1_C_Color12" unique_id=1889651020 instance=ExtResource("3_31f11")]
+transform = Transform3D(0.94316494, 0, 0.33232597, 0, 1, 0, -0.33232597, 0, 0.94316494, 17.9545, -0.4001732, 1.498579)
+
+[node name="Tree_1_B_Color12" parent="Node" unique_id=1646749351 instance=ExtResource("4_f1eln")]
+transform = Transform3D(-0.6702053, 0.12461454, -0.7316393, 0.1828018, 0.98314977, -5.518712e-09, 0.71931106, -0.133745, -0.6816919, 6.118254, 4.27799, -17.232822)
+
+[node name="Tree_1_B_Color32" parent="Node/Tree_1_B_Color12" unique_id=2039051018 instance=ExtResource("28_aw363")]
+transform = Transform3D(0.71839786, 0.42892176, 0.54766065, -0.31266552, 0.9023735, -0.29658717, -0.62140685, 0.041832894, 0.78237087, 2.5113792, 6.0094404, -3.4404335)
+
+[node name="Tree_1_A_Color13" parent="Node" unique_id=849515553 instance=ExtResource("5_rohao")]
+transform = Transform3D(-0.061334863, 0.2693622, 0.9610839, 0.0070924736, 0.96299, -0.26944372, -0.99809194, -0.0097098015, -0.06097518, -0.32953894, 8.114302, -10.519096)
+
+[node name="Tree_1_A_Color13" parent="Node/Tree_1_A_Color13" unique_id=1074213834 instance=ExtResource("5_rohao")]
+transform = Transform3D(-0.9517119, -0.081592, 0.2959483, -0.1344257, 0.97745794, -0.16280392, -0.27599373, -0.19472568, -0.941227, 10.706541, -3.0480275, 1.4196899)
+
+[node name="Rock_3_F_Color32" parent="Node/Tree_1_A_Color13" unique_id=1542684785 instance=ExtResource("25_s0xgi")]
+transform = Transform3D(-0.09537544, 0.011028744, -1.552032, 0.41885749, 1.4974488, -0.01509874, 1.4944853, -0.4189844, -0.09481635, 11.834448, -3.256343, 4.1239214)
+
+[node name="Tree_1_A_Color12" parent="Node" unique_id=143569577 instance=ExtResource("5_rohao")]
+transform = Transform3D(0.8440673, -0.10124734, -0.52659243, 0.08590097, 0.9948614, -0.053591467, 0.5293123, 1.1656862e-09, 0.84842706, -4.796244, 6.417423, -10.275477)
+
+[node name="Tree_1_A_Color12" parent="Node/Tree_1_A_Color12" unique_id=1098421188 instance=ExtResource("5_rohao")]
+transform = Transform3D(0.8863044, 0.15558302, -0.4361861, -0.20646343, 0.9758426, -0.07144896, 0.41453263, 0.153382, 0.89701545, -5.4486103, 2.4220166, -12.998798)
+
+[node name="Hill_2x2x8_Color32" parent="." unique_id=720204401 instance=ExtResource("24_yi2um")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8201828, 0.5, -10.628531)
+
+[node name="Hill_2x2x8_Color32" parent="Hill_2x2x8_Color32" unique_id=485038182 instance=ExtResource("24_yi2um")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.8400445, -4.3282967, -11.255284)
+
+[node name="Hill_2x2x8_Color33" parent="Hill_2x2x8_Color32" unique_id=1139973376 instance=ExtResource("24_yi2um")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4401555, 0.5, -10.94744)
+
+[node name="Hill_2x2x8_Color32" parent="Hill_2x2x8_Color32/Hill_2x2x8_Color33" unique_id=1970913184 instance=ExtResource("24_yi2um")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.8360934, -2.0266457, -11.255284)
+
+[node name="Rock_3_N_Color32" parent="." unique_id=1199358482 instance=ExtResource("25_1bhpc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.899636, 1.1932228, -10.21127)
+
+[node name="Rock_3_J_Color32" parent="." unique_id=977655170 instance=ExtResource("26_rxbnq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1709557, 0.602458, -7.714221)
+
+[node name="Rock_3_E_Color32" parent="." unique_id=1713336747 instance=ExtResource("27_qjt8p")]
+transform = Transform3D(-0.29096934, 0, -0.9567324, 0, 1, 0, 0.9567324, 0, -0.29096934, 0.2311517, 0.6628665, -5.179981)
+
+[node name="Tree_1_B_Color32" parent="." unique_id=1916402845 instance=ExtResource("28_aw363")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1097027, 1.9558563, -6.4160166)
+
+[node name="Tree_1_B_Color32" parent="Tree_1_B_Color32" unique_id=1708928903 instance=ExtResource("28_aw363")]
+transform = Transform3D(0.19074048, 0, -0.9816405, 0, 1, 0, 0.9816405, 0, 0.19074048, 8.636345, 5.7201996, -0.31715775)
+
+[node name="Tree_1_C_Color32" parent="." unique_id=1760445612 instance=ExtResource("29_3dywd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.852131, 0.16478497, -4.7483425)
+
+[node name="Bush_1_F_Color32" parent="." unique_id=929625879 instance=ExtResource("30_qjt8p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8016133, 4.6313224, -10.907644)
+
+[node name="Bush_1_F_Color32" parent="Bush_1_F_Color32" unique_id=68392864 instance=ExtResource("30_qjt8p")]
+transform = Transform3D(-0.9680427, 0, 0.25078544, 0, 1, 0, -0.25078544, 0, -0.9680427, -2.0244536, 1.9220052, 9.305833)
+
+[node name="Bush_1_F_Color33" parent="Bush_1_F_Color32" unique_id=1547667002 instance=ExtResource("30_qjt8p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.714956, 6.071544, 1.1530542)
+
+[node name="Rock_3_C_Color32" parent="." unique_id=454023809 instance=ExtResource("13_6g32d")]
+transform = Transform3D(-0.21662699, 0.97625446, 0, -0.97625446, -0.21662699, 0, 0, 0, 1, -2.7996306, 2.5317817, -6.3683352)
+
+[node name="Rock_3_E_Color33" parent="." unique_id=1415967955 instance=ExtResource("27_qjt8p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2583964, 2.5487213, -7.3582973)
+
+[node name="Rock_3_H_Color32" parent="." unique_id=379651176 instance=ExtResource("31_aw363")]
+transform = Transform3D(0.73518676, -0.6778646, 0, 0.6778646, 0.73518676, 0, 0, 0, 1, -2.667788, 2.782007, -8.666693)
+
+[node name="Rock_3_D_Color32" parent="." unique_id=563756589 instance=ExtResource("14_une3w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6132212, 2.411762, -9.618054)
+
+[node name="Hill_4x2x4_Color32" parent="." unique_id=1537163125 instance=ExtResource("16_pcyi0")]
+transform = Transform3D(-1, 0, 8.754432e-08, 0, 0.99999994, 0, -8.940697e-08, 0, -1, 3.1716547, 8.307714, -25.913313)
+
+[node name="Hill_4x4x8_Color33" parent="." unique_id=2101241007 instance=ExtResource("6_rt1yw")]
+transform = Transform3D(0.9997425, 0, -0.022687342, 0, 0.99999964, 0, 0.022687333, 0, 0.99974257, -0.40172052, -3.0336118, -21.66146)
+
+[node name="Rock_3_R_Color34" parent="." unique_id=97151126 instance=ExtResource("32_aw363")]
+transform = Transform3D(5.2278337, 0, 5.83484, 0, 1, 0, -4.7277193, 0, 7.294942, 1.7729454, -1.3335927, -28.950401)
+
+[node name="Rock_3_R_Color33" parent="." unique_id=1173364262 instance=ExtResource("32_aw363")]
+transform = Transform3D(-2.5862365, 0, -0.6424811, 0, 1, 0, 0.5544412, 0, -2.9969056, 2.448717, 4.3833895, -30.14878)
+
+[node name="Rock_3_R_Color32" parent="." unique_id=81594569 instance=ExtResource("32_aw363")]
+transform = Transform3D(0.8277493, -0.2006926, -0.52397865, -0.54234934, -0.04678937, -0.8388492, 0.1438342, 0.9785363, -0.14757536, 4.216803, 4.9077396, -23.589252)
+
+[node name="Rock_3_H_Color33" parent="." unique_id=387470434 instance=ExtResource("31_aw363")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.425676, 4.2618833, -22.648453)
+
+[node name="Bush_1_F_Color34" parent="." unique_id=1230524529 instance=ExtResource("30_qjt8p")]
+transform = Transform3D(-0.9273931, 0.009467299, 0.37396908, 0.009661716, 0.9999524, -0.0013547715, -0.37396407, 0.0023567758, -0.92744035, 3.799858, 12.091429, -26.30128)
+
+[node name="Bush_1_F_Color33" parent="." unique_id=720555664 instance=ExtResource("30_qjt8p")]
+transform = Transform3D(0.7546066, 0, 0.6561776, 0, 1, 0, -0.6561776, 0, 0.7546066, -0.07661915, 10.760796, -23.810398)
+
+[node name="Tree_7_C_Color32" parent="." unique_id=1773716537 instance=ExtResource("34_3hj7f")]
+transform = Transform3D(-0.16952154, 0, 0.9855265, 0, 1, 0, -0.9855265, 0, -0.16952154, -0.31499934, 2.5238833, -14.352361)
+
+[node name="Hill_8x4x8_Color34" parent="." unique_id=344162415 instance=ExtResource("35_ay7lf")]
+transform = Transform3D(0.005672173, 0, -0.9999837, 0, 1, 0, 0.9999837, 0, 0.005672173, 16.156284, 1.1112652, -21.644629)
+
+[node name="Hill_8x4x8_Color33" parent="." unique_id=1513848953 instance=ExtResource("35_ay7lf")]
+transform = Transform3D(-0.0029320992, 0, 0.9999956, 0, 1, 0, -0.9999956, 0, -0.0029320992, 8.614092, 2.9505873, -11.876188)
+
+[node name="Hill_8x4x8_Color32" parent="." unique_id=506367989 instance=ExtResource("35_ay7lf")]
+transform = Transform3D(-0.0014660731, 0, 0.99999887, 0, 1, 0, -0.99999887, 0, -0.0014660731, -4.9792423, -1.0401785, -15.5645895)
+
+[node name="Hill_8x8x8_Color32" parent="." unique_id=1963849841 instance=ExtResource("36_3hj7f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8887825, -4.6849594, -18.908451)
+
+[node name="Gems_Chest2" parent="." unique_id=2074065441 instance=ExtResource("37_lyt3f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9673336, 0.7444343, -25.480764)
+
+[node name="Hill_12x12x4_Color32" parent="." unique_id=1631417188 instance=ExtResource("38_sk1hx")]
+transform = Transform3D(1, 0, 0, 0, 1.325, 0, 0, 0, 1, 2.8996382, 4.029191, -28.3733)
+
+[node name="Rock_3_H_Color34" parent="." unique_id=731567967 instance=ExtResource("31_aw363")]
+transform = Transform3D(-0.45629057, 0, -0.8898308, 0, 1.125, 0, 0.8898308, 0, -0.45629057, 1.9884338, 4.946777, -22.392027)
+
+[node name="Hill_4x4x8_Color32" parent="." unique_id=1516879242 instance=ExtResource("6_rt1yw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.87583685, 0.5, -25.094616)
+
+[node name="Hill_8x4x4_Color32" parent="." unique_id=1231543946 instance=ExtResource("39_qx0cg")]
+transform = Transform3D(0.9371421, 0, 0.34894824, 0, 1, 0, -0.34894824, 0, 0.9371421, 1.9799199, 0.5, -28.514385)
+
+[node name="Hill_4x4x8_Color34" parent="." unique_id=1799693012 instance=ExtResource("6_rt1yw")]
+transform = Transform3D(0.44465083, 0, -0.895704, 0, 1, 0, 0.895704, 0, 0.44465083, 6.161936, -1.1620444, -28.528826)
+
+[node name="Hill_4x4x4_Color32" parent="." unique_id=1686253319 instance=ExtResource("40_v3rym")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.687287, 0.5, -24.472181)
+
+[node name="Rock_3_D_Color42" parent="." unique_id=1216453193 instance=ExtResource("41_8bgh2")]
+transform = Transform3D(2.230646, 0.6696712, 0, -1.0815082, 1.3812187, 0, 0, 0, 1.5349997, 1.5009284, 4.1409035, -23.637356)
+
+[node name="Gems_Pile_Large2" parent="." unique_id=1029864333 instance=ExtResource("42_v3rym")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.096661, 0.61013484, -24.54724)
+
+[node name="Gems_Pile_Large2" parent="Gems_Pile_Large2" unique_id=1348782016 instance=ExtResource("42_v3rym")]
+transform = Transform3D(0.33217758, 0, 0.94321686, 0, 1, 0, -0.94321686, 0, 0.33217758, 0.24650764, 0.056042433, -1.2716827)
+
+[node name="Gems_Pile_Small2" parent="." unique_id=1548701308 instance=ExtResource("43_8bgh2")]
+transform = Transform3D(0.5187434, 0, 0.85493, 0, 1, 0, -0.85493, 0, 0.5187434, 1.7059784, 0.70598966, -24.854443)
+
+[node name="Gems_Sack2" parent="." unique_id=988623793 instance=ExtResource("44_pjchn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4135413, 1.0908133, -26.290405)
+
+[node name="Gems_Sack2" parent="Gems_Sack2" unique_id=1824044143 instance=ExtResource("44_pjchn")]
+transform = Transform3D(-0.05425308, 0, -0.9985272, 0, 1, 0, 0.9985272, 0, -0.05425308, -2.9606755, -0.40327275, 0.40171814)
