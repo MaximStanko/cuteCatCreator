@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cdshgh5djakpk"]
+
+[ext_resource type="Script" path="res://scenes/inventory.gd" id="1_inventory"]
+
+[node name="Inventory" type="CanvasLayer"]
+script = ExtResource("1_inventory")
+
+[node name="Panel" type="PanelContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -260.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 160.0
+grow_horizontal = 0
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]

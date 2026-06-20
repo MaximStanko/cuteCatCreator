@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://mub2ak6fqfxt"]
+
+[ext_resource type="PackedScene" uid="uid://dxuxs7hfitrky" path="res://assets/cat.tscn" id="1_cat"]
+[ext_resource type="PackedScene" uid="uid://covupmth8x7pk" path="res://assets/transition_point.tscn" id="2_transition"]
+[ext_resource type="PackedScene" uid="uid://dyc0pq5fetrky" path="res://assets/change_station.tscn" id="3_station"]
+[ext_resource type="PackedScene" uid="uid://dxtovnb8enrky" path="res://assets/interaction_point.tscn" id="4_point"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_canvas"]
+bg_color = Color(0.85, 0.88, 0.96, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h"]
+size = Vector2(440, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v"]
+size = Vector2(40, 346)
+
+[node name="EditRoom" type="Node2D" unique_id=2120675049]
+
+[node name="Canvas" type="Panel" parent="." unique_id=2019618312]
+offset_left = 376.0
+offset_top = 218.0
+offset_right = 776.0
+offset_bottom = 524.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_canvas")
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=1649172805]
+
+[node name="Top" type="CollisionShape2D" parent="Walls" unique_id=1684658258]
+position = Vector2(576, 197)
+shape = SubResource("RectangleShape2D_h")
+
+[node name="Bottom" type="CollisionShape2D" parent="Walls" unique_id=887497706]
+position = Vector2(576, 544)
+shape = SubResource("RectangleShape2D_h")
+
+[node name="Left" type="CollisionShape2D" parent="Walls" unique_id=1434453600]
+position = Vector2(357, 371)
+shape = SubResource("RectangleShape2D_v")
+
+[node name="Right" type="CollisionShape2D" parent="Walls" unique_id=800263308]
+position = Vector2(796, 371)
+shape = SubResource("RectangleShape2D_v")
+
+[node name="Cat" parent="." unique_id=682252652 instance=ExtResource("1_cat")]
+position = Vector2(579, 443)
+
+[node name="BigPoint" parent="." unique_id=986175207 instance=ExtResource("4_point")]
+position = Vector2(576, 300)
+
+[node name="StationMinus" parent="." unique_id=1094769300 instance=ExtResource("3_station")]
+position = Vector2(456, 300)
+delta = -5
+
+[node name="StationPlus" parent="." unique_id=1741114602 instance=ExtResource("3_station")]
+position = Vector2(696, 300)
+
+[node name="ToMain" parent="." unique_id=1278772629 instance=ExtResource("2_transition")]
+position = Vector2(576, 470)
+target_scene = "res://scenes/main.tscn"
+label_text = "Back"

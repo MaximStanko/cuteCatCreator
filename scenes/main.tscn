@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://dxuxs7hfitrk0"]
+
+[ext_resource type="PackedScene" uid="uid://dxuxs7hfitrky" path="res://assets/cat.tscn" id="1_cat"]
+[ext_resource type="PackedScene" uid="uid://cq4sx5osql25i" path="res://assets/pickup_point.tscn" id="2_pickup"]
+[ext_resource type="PackedScene" uid="uid://c0cattransition01" path="res://assets/transition_point.tscn" id="3_transition"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_canvas"]
+bg_color = Color(0.964706, 0.921569, 0.835294, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_horizontal"]
+size = Vector2(880, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vertical"]
+size = Vector2(40, 580)
+
+[node name="Main" type="Node2D" unique_id=454643596]
+
+[node name="Canvas" type="Panel" parent="." unique_id=2092515410]
+offset_left = 160.0
+offset_top = 90.0
+offset_right = 1000.0
+offset_bottom = 630.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_canvas")
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=831495002]
+
+[node name="Top" type="CollisionShape2D" parent="Walls" unique_id=1364923129]
+position = Vector2(580, 70)
+shape = SubResource("RectangleShape2D_horizontal")
+
+[node name="Bottom" type="CollisionShape2D" parent="Walls" unique_id=6281930]
+position = Vector2(580, 650)
+shape = SubResource("RectangleShape2D_horizontal")
+
+[node name="Left" type="CollisionShape2D" parent="Walls" unique_id=1652330595]
+position = Vector2(140, 360)
+shape = SubResource("RectangleShape2D_vertical")
+
+[node name="Right" type="CollisionShape2D" parent="Walls" unique_id=667111357]
+position = Vector2(1020, 360)
+shape = SubResource("RectangleShape2D_vertical")
+
+[node name="Cat" parent="." unique_id=526467824 instance=ExtResource("1_cat")]
+position = Vector2(576, 180)
+
+[node name="ToEditRoom" parent="." instance=ExtResource("3_transition")]
+position = Vector2(580, 360)
+target_scene = "res://scenes/edit_room.tscn"
+label_text = "Edit Room"
+
+[node name="PickupItem1" parent="." unique_id=495980608 instance=ExtResource("2_pickup")]
+position = Vector2(320, 200)
+item_name = "Item 1"
+item_color = Color(0.92, 0.35, 0.35, 1)
+item_symbol = "A"
+item_value = 30
+
+[node name="PickupItem2" parent="." unique_id=1342571184 instance=ExtResource("2_pickup")]
+position = Vector2(840, 200)
+item_name = "Item 2"
+item_color = Color(0.35, 0.75, 0.42, 1)
+item_symbol = "B"
+item_value = 90
+
+[node name="PickupItem3" parent="." unique_id=1636499538 instance=ExtResource("2_pickup")]
+position = Vector2(320, 500)
+item_name = "Item 3"
+item_color = Color(0.4, 0.55, 0.92, 1)
+item_symbol = "C"
+item_value = 150
+
+[node name="PickupItem4" parent="." unique_id=751301583 instance=ExtResource("2_pickup")]
+position = Vector2(840, 500)
+item_name = "Item 4"
+item_color = Color(0.6990106, 0.54412407, 0.089777716, 1)
+item_symbol = "D"
+item_value = 16
+

@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="cute cat creator"
+run/main_scene="uid://c0catcreator0002"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Inventory="*res://scenes/inventory.tscn"
 
 [physics]
 
