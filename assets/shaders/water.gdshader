@@ -22,6 +22,11 @@ uniform float normal_strength : hint_range(0.0, 1.0) = 0.35;
 uniform float water_roughness : hint_range(0.0, 1.0) = 0.04;
 uniform float fresnel_power : hint_range(1.0, 8.0) = 5.0;
 
+uniform float lod_start : hint_range(0.1, 4.0) = 1.0;
+uniform float lod_end : hint_range(0.5, 16.0) = 12.0;
+uniform float far_roughness : hint_range(0.0, 1.0) = 0.6;
+uniform float max_flatten : hint_range(0.0, 1.0) = 0.5;
+
 vec2 hash22(vec2 p) {
 	p = vec2(dot(p, vec2(127.1, 311.7)), dot(p, vec2(269.5, 183.3)));
 	return normalize(fract(sin(p) * 43758.5453) * 2.0 - 1.0);
@@ -86,6 +91,14 @@ void fragment() {
 	vec3 ripple_n = vec3(-rx, 1.0, -rz);
 
 	vec3 world_n = normalize(mix(swell_n, ripple_n, normal_strength));
+
+	vec2 fw = fwidth(world_pos.xz);
+	float texels_per_px = max(fw.x, fw.y) * ripple_scale;
+	float foot = log2(max(texels_per_px, 1e-5));
+	float lod = smoothstep(log2(lod_start), log2(lod_end), foot);
+	float detail = 1.0 - lod;
+	world_n = normalize(mix(world_n, vec3(0.0, 1.0, 0.0), lod * max_flatten));
+
 	NORMAL = normalize((VIEW_MATRIX * vec4(world_n, 0.0)).xyz);
 
 	float depth_raw = texture(DEPTH_TEXTURE, SCREEN_UV).x;
@@ -102,6 +115,7 @@ void fragment() {
 	ALBEDO = col;
 	METALLIC = 0.0;
 	SPECULAR = 0.5;
-	ROUGHNESS = mix(water_roughness, 0.0, fres);
+	float base_rough = mix(water_roughness, far_roughness, lod);
+	ROUGHNESS = mix(base_rough, base_rough * 0.5, fres * detail);
 	ALPHA = clamp(mix(surface_opacity, water_opacity, depth_t) + fres * 0.4, 0.0, 1.0);
 }
