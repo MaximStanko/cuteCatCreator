@@ -100,14 +100,6 @@ pickupName = "AwesomeItem"
 [node name="Tree_1_A_Color12" parent="." unique_id=143569577 instance=ExtResource("5_rohao")]
 transform = Transform3D(0.84842706, 0, -0.5293123, 0, 1, 0, 0.5293123, 0, 0.84842706, -13.940935, 6.441592, -9.783383)
 
-[node name="PickupDetector" parent="." unique_id=2056313107 instance=ExtResource("5_31f11")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 5)
-pickupName = "Item"
-
-[node name="PickupDetector2" parent="." unique_id=1401066777 instance=ExtResource("5_31f11")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 5)
-pickupName = "AwesomeItem"
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1593481710]
 layer = 101
 
