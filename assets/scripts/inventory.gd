@@ -38,6 +38,7 @@ func _select_slot(index: int) -> void:
 
 func set_held_item(item_name: String) -> void:
 	slots[current_slot] = {"name": item_name}
+	_select_slot((current_slot+1) % 4)
 	_refresh()
 
 func _discard() -> void:
