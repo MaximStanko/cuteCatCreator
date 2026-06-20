@@ -2,13 +2,17 @@
 
 [ext_resource type="PackedScene" uid="uid://dq7jludkmer5j" path="res://assets/prefabs/ground.tscn" id="1_rog5d"]
 [ext_resource type="PackedScene" uid="uid://cn3oofyl5w3x3" path="res://assets/prefabs/player.tscn" id="2_qkubx"]
+[ext_resource type="PackedScene" uid="uid://cfpe52e3jpss3" path="res://assets/prefabs/entry.tscn" id="3_ak1ww"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ak1ww"]
+size = Vector3(1, 3, 1)
 
 [node name="World888" type="Node3D" unique_id=1683946744]
 
 [node name="Ground" parent="." unique_id=2127213363 instance=ExtResource("1_rog5d")]
 
 [node name="Player" parent="." unique_id=930000287 instance=ExtResource("2_qkubx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.89783, 2.022138, -0.70806026)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4536276, 2.022138, -0.70806026)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2067169274]
 transform = Transform3D(1, 0, 0, 0, 0.7640551, 0.645151, 0, -0.645151, 0.7640551, 0, 7, 14)
@@ -16,3 +20,12 @@ transform = Transform3D(1, 0, 0, 0, 0.7640551, 0.645151, 0, -0.645151, 0.7640551
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1818446518]
 transform = Transform3D(0.19706473, 0.5476947, -0.8131397, -0.12899978, 0.8366784, 0.53228617, 0.97186655, 1.1041386e-09, 0.2355323, -12.732248, 6.465296, 3.2310834)
 light_energy = 0.683
+
+[node name="Entry" parent="." unique_id=1395549002 instance=ExtResource("3_ak1ww")]
+
+[node name="Area3D" type="Area3D" parent="Entry" unique_id=1773914809]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3132434, 1.5474787)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entry/Area3D" unique_id=1644841644]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0.386)
+shape = SubResource("BoxShape3D_ak1ww")
