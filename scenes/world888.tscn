@@ -2,13 +2,20 @@
 
 [ext_resource type="PackedScene" uid="uid://dq7jludkmer5j" path="res://assets/prefabs/ground.tscn" id="1_rog5d"]
 [ext_resource type="PackedScene" uid="uid://cn3oofyl5w3x3" path="res://assets/prefabs/player.tscn" id="2_qkubx"]
-[ext_resource type="PackedScene" uid="uid://cfpe52e3jpss3" path="res://assets/prefabs/entry.tscn" id="3_ak1ww"]
-[ext_resource type="Script" uid="uid://qy6yon44rqwu" path="res://assets/scripts/entryway.gd" id="4_ksl1v"]
+[ext_resource type="PackedScene" uid="uid://w718vay83uid" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color1/Tree_1_C_Color1.gltf" id="3_31f11"]
+[ext_resource type="PackedScene" uid="uid://bq4muowkvgqb4" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color1/Tree_1_B_Color1.gltf" id="4_f1eln"]
 [ext_resource type="PackedScene" uid="uid://ch7gt84l234dy" path="res://assets/prefabs/pickup_detector.tscn" id="5_31f11"]
-[ext_resource type="PackedScene" uid="uid://cyi15lwt7c0uh" path="res://assets/prefabs/2d/pause_menu.tscn" id="6_f1eln"]
+[ext_resource type="PackedScene" uid="uid://dvxcokyeg6a6c" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color1/Tree_1_A_Color1.gltf" id="5_rohao"]
+[ext_resource type="PackedScene" uid="uid://d1ekalo2srbk5" path="res://assets/prefabs/fishing_spot.tscn" id="6_f1eln"]
+[ext_resource type="PackedScene" uid="uid://dig6ngbjalgfv" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Hill_4x4x8_Color3.gltf" id="6_rt1yw"]
 [ext_resource type="Environment" uid="uid://denvworld001" path="res://assets/environments/default_env.tres" id="7_env"]
+[ext_resource type="PackedScene" uid="uid://bx2qt0r3h8m8s" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Hill_8x4x2_Color3.gltf" id="7_jk26s"]
+[ext_resource type="PackedScene" uid="uid://b8qi82th3ksbp" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Hill_12x12x8_Color3.gltf" id="8_b28dm"]
 [ext_resource type="Script" uid="uid://5q5fyr5caqpc" path="res://assets/scripts/sun.gd" id="8_sun"]
+[ext_resource type="PackedScene" uid="uid://c5awyoo6c4fp6" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Rock_3_G_Color3.gltf" id="9_nkce2"]
 [ext_resource type="PackedScene" uid="uid://begd7fmlfl6lg" path="res://assets/prefabs/water.tscn" id="9_xvndt"]
+[ext_resource type="PackedScene" uid="uid://cyi15lwt7c0uh" path="res://assets/prefabs/pause_menu.tscn" id="9_yi2um"]
+[ext_resource type="PackedScene" uid="uid://nceek51yctbd" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Rock_3_M_Color3.gltf" id="10_6g32d"]
 [ext_resource type="Shader" uid="uid://cneyw035hahlm" path="res://assets/shaders/water.gdshader" id="10_is3qo"]
 [ext_resource type="Shader" uid="uid://cxmry2dovapvp" path="res://assets/shaders/frac_test.gdshader" id="11_grade"]
 [ext_resource type="PackedScene" uid="uid://w718vay83uid" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color1/Tree_1_C_Color1.gltf" id="3_31f11"]
@@ -60,6 +67,11 @@ shader_parameter/lift = 0.02
 shader_parameter/vignette = 0.4
 shader_parameter/vignette_warmth = 0.5
 
+[sub_resource type="Environment" id="Environment_une3w"]
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.4
+
 [node name="World888" type="Node3D" unique_id=1683946744]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1492837465]
@@ -72,7 +84,8 @@ metadata/_edit_lock_ = true
 transform = Transform3D(-0.4942377, 0, 0.07569077, 0, 0.5, 0, -0.07569077, 0, -0.4942377, 1.89783, 0.87627983, 3.7590032)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1818446518]
-transform = Transform3D(0.19706473, 0.5476947, -0.8131397, -0.12899978, 0.8366784, 0.53228617, 0.97186655, 1.1041386e-09, 0.2355323, -12.732248, 6.465296, 3.2310834)
+transform = Transform3D(0.11149654, 0.8808577, -0.4600634, -0.20747039, 0.4733812, 0.8560761, 0.9718665, 1.5997097e-08, 0.23553227, -54.397118, 38.488686, 3.2310834)
+light_color = Color(0.8745098, 1, 1, 1)
 light_energy = 0.683
 light_angular_distance = 0.5
 shadow_enabled = true
@@ -91,13 +104,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.68686, 0.8410368, -16.01179
 [node name="Tree_1_A_Color13" parent="." unique_id=849515553 instance=ExtResource("5_rohao")]
 transform = Transform3D(-0.2931575, 0.23998724, 0.9254538, 0.0011323345, 0.9680693, -0.2506795, -0.9560634, -0.072440684, -0.28406858, -1.5781993, 4.8704376, -11.645708)
 
+[node name="PickupDetector" parent="." unique_id=2056313107 instance=ExtResource("5_31f11")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 5)
+pickupName = "Item"
+
+[node name="PickupDetector2" parent="." unique_id=1401066777 instance=ExtResource("5_31f11")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 5)
+pickupName = "AwesomeItem"
+
 [node name="Tree_1_A_Color12" parent="." unique_id=143569577 instance=ExtResource("5_rohao")]
 transform = Transform3D(0.84842706, 0, -0.5293123, 0, 1, 0, 0.5293123, 0, 0.84842706, -13.940935, 6.441592, -9.783383)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1593481710]
 layer = 101
 
-[node name="PauseMenu" parent="CanvasLayer" unique_id=1200248516 instance=ExtResource("6_f1eln")]
+[node name="PauseMenu" parent="CanvasLayer" unique_id=1200248516 instance=ExtResource("9_yi2um")]
 
 [node name="Water" parent="." unique_id=363647662 instance=ExtResource("9_xvndt")]
 transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, -10, 0)
@@ -115,7 +136,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[connection signal="body_shape_entered" from="Entry/Entryway" to="Entry/Entryway" method="_on_body_shape_entered"]
 [node name="Hill_4x4x8_Color32" parent="." unique_id=551344792 instance=ExtResource("6_rt1yw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0257845, -3.1390429, -11.4979925)
 
@@ -157,3 +177,6 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5.55
 
 [node name="Bush_1_G_Color32" parent="." unique_id=2138820066 instance=ExtResource("17_une3w")]
 transform = Transform3D(0.8291547, 0, 0.55901927, 0.107499026, 0.9813363, -0.15944588, -0.5485859, 0.19229932, 0.8136796, -2.8506837, 0.6096176, -1.1039257)
+
+[node name="FishingSpot" parent="." unique_id=1125504034 instance=ExtResource("6_f1eln")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.707153)

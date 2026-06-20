@@ -1,0 +1,136 @@
+[gd_scene format=3 uid="uid://fmkhxkhruyi3"]
+
+[ext_resource type="Script" uid="uid://dyhh6c756g2sw" path="res://assets/scripts/fishing_minigame.gd" id="1_mg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.12, 0.13, 0.18, 0.98)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.4, 0.45, 0.6, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_barbg"]
+bg_color = Color(0.1, 0.12, 0.16, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_green"]
+bg_color = Color(0.22, 0.78, 0.32, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_redbg"]
+bg_color = Color(0.1, 0.12, 0.16, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_red"]
+bg_color = Color(0.85, 0.27, 0.27, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="FishingMinigame" type="CanvasLayer" unique_id=1991270777]
+script = ExtResource("1_mg")
+
+[node name="Root" type="Control" parent="." unique_id=1315372611]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dim" type="ColorRect" parent="Root" unique_id=78202636]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.45)
+
+[node name="Panel" type="Panel" parent="Root" unique_id=1522072311]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -300.0
+offset_right = 180.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="Title" type="Label" parent="Root/Panel" unique_id=1636184266]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 24.0
+offset_right = 350.0
+offset_bottom = 54.0
+text = "Fishing"
+horizontal_alignment = 1
+
+[node name="TrackBG" type="ColorRect" parent="Root/Panel" unique_id=174559520]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 79.0
+offset_right = 210.0
+offset_bottom = 479.0
+color = Color(0.16, 0.22, 0.32, 1)
+
+[node name="FishingBar" type="ColorRect" parent="Root/Panel/TrackBG" unique_id=23819683]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 240.0
+offset_right = 58.0
+offset_bottom = 350.0
+color = Color(0.3, 0.55, 0.95, 0.55)
+
+[node name="Fish" type="ColorRect" parent="Root/Panel/TrackBG" unique_id=1316780272]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 190.0
+offset_right = 44.0
+offset_bottom = 210.0
+color = Color(0.9, 0.6, 0.2, 1)
+
+[node name="CatchProgress" type="ProgressBar" parent="Root/Panel" unique_id=2006453400]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 511.0
+offset_right = 320.0
+offset_bottom = 535.0
+theme_override_styles/background = SubResource("StyleBoxFlat_barbg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_green")
+max_value = 1.0
+step = 0.001
+show_percentage = false
+
+[node name="EscapeBar" type="ProgressBar" parent="Root/Panel" unique_id=1850076945]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 543.0
+offset_right = 320.0
+offset_bottom = 567.0
+theme_override_styles/background = SubResource("StyleBoxFlat_redbg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_red")
+max_value = 1.0
+step = 0.001
+value = 1.0
+show_percentage = false
