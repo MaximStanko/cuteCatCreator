@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://ch7gt84l234dy"]
+[gd_scene load_steps=4 format=3 uid="uid://d1ekalo2srbk5"]
 
-[ext_resource type="Script" uid="uid://dd67jy336nrjj" path="res://assets/scripts/pickup_detector.gd" id="1_4x516"]
+[ext_resource type="Script" path="res://assets/scripts/fishing_spot.gd" id="1_spot"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_arufc"]
 height = 1.0
@@ -11,8 +11,8 @@ top_radius = 1.0
 bottom_radius = 1.0
 height = 1.0
 
-[node name="PickupDetector" type="Area3D" unique_id=2056313107]
-script = ExtResource("1_4x516")
+[node name="FishingSpot" type="Area3D" unique_id=2056313107]
+script = ExtResource("1_spot")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1637924725]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
