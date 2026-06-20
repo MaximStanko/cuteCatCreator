@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c267evwlsgefv" path="res://assets/scripts/player.gd" id="1_8cprv"]
 [ext_resource type="PackedScene" uid="uid://br7oysspooek4" path="res://assets/KayKit_Adventurers_2.0_FREE/Characters/fbx/Mage.fbx" id="1_bcxd0"]
+[ext_resource type="Script" uid="uid://v210ho0q82jc" path="res://assets/prefabs/camera_spring_arm.gd" id="3_5ov36"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8cprv"]
 
@@ -13,3 +14,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_8cprv")
 
 [node name="Mage" parent="." unique_id=26892280 instance=ExtResource("1_bcxd0")]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=1439379130]
+spring_length = 6.0
+script = ExtResource("3_5ov36")
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=1086966273]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5721443, 0)
