@@ -1,13 +1,12 @@
 [gd_scene format=3 uid="uid://dq7jludkmer5j"]
 
-[ext_resource type="PackedScene" uid="uid://cyoy3r0jx7xkl" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/fbx/Grass_1_Mesh.fbx" id="1_23q18"]
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tp6s5"]
 albedo_color = Color(0.5254902, 0.7607843, 0.24705882, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_5wpeo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_23q18"]
+size = Vector3(100, 1, 100)
 
 [node name="Ground" type="Node3D" unique_id=2127213363]
 
@@ -19,8 +18,4 @@ mesh = SubResource("BoxMesh_5wpeo")
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1393627990]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=999721456]
-transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
 shape = SubResource("BoxShape3D_23q18")
-
-[node name="Grass_1_Mesh" parent="." unique_id=1537060098 instance=ExtResource("1_23q18")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -156.65701, 240.50119, 286.856)

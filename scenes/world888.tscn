@@ -5,8 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://cfpe52e3jpss3" path="res://assets/prefabs/entry.tscn" id="3_ak1ww"]
 [ext_resource type="Script" uid="uid://qy6yon44rqwu" path="res://assets/scripts/entryway.gd" id="4_ksl1v"]
 [ext_resource type="PackedScene" uid="uid://ch7gt84l234dy" path="res://assets/prefabs/pickup_detector.tscn" id="5_31f11"]
-[ext_resource type="PackedScene" uid="uid://csggingkeiw3t" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/fbx/Color1/Bush_1_A_Color1.fbx" id="6_bush1"]
-[ext_resource type="PackedScene" uid="uid://dokm4s8l5wl2m" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/fbx/Color1/Hill_4x4x2_Color1.fbx" id="7_hill1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ak1ww"]
 size = Vector3(1, 3, 1)
@@ -35,11 +33,5 @@ shape = SubResource("BoxShape3D_ak1ww")
 [node name="PickupDetector" parent="." unique_id=2056313107 instance=ExtResource("5_31f11")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8213315, 1.2033753, 4.0243216)
 pickupName = "test"
-
-[node name="Bush_1_A_Color1" parent="." unique_id=1456201828 instance=ExtResource("6_bush1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8098297, 0.50293106, -1.899929)
-
-[node name="Hill_4x4x2_Color1" parent="." unique_id=1529493471 instance=ExtResource("7_hill1")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -3.1991215, 0.46762812, 3.3580685)
 
 [connection signal="body_shape_entered" from="Entry/Entryway" to="Entry/Entryway" method="_on_body_shape_entered"]

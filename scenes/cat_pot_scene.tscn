@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://bfav78e55t4al"]
 
 [ext_resource type="PackedScene" uid="uid://c4he21ievo3up" path="res://assets/prefabs/pot_vertex.tscn" id="1_6cmo6"]
+[ext_resource type="Script" uid="uid://diyduhlne5mnn" path="res://assets/scripts/cat_pot_scene.gd" id="1_twrch"]
 
-[node name="CatPotScene" type="Node3D" unique_id=869297221]
+[node name="CatPotScene" type="Node3D" unique_id=869297221 node_paths=PackedStringArray("hexagonParentNode")]
+script = ExtResource("1_twrch")
+hexagonParentNode = NodePath("PotHexagon")
 
 [node name="PotHexagon" type="Node3D" parent="." unique_id=1700891085]
 
