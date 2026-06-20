@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c4he21ievo3up"]
+
+[ext_resource type="Script" uid="uid://0s728oi3ao4b" path="res://assets/scripts/pot_vertex.gd" id="1_7iens"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_l0hjx"]
+radius = 0.05
+height = 0.1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7iens"]
+radius = 0.08
+
+[node name="PotVertex" type="MeshInstance3D" unique_id=73068791]
+mesh = SubResource("SphereMesh_l0hjx")
+script = ExtResource("1_7iens")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1475263920]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=113719601]
+shape = SubResource("SphereShape3D_7iens")
+
+[connection signal="input_event" from="Area3D" to="." method="_on_area_3d_input_event"]

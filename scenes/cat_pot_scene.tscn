@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bfav78e55t4al"]
+
+[ext_resource type="PackedScene" uid="uid://c4he21ievo3up" path="res://assets/prefabs/pot_vertex.tscn" id="1_6cmo6"]
+
+[node name="CatPotScene" type="Node3D" unique_id=869297221]
+
+[node name="PotHexagon" type="Node3D" parent="." unique_id=1700891085]
+
+[node name="PotVertex0" parent="PotHexagon" unique_id=73068791 instance=ExtResource("1_6cmo6")]
+
+[node name="PotVertex1" parent="PotHexagon" unique_id=629326544 instance=ExtResource("1_6cmo6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+vertex_index = 1
+
+[node name="PotVertex2" parent="PotHexagon" unique_id=1301978425 instance=ExtResource("1_6cmo6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0, -0.433)
+vertex_index = 2
+
+[node name="PotVertex3" parent="PotHexagon" unique_id=736061992 instance=ExtResource("1_6cmo6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, -0.433)
+vertex_index = 3
+
+[node name="PotVertex4" parent="PotHexagon" unique_id=712188612 instance=ExtResource("1_6cmo6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+vertex_index = 4
+
+[node name="PotVertex5" parent="PotHexagon" unique_id=597550348 instance=ExtResource("1_6cmo6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 0.443)
+vertex_index = 5
+
+[node name="PotVertex6" parent="PotHexagon" unique_id=1524229734 instance=ExtResource("1_6cmo6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0, 0.433)
+vertex_index = 6
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2129322711]
+transform = Transform3D(1, 0, 0, 0, 0.4173279, 0.908756, 0, -0.908756, 0.4173279, 0, 1.3382157, 0.6766542)
