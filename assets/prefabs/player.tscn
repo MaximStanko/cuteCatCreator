@@ -16,8 +16,9 @@ shape = SubResource("CapsuleShape3D_8cprv")
 [node name="Mage" parent="." unique_id=26892280 instance=ExtResource("1_bcxd0")]
 
 [node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=1439379130]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, -0.25881904, 0, 0.25881904, 0.9659258, 0, 1.5, 0)
 spring_length = 6.0
 script = ExtResource("3_5ov36")
 
 [node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=1086966273]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5721443, 0)
+current = true
