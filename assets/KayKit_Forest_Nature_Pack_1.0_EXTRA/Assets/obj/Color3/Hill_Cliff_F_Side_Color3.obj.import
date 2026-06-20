@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cgira0dm225ld"
+path="res://.godot/imported/Hill_Cliff_F_Side_Color3.obj-c25485fdb88dc2dbf61c0fbf8f28ff54.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Hill_Cliff_F_Side_Color3.obj-c25485fdb88dc2dbf61c0fbf8f28ff54.mesh"]
+
+source_file="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/obj/Color3/Hill_Cliff_F_Side_Color3.obj"
+dest_files=["res://.godot/imported/Hill_Cliff_F_Side_Color3.obj-c25485fdb88dc2dbf61c0fbf8f28ff54.mesh", "res://.godot/imported/Hill_Cliff_F_Side_Color3.obj-c25485fdb88dc2dbf61c0fbf8f28ff54.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
