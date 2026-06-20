@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dxuxs7hfitrk0"]
 
-[ext_resource type="PackedScene" uid="uid://dxuxs7hfitrky" path="res://assets/prefabs/cat.tscn" id="1_cat"]
-[ext_resource type="PackedScene" uid="uid://cq4sx5osql25i" path="res://assets/prefabs/pickup_point.tscn" id="2_pickup"]
-[ext_resource type="PackedScene" uid="uid://covupmth8x7pk" path="res://assets/prefabs/transition_point.tscn" id="3_transition"]
+[ext_resource type="PackedScene" uid="uid://dxuxs7hfitrky" path="res://assets/prefabs/2d/cat.tscn" id="1_cat"]
+[ext_resource type="PackedScene" uid="uid://cq4sx5osql25i" path="res://assets/prefabs/2d/pickup_point.tscn" id="2_pickup"]
+[ext_resource type="PackedScene" uid="uid://covupmth8x7pk" path="res://assets/prefabs/2d/transition_point.tscn" id="3_transition"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_canvas"]
 bg_color = Color(0.964706, 0.921569, 0.835294, 1)

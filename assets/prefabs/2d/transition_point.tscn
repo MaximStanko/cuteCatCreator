@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://covupmth8x7pk"]
 
-[ext_resource type="Script" uid="uid://dj7r5rn6mdcy7" path="res://assets/scripts/transition_point.gd" id="1_transition"]
+[ext_resource type="Script" uid="uid://dj7r5rn6mdcy7" path="res://assets/scripts/2d/transition_point.gd" id="1_transition"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_range"]
 radius = 80.0

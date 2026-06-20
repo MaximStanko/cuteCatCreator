@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cn3oofyl5w3x3" path="res://assets/prefabs/player.tscn" id="2_qkubx"]
 [ext_resource type="PackedScene" uid="uid://cfpe52e3jpss3" path="res://assets/prefabs/entry.tscn" id="3_ak1ww"]
 [ext_resource type="Script" uid="uid://qy6yon44rqwu" path="res://assets/scripts/entryway.gd" id="4_ksl1v"]
+[ext_resource type="PackedScene" uid="uid://ch7gt84l234dy" path="res://assets/prefabs/pickup_detector.tscn" id="5_31f11"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ak1ww"]
 size = Vector3(1, 3, 1)
@@ -12,7 +13,7 @@ size = Vector3(1, 3, 1)
 
 [node name="Ground" parent="." unique_id=2127213363 instance=ExtResource("1_rog5d")]
 
-[node name="Player" parent="." unique_id=930000287 groups=["player"] instance=ExtResource("2_qkubx")]
+[node name="Player" parent="." unique_id=930000287 instance=ExtResource("2_qkubx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4536276, 2.022138, -0.70806026)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2067169274]
@@ -31,5 +32,9 @@ script = ExtResource("4_ksl1v")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Entry/Entryway" unique_id=1644841644]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0.386)
 shape = SubResource("BoxShape3D_ak1ww")
+
+[node name="PickupDetector" parent="." unique_id=2056313107 instance=ExtResource("5_31f11")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8213315, 1.2033753, 4.0243216)
+pickupName = "test"
 
 [connection signal="body_shape_entered" from="Entry/Entryway" to="Entry/Entryway" method="_on_body_shape_entered"]
