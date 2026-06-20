@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cyi15lwt7c0uh"]
+
+[ext_resource type="Script" uid="uid://cyt3ifapbhyev" path="res://assets/scripts/pause_menu.gd" id="1_jc6fo"]
+
+[node name="PauseMenu" type="Control" unique_id=1200248516]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jc6fo")
+
+[node name="Label" type="Label" parent="." unique_id=548455682]
+layout_mode = 0
+offset_left = 390.0
+offset_top = 80.0
+offset_right = 687.0
+offset_bottom = 168.0
+theme_override_font_sizes/font_size = 64
+text = "PAUSED"
+
+[node name="resumeButton" type="MenuButton" parent="." unique_id=158809874]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 306.0
+offset_right = 404.0
+offset_bottom = 368.0
+text = "RESUME"
+
+[node name="quitButton" type="MenuButton" parent="." unique_id=1526038880]
+layout_mode = 0
+offset_left = 660.0
+offset_top = 322.0
+offset_right = 707.0
+offset_bottom = 353.0
+text = "QUIT"

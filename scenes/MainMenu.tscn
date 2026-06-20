@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dpugu1dka72df"]
+
+[node name="MainMenu" type="Control" unique_id=419831991]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=195615945]
+layout_mode = 0
+offset_right = 1154.0
+offset_bottom = 651.0
+color = Color(1, 0.44313726, 1, 1)
