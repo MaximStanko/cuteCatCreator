@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://bky7cxpll16j3" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Hill_12x12x2_Color3.gltf" id="15_x224o"]
 [ext_resource type="PackedScene" uid="uid://u14lysx3va18" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Hill_4x2x4_Color3.gltf" id="16_pcyi0"]
 [ext_resource type="PackedScene" uid="uid://chaagfktwhbb6" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Bush_1_G_Color3.gltf" id="17_une3w"]
+[ext_resource type="PackedScene" uid="uid://d1ekalo2srbk5" path="res://assets/prefabs/fishing_spot.tscn" id="6_f1eln"]
 
 [sub_resource type="Environment" id="Environment_une3w"]
 ambient_light_source = 2
