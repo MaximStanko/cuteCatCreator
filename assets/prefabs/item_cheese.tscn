@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bqbtvi5xhsq1y"]
+
+[ext_resource type="PackedScene" uid="uid://d3clf31mpgew3" path="res://assets/itemsnshit/gltf/Food_Cheese.gltf" id="1_wt8ol"]
+
+[node name="Node3D" type="Node3D" unique_id=422740009]
+
+[node name="Food_Cheese2" parent="." unique_id=1799597768 instance=ExtResource("1_wt8ol")]
+transform = Transform3D(3.39, 0, 0, 0, 3.39, 0, 0, 0, 3.39, 0, 0, 0)

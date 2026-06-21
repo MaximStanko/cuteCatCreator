@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://ch62xggqtb7lh"]
+
+[ext_resource type="PackedScene" uid="uid://dgir4vw00fkx1" path="res://assets/witch_table/scene.gltf" id="1_o2r4l"]
+
+[node name="WitchTable" unique_id=627620180 instance=ExtResource("1_o2r4l")]
+
+[node name="Armature6" parent="Sketchfab_model/Root" parent_id_path=PackedInt32Array(509772698) index="3" unique_id=749887089]
+visible = false
+
+[node name="Pot" parent="Sketchfab_model/Root" parent_id_path=PackedInt32Array(509772698) index="9" unique_id=1698183678]
+visible = false
+
+[node name="Potion1_0" parent="Sketchfab_model/Root/Potion1" parent_id_path=PackedInt32Array(1334093494) index="0" unique_id=547389837]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0881863, 0, 2.3954303)
+
+[node name="Stand" parent="Sketchfab_model/Root" parent_id_path=PackedInt32Array(509772698) index="17" unique_id=1121264906]
+transform = Transform3D(0.7, 0, 0, 0, -3.059797e-08, -0.7, 0, 0.7, -3.059797e-08, 0.7490039, -0.5974787, 0.51622)
+
+[node name="Stand_0" parent="Sketchfab_model/Root/Stand" index="0" unique_id=1898689269]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1920929e-07, -1.1421015)
+
+[node name="Candle4" parent="Sketchfab_model/Root" parent_id_path=PackedInt32Array(509772698) index="21" unique_id=507325718]
+visible = false
+
+[node name="Herbarium1" parent="Sketchfab_model/Root" parent_id_path=PackedInt32Array(509772698) index="22" unique_id=497276809]
+visible = false
+
+[node name="Herbarium2(1)" parent="Sketchfab_model/Root" parent_id_path=PackedInt32Array(509772698) index="23" unique_id=2098312891]
+visible = false
+
+[node name="Herbarium2(2)" parent="Sketchfab_model/Root" parent_id_path=PackedInt32Array(509772698) index="24" unique_id=994995429]
+visible = false
+
+[node name="Book" parent="Sketchfab_model/Root" parent_id_path=PackedInt32Array(509772698) index="27" unique_id=1492566685]
+transform = Transform3D(-0.60528, 0, -0.19455, -0.19455, 0, 0.60528, 0, 0.63577, 0, -3.40778, -1.1193656, 0.2303)
+
+[node name="Book2" parent="Sketchfab_model/Root/Book" index="0" unique_id=1516971667]
+transform = Transform3D(1.0000002, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1.0000002, 0.24967766, 0, 0.3115226)

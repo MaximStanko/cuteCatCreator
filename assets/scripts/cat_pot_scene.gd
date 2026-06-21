@@ -1,10 +1,19 @@
 extends Node3D
 
 var magicEdgePrefab: PackedScene = preload("res://assets/prefabs/magic_edge.tscn")
+var magicEdgeIndicatorPrefab: PackedScene = preload("res://assets/prefabs/magic_edge_indicator.tscn")
 
+var itemCheese = preload("res://assets/prefabs/item_cheese.tscn")
+var itemGem = preload("res://assets/prefabs/item_gem.tscn")
+var itemFish = preload("res://assets/prefabs/item_fish.tscn")
+var itemSugar = preload("res://assets/prefabs/item_sugar.tscn")
+
+@export var summonButton: TextureButton
 @export var hexagonParentNode: Node3D
 @onready var hexagonVertices: Dictionary[int, Node]
 @onready var catAnimator = $CatContainer
+
+var hexagonItemInstances = [null, null, null, null, null, null, null]
 
 var currentItem: String = "full_edge"
 var currentOrientation: int = 0
@@ -12,6 +21,7 @@ var currentTempOrientation: int = 0
 var currentMaxOrientation: int = 0
 var currentEdgePossibilities = null
 var currentEdges = null
+var selectedVertex = null
 
 var verticesUsed: Array = [
 	null, null, null, null, null, null, null
@@ -168,13 +178,13 @@ var itemEdges: Dictionary = {
 
 func spawnMagicEdge(from: int, to: int, color: Color):
 	if magicEdges.get([from, to]) == null:
-		var magicEdge: Node = magicEdgePrefab.instantiate()
+		var magicEdge: Node = magicEdgeIndicatorPrefab.instantiate()
 		magicEdges.set([from, to], magicEdge)
 		
 		var from_pos: Vector3 = hexagonVertices[from].position
 		var to_pos: Vector3 = hexagonVertices[to].position
 		magicEdge.position = (from_pos + to_pos) / 2.0
-		magicEdge.rotation.y = - atan2(to_pos.z - from_pos.z, to_pos.x - from_pos.x)
+		magicEdge.rotation.y = PI - atan2(to_pos.z - from_pos.z, to_pos.x - from_pos.x)
 		magicEdge.set_light_color(color)
 		
 		add_child(magicEdge)
@@ -221,10 +231,7 @@ func checkShape():
 		for shape_name in shapes[vertex_count]:
 			edges.sort()
 			print(edges, shapes[vertex_count][shape_name])
-			if shapes[vertex_count][shape_name] == edges && not Inventory.is_found(shape_name):
-				catAnimator.summon(shape_name)
-				Inventory.mark_found(shape_name)
-				print("I have summoned a cat")
+			if shapes[vertex_count][shape_name] == edges:
 				return shape_name
 		for i in range(vertex_count):
 			if edges[i][0] != 0:
@@ -250,10 +257,7 @@ func checkShape():
 		for shape_name in shapes[vertex_count]:
 			edges.sort()
 			print(edges, shapes[vertex_count][shape_name])
-			if shapes[vertex_count][shape_name] == edges && not Inventory.is_found(shape_name):
-				catAnimator.summon(shape_name)
-				Inventory.mark_found(shape_name)
-				print("I have summoned a cat")
+			if shapes[vertex_count][shape_name] == edges:
 				return shape_name
 		for i in range(vertex_count):
 			if edges[i][0] != 0:
@@ -265,8 +269,14 @@ func checkShape():
 	
 	return null
 
+func handleSummonButton():
+	var shape_name = checkShape()
+	summonButton.visible = (shape_name != null)
+
 func remove_vertex(index: int):
 	var edges = verticesUsed[index]
+	if hexagonItemInstances[index] != null:
+		hexagonItemInstances[index].queue_free()
 	if edges != null:
 		for edge in edges:
 			removeLockedMagicEdge(edge[0], edge[1])
@@ -274,16 +284,35 @@ func remove_vertex(index: int):
 		if itemsUsed[index] != null:
 			Inventory.give_item(itemsUsed[index])
 			itemsUsed[index] = null
-		print(checkShape())
+		handleSummonButton()
 
-func add_vertex(index: int, edges):
+func add_vertex(index: int, edges, tool):
 	verticesUsed[index] = edges
-	if edges != null:
+	var item = tool
+	if edges != null and item != "" and item != null:
+		var instance = null
+		match tool:
+			"full_edge":
+				instance = itemFish.instantiate()
+			"half_edge":
+				instance = itemGem.instantiate()
+			"cross":
+				instance = itemSugar.instantiate()
+			"single":
+				instance = itemCheese.instantiate()
+		if instance != null:
+			instance.global_position = hexagonVertices[index].global_position
+			instance.scale = Vector3(0.1, 0.1, 0.1)
+			add_child(instance)
+			hexagonItemInstances[index] = instance
 		for edge in edges:
-			spawnLockedMagicEdge(edge[0], edge[1], itemColors[currentItem])
-		print(checkShape())
+			spawnLockedMagicEdge(edge[0], edge[1], itemColors.get(item))
+		handleSummonButton()
 
-func vertex_pressed(index: int):
+func vertex_pressed(tool):
+	var index = selectedVertex
+	if index == null:
+		return
 	print("Vertex " + str(index) + " pressed")
 	if verticesUsed[index] != null:
 		remove_vertex(index)
@@ -300,9 +329,10 @@ func vertex_pressed(index: int):
 		if item == "":
 			return
 		itemsUsed[index] = item
-		add_vertex(index, full_edges)
+		add_vertex(index, full_edges, tool)
 
 func vertex_hovered(index: int):
+	selectedVertex = index
 	print("Vertex " + str(index) + " hovered")
 	if verticesUsed[index] != null:
 		return
@@ -323,6 +353,7 @@ func vertex_hovered(index: int):
 		currentMaxOrientation = 0
 
 func vertex_unhovered(index: int):
+	selectedVertex = null
 	print("Vertex " + str(index) + " unhovered")
 	currentMaxOrientation = 0
 	currentEdges = null
@@ -330,17 +361,34 @@ func vertex_unhovered(index: int):
 		if magicEdges[edge] != null:
 			removeMagicEdge(edge[0], edge[1])
 
-func item_rotated(index: int):
+func item_rotated(item):
+	var index = selectedVertex
+	if index == null:
+		return
 	print("Vertex " + str(index) + " rotated")
 	if currentMaxOrientation > 0:
 		currentTempOrientation = (currentTempOrientation + 1) % currentMaxOrientation
 		while currentEdgePossibilities[currentTempOrientation] == null:
 			currentTempOrientation = (currentTempOrientation + 1) % currentMaxOrientation
 		currentOrientation = currentTempOrientation
+		_refresh()
+
+func _refresh():
+	var index = selectedVertex
+	if index != null:
 		vertex_unhovered(index)
 		vertex_hovered(index)
 
 func _ready() -> void:
+	$Camera3D.position = Vector3(-0.187, 1.937, 0.907)
+	$Camera3D.rotation_degrees.x = -65.3
+	
+	summonButton.visible = false
+	
+	Inventory.rotate_item.connect(item_rotated)
+	Inventory.place_item.connect(vertex_pressed)
+	Inventory.change_selected_item.connect(_refresh)
+	
 	for vertex_count in shapes:
 		for shape_name in shapes[vertex_count]:
 			shapes[vertex_count][shape_name].sort()
@@ -356,6 +404,23 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
+		for item in itemsUsed:
+			if item != null:
+				Inventory.give_item(item)
 		GameManager.player_rot = Vector3(0,38.8,0)
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		get_tree().change_scene_to_file("res://scenes/world888.tscn")
+
+func _on_summon_button_button_up() -> void:
+	var shape_name = checkShape()
+	if shape_name != null:
+		catAnimator.summon(shape_name)
+		Inventory.mark_found(shape_name)
+		print("I have summoned a cat")
+		
+		verticesUsed = [
+			null, null, null, null, null, null, null
+		]
+		itemsUsed = [
+			null, null, null, null, null, null, null
+		]

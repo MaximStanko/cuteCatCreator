@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bcjkl8nh2tyll"]
+
+[ext_resource type="PackedScene" uid="uid://t3xj1yn3r61w" path="res://assets/itemsnshit/gltf/Gem_Large.gltf" id="1_74tne"]
+
+[node name="Node3D" type="Node3D" unique_id=1254591983]
+
+[node name="Gem_Large2" parent="." unique_id=1394666950 instance=ExtResource("1_74tne")]
+transform = Transform3D(2.455, 0, 0, 0, -0.027079277, 2.4548504, 0, -2.4548504, -0.027079277, -0.004481256, 0.12189537, 0.010520637)
