@@ -198,15 +198,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.68686, 0.8410368, -16.01179
 
 [node name="PickupDetector" parent="." unique_id=2056313107 instance=ExtResource("5_31f11")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.807126, 0.78899574, 6.349572)
-pickupName = "Diamond"
+pickupName = "Item"
 
 [node name="PickupDetector2" parent="." unique_id=1401066777 instance=ExtResource("5_31f11")]
 transform = Transform3D(0.9963587, 0, 0.08526041, 0, 1, 0, -0.08526041, 0, 0.9963587, -15.853939, 1.0002269, 2.8444107)
-pickupName = "Miaunkohle"
-
-[node name="PickupDetector3" parent="." unique_id=1726490099 instance=ExtResource("5_31f11")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9814756, 0, -18.138746)
-pickupName = "Pilz"
+pickupName = "AwesomeItem"
 
 [node name="FishingSpot" parent="." unique_id=2067094464 instance=ExtResource("6_f1eln")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.152337, 1.4351373, 10.818001)
@@ -221,6 +217,7 @@ layer = 101
 
 [node name="Water" parent="." unique_id=363647662 instance=ExtResource("9_xvndt")]
 transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, -10, 0)
+visible = false
 surface_material_override/0 = SubResource("ShaderMaterial_ct31b")
 metadata/_edit_lock_ = true
 
