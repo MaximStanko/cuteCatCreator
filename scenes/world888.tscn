@@ -58,6 +58,14 @@
 [ext_resource type="PackedScene" uid="uid://142jsaj8xka" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color5/Bush_4_C_Color5.gltf" id="55_bwguq"]
 [ext_resource type="PackedScene" uid="uid://bpycvfrawvmto" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color5/Tree_4_B_Color5.gltf" id="56_yjl0o"]
 [ext_resource type="PackedScene" uid="uid://b5ftfs6vklkle" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color5/Hill_12x6x4_Color5.gltf" id="57_t2l4f"]
+[ext_resource type="PackedScene" uid="uid://d3clf31mpgew3" path="res://assets/itemsnshit/gltf/Food_Cheese.gltf" id="58_6m0ls"]
+[ext_resource type="PackedScene" uid="uid://dg2fk73cr1qfn" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color8/Hill_12x12x2_Color8.gltf" id="59_ded85"]
+[ext_resource type="PackedScene" uid="uid://bpgec1bdqo06r" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color8/Tree_2_D_Color8.gltf" id="60_t2l4f"]
+[ext_resource type="PackedScene" uid="uid://bc5gln3c2vl7i" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color8/Tree_2_E_Color8.gltf" id="61_woxgy"]
+[ext_resource type="PackedScene" uid="uid://buxeu31311gly" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color8/Bush_2_C_Color8.gltf" id="62_jp487"]
+[ext_resource type="PackedScene" uid="uid://cyfxuahef2g8p" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color8/Bush_2_D_Color8.gltf" id="63_8g5xj"]
+[ext_resource type="PackedScene" uid="uid://dembd84sfk1yb" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color8/Tree_2_C_Color8.gltf" id="64_gm1gl"]
+[ext_resource type="PackedScene" uid="uid://elbk71fl2mwa" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color8/Hill_12x12x8_Color8.gltf" id="65_woxgy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ct31b"]
 render_priority = 0
@@ -92,10 +100,42 @@ shader_parameter/lift = 0.02
 shader_parameter/vignette = 0.4
 shader_parameter/vignette_warmth = 0.5
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_woxgy"]
+size = Vector3(2.863, 3.582, 10.492875)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jp487"]
+size = Vector3(1.972168, 11.385, 1.6534424)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8g5xj"]
+size = Vector3(4.2026954, 5.12, 3.5320618)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gm1gl"]
+size = Vector3(3.347168, 5.7924194, 6.869629)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s1np6"]
+size = Vector3(4.470215, 4.378418, 3.8327026)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e8xm5"]
+size = Vector3(6.7579346, 6.180176, 4.248535)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mw0ll"]
+size = Vector3(3.6601563, 6.217407, 17.477024)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_woxgy"]
+height = 3.4394531
+radius = 1.2949219
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_jp487"]
+height = 6.4750977
+radius = 1.198
+
 [sub_resource type="Environment" id="Environment_une3w"]
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 0.4
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ded85"]
+size = Vector3(12.485, 4, 12.42)
 
 [node name="World888" type="Node3D" unique_id=1683946744]
 
@@ -103,8 +143,7 @@ ambient_light_energy = 0.4
 environment = ExtResource("7_env")
 
 [node name="Ground" parent="." unique_id=2127213363 instance=ExtResource("1_rog5d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -41.89352)
-metadata/_edit_lock_ = true
+transform = Transform3D(0.525, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -41.89352)
 
 [node name="Player" parent="." unique_id=930000287 groups=["player"] instance=ExtResource("2_qkubx")]
 transform = Transform3D(-0.4942377, 0, 0.07569077, 0, 0.5, 0, -0.07569077, 0, -0.4942377, 1.5231292, 0.67548645, 4.0170307)
@@ -126,11 +165,11 @@ transform = Transform3D(0.94316465, 0, 0.33232573, 0, 1, 0, -0.33232573, 0, 0.94
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.68686, 0.8410368, -16.01179)
 
 [node name="PickupDetector" parent="." unique_id=2056313107 instance=ExtResource("5_31f11")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.807126, 0.78899574, 6.349572)
 pickupName = "Item"
 
 [node name="PickupDetector2" parent="." unique_id=1401066777 instance=ExtResource("5_31f11")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 5)
+transform = Transform3D(0.9963587, 0, 0.08526041, 0, 1, 0, -0.08526041, 0, 0.9963587, -15.853939, 1.0002269, 2.8444107)
 pickupName = "AwesomeItem"
 
 [node name="FishingSpot" parent="." unique_id=2067094464 instance=ExtResource("6_f1eln")]
@@ -146,7 +185,9 @@ layer = 101
 
 [node name="Water" parent="." unique_id=363647662 instance=ExtResource("9_xvndt")]
 transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, -10, 0)
+visible = false
 surface_material_override/0 = SubResource("ShaderMaterial_ct31b")
+metadata/_edit_lock_ = true
 
 [node name="PostProcess" type="CanvasLayer" parent="." unique_id=1771038300]
 layer = 100
@@ -160,369 +201,560 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Hill_4x4x8_Color32" parent="." unique_id=551344792 instance=ExtResource("6_rt1yw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0257845, -3.1390429, -11.4979925)
+[node name="Collisions" type="Node" parent="." unique_id=713686999]
 
-[node name="Node" type="Node" parent="." unique_id=1676418086]
+[node name="StaticBody3D" type="StaticBody3D" parent="Collisions" unique_id=1308865797]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.23228168, 0)
 
-[node name="Rock_3_M_Color32" parent="Node" unique_id=701490266 instance=ExtResource("10_6g32d")]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collisions/StaticBody3D" unique_id=800116749]
+transform = Transform3D(0.7296612, 0, 0.6838088, 0, 1, 0, -0.6838088, 0, 0.7296612, -3.6156278, 2.614308, -2.2342386)
+shape = SubResource("BoxShape3D_woxgy")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Collisions/StaticBody3D" unique_id=1915066220]
+transform = Transform3D(0.9962357, 0, 0.08668624, 0, 1, 0, -0.08668624, 0, 0.9962357, -1.4206998, 2.614308, -7.936901)
+shape = SubResource("BoxShape3D_woxgy")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Collisions/StaticBody3D" unique_id=1563289559]
+transform = Transform3D(0.99999166, 0, 0.004084021, 0, 1, 0, -0.004084021, 0, 0.99999166, -0.9093829, 2.614308, -17.828552)
+shape = SubResource("BoxShape3D_woxgy")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Collisions/StaticBody3D" unique_id=868827769]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6685405, 2.2800646, -10.584862)
+shape = SubResource("BoxShape3D_jp487")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Collisions" unique_id=430617156]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collisions/StaticBody3D2" unique_id=1625805111]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.50910807, 2.2069106, -21.419249)
+shape = SubResource("BoxShape3D_8g5xj")
+debug_color = Color(0, 0.6, 0.69803923, 0.9490196)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Collisions/StaticBody3D2" unique_id=1257468000]
+transform = Transform3D(0.96774876, 0, -0.25191736, 0, 1, 0, 0.25191736, 0, 0.96774876, -0.91827583, 2.2069106, -24.767231)
+shape = SubResource("BoxShape3D_8g5xj")
+debug_color = Color(0, 0.6, 0.69803923, 0.9490196)
+metadata/_edit_lock_ = true
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="Collisions" unique_id=2013750226]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collisions/StaticBody3D3" unique_id=1805968574]
+transform = Transform3D(0.99867845, 0, 0.051394746, 0, 1, 0, -0.051394746, 0, 0.99867845, 6.2905817, 3.6770253, -24.393017)
+shape = SubResource("BoxShape3D_gm1gl")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="Collisions" unique_id=1753360258]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collisions/StaticBody3D4" unique_id=1301428347]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.930037, 2.420166, -26.735102)
+shape = SubResource("BoxShape3D_s1np6")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody3D5" type="StaticBody3D" parent="Collisions" unique_id=234148737]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collisions/StaticBody3D5" unique_id=21746253]
+transform = Transform3D(0.9941961, 0, -0.10758292, 0, 1, 0, 0.10758292, 0, 0.9941961, 10.134822, 2.590088, -18.913744)
+shape = SubResource("BoxShape3D_e8xm5")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody3D6" type="StaticBody3D" parent="Collisions" unique_id=1263363837]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collisions/StaticBody3D6" unique_id=1955696835]
+transform = Transform3D(0.9854274, 0.00025347402, -0.17009719, 0.0026171086, 0.9998579, 0.016651755, 0.17007723, -0.016854255, 0.98528653, 5.9105835, 2.046833, -9.141767)
+shape = SubResource("BoxShape3D_mw0ll")
+debug_color = Color(0, 0.6, 0.69803923, 1)
+metadata/_edit_lock_ = true
+
+[node name="StaticBody3D7" type="StaticBody3D" parent="Collisions" unique_id=1610316692]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Collisions/StaticBody3D7" unique_id=193874768]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.55574, 1.5025079, -7.6316366)
+shape = SubResource("CylinderShape3D_woxgy")
+debug_color = Color(0, 0.6, 0.69803923, 1)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collisions/StaticBody3D7" unique_id=1532951580]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.350679, 2.1535761, -10.256937)
+shape = SubResource("CylinderShape3D_woxgy")
+debug_color = Color(0, 0.6, 0.69803923, 1)
+metadata/_edit_lock_ = true
+
+[node name="StaticBody3D8" type="StaticBody3D" parent="Collisions" unique_id=1091375308]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collisions/StaticBody3D8" unique_id=1517373809]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7720351, 2.2375488, -1.7508788)
+shape = SubResource("CylinderShape3D_jp487")
+debug_color = Color(0, 0.6, 0.69803923, 1)
+
+[node name="StuffnShit" type="Node" parent="." unique_id=1676418086]
+
+[node name="Hill_12x12x8_Color37" parent="StuffnShit" unique_id=808668680 instance=ExtResource("8_b28dm")]
+transform = Transform3D(2.129091, 0, -0.062223133, 0, 2.13, 0, 0.062223133, 0, 2.129091, -1.0358467, -22.197258, -5.660536)
+
+[node name="Hill_12x12x8_Color36" parent="StuffnShit" unique_id=86660566 instance=ExtResource("8_b28dm")]
+transform = Transform3D(0.9998936, 0, -0.014607932, 0, 1, 0, 0.014607932, 0, 0.9998936, 4.8207884, -10.580883, 1.4728905)
+
+[node name="Hill_4x4x8_Color37" parent="StuffnShit" unique_id=1285493315 instance=ExtResource("6_rt1yw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.732996, 2.5796967, -12.512418)
+
+[node name="Hill_4x4x8_Color36" parent="StuffnShit" unique_id=361595131 instance=ExtResource("6_rt1yw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.628161, -3.7469811, 8.568473)
+
+[node name="Rock_3_M_Color32" parent="StuffnShit" unique_id=701490266 instance=ExtResource("10_6g32d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0821357, 0.53909874, -1.6722531)
 
-[node name="Tree_7_A_Color32" parent="Node" unique_id=1283353234 instance=ExtResource("11_une3w")]
+[node name="Tree_7_A_Color32" parent="StuffnShit" unique_id=1283353234 instance=ExtResource("11_une3w")]
 transform = Transform3D(0.994024, 0.10916181, 0, -0.10916181, 0.994024, 0, 0, 0, 1, -2.542072, 2.1885967, -3.9194226)
 
-[node name="Tree_7_B_Color32" parent="Node" unique_id=285867295 instance=ExtResource("12_x224o")]
+[node name="Tree_7_B_Color33" parent="StuffnShit" unique_id=764725490 instance=ExtResource("12_x224o")]
+transform = Transform3D(-0.8309069, 0, -0.5564115, 0, 1, 0, 0.5564115, 0, -0.8309069, 5.9104214, 8.630923, -23.739939)
+
+[node name="Tree_7_B_Color32" parent="StuffnShit" unique_id=285867295 instance=ExtResource("12_x224o")]
 transform = Transform3D(-0.12805137, 0, -0.9917676, 0, 1, 0, 0.9917676, 0, -0.12805137, -4.908207, 5.857924, -3.2085814)
 
-[node name="Tree_7_B_Color32" parent="Node/Tree_7_B_Color32" unique_id=764725490 instance=ExtResource("12_x224o")]
-transform = Transform3D(0.6582296, 0, -0.7528172, 0, 1, 0, 0.7528172, 0, 0.6582296, -21.747671, 2.7729993, -8.100495)
-
-[node name="Rock_3_C_Color32" parent="Node" unique_id=2126462558 instance=ExtResource("13_6g32d")]
+[node name="Rock_3_C_Color32" parent="StuffnShit" unique_id=2126462558 instance=ExtResource("13_6g32d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5903788, 0.5714754, 0.2622658)
 
-[node name="Rock_3_D_Color32" parent="Node" unique_id=700932915 instance=ExtResource("14_une3w")]
+[node name="Rock_3_D_Color32" parent="StuffnShit" unique_id=700932915 instance=ExtResource("14_une3w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.638651, 0.48462296, -1.2986395)
 
-[node name="Hill_12x12x2_Color32" parent="Node" unique_id=1801529080 instance=ExtResource("15_x224o")]
+[node name="Hill_12x12x2_Color32" parent="StuffnShit" unique_id=1801529080 instance=ExtResource("15_x224o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.61901, 0.29755116, -8.541253)
 
-[node name="Hill_4x4x8_Color35" parent="Node" unique_id=1946091663 instance=ExtResource("6_rt1yw")]
+[node name="Hill_4x4x8_Color35" parent="StuffnShit" unique_id=1946091663 instance=ExtResource("6_rt1yw")]
 transform = Transform3D(0.9999923, -0.0013713691, 0.0036762708, 0.0013669805, 0.99999833, 0.0011969971, -0.0036779048, -0.0011919668, 0.99999255, 7.458997, -3.153522, -15.998823)
 
-[node name="Hill_4x4x8_Color34" parent="Node" unique_id=1326769065 instance=ExtResource("6_rt1yw")]
+[node name="Hill_4x4x8_Color44" parent="StuffnShit" unique_id=1570027416 instance=ExtResource("6_rt1yw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.213846, 3.6357517, -20.409664)
 
-[node name="Hill_4x4x8_Color34" parent="Node/Hill_4x4x8_Color34" unique_id=1570027416 instance=ExtResource("6_rt1yw")]
+[node name="Hill_4x4x8_Color45" parent="StuffnShit" unique_id=860345509 instance=ExtResource("6_rt1yw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.588947, 4.6184645, -25.008118)
 
-[node name="Hill_4x4x8_Color35" parent="Node/Hill_4x4x8_Color34" unique_id=860345509 instance=ExtResource("6_rt1yw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.802794, 0.98271275, -4.5984535)
+[node name="Hill_4x4x8_Color34" parent="StuffnShit" unique_id=1326769065 instance=ExtResource("6_rt1yw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.213846, 3.6357517, -20.409664)
 
-[node name="Hill_4x4x8_Color33" parent="Node" unique_id=155998010 instance=ExtResource("6_rt1yw")]
+[node name="Hill_4x4x8_Color42" parent="StuffnShit" unique_id=518393083 instance=ExtResource("6_rt1yw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.8677425, -0.5879092, -13.000035)
+
+[node name="Hill_4x4x8_Color43" parent="StuffnShit" unique_id=1444037927 instance=ExtResource("6_rt1yw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.968834, 3.6676059, -7.3744583)
+
+[node name="Hill_4x4x8_Color33" parent="StuffnShit" unique_id=155998010 instance=ExtResource("6_rt1yw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6319046, 0.5, -7.862076)
 
-[node name="Hill_4x4x8_Color33" parent="Node/Hill_4x4x8_Color33" unique_id=1444037927 instance=ExtResource("6_rt1yw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.600739, 3.1676059, 0.4876175)
-
-[node name="Hill_4x4x8_Color34" parent="Node/Hill_4x4x8_Color33/Hill_4x4x8_Color33" unique_id=518393083 instance=ExtResource("6_rt1yw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.836576, -4.255515, -5.625577)
-
-[node name="Hill_4x2x4_Color32" parent="Node" unique_id=1169927837 instance=ExtResource("16_pcyi0")]
+[node name="Hill_4x2x4_Color32" parent="StuffnShit" unique_id=1169927837 instance=ExtResource("16_pcyi0")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5.550068, 0.5, -10.60119)
 
-[node name="Hill_12x12x8_Color34" parent="Node" unique_id=410705285 instance=ExtResource("8_b28dm")]
+[node name="Hill_12x12x8_Color34" parent="StuffnShit" unique_id=410705285 instance=ExtResource("8_b28dm")]
 transform = Transform3D(0.9990421, 0, -0.04374143, 0, 1, 0, 0.04374148, 0, 0.9990422, -7.782093, -0.09363747, -22.621826)
 
-[node name="Hill_12x12x8_Color33" parent="Node" unique_id=1768091575 instance=ExtResource("8_b28dm")]
+[node name="Hill_12x12x8_Color33" parent="StuffnShit" unique_id=1768091575 instance=ExtResource("8_b28dm")]
 transform = Transform3D(0.9996604, 0, 0.026054822, 0, 1, 0, -0.026054785, 0, 0.99966043, 12.585289, -1.7489853, -21.349606)
 
-[node name="Hill_12x12x8_Color32" parent="Node" unique_id=808668680 instance=ExtResource("8_b28dm")]
+[node name="Hill_12x12x8_Color35" parent="StuffnShit" unique_id=2114987186 instance=ExtResource("8_b28dm")]
+transform = Transform3D(0.9984659, 0, 0.055368416, 0, 1, 0, -0.055368416, 0, 0.9984659, -2.3786535, -7.6957273, 2.6756382)
+
+[node name="Hill_12x12x8_Color32" parent="StuffnShit" unique_id=325699247 instance=ExtResource("8_b28dm")]
 transform = Transform3D(0.9954079, 0, 0.09572414, 0, 1, 0, -0.09572414, 0, 0.9954079, -9.589575, -1.3145618, -5.9890943)
 
-[node name="Rock_3_G_Color32" parent="Node" unique_id=554455015 instance=ExtResource("9_nkce2")]
+[node name="Rock_3_G_Color32" parent="StuffnShit" unique_id=554455015 instance=ExtResource("9_nkce2")]
 transform = Transform3D(0.6692344, 0, -0.7430514, 0, 1, 0, 0.7430514, 0, 0.6692344, 5.1795406, 0.7668874, -0.06275058)
 
-[node name="Hill_4x4x8_Color32" parent="Node" unique_id=1182006439 instance=ExtResource("6_rt1yw")]
+[node name="Hill_4x4x8_Color32" parent="StuffnShit" unique_id=1182006439 instance=ExtResource("6_rt1yw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0257845, -3.1390429, -11.4979925)
 
-[node name="Hill_8x4x2_Color32" parent="Node" unique_id=1778484606 instance=ExtResource("7_jk26s")]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="StuffnShit" unique_id=891788412]
+environment = SubResource("Environment_une3w")
+
+[node name="WorldEnvironment5" type="WorldEnvironment" parent="StuffnShit" unique_id=2028735611]
+environment = SubResource("Environment_une3w")
+
+[node name="Hill_8x4x2_Color34" parent="StuffnShit" unique_id=600710140 instance=ExtResource("7_jk26s")]
+transform = Transform3D(-0.97661275, 0, -0.21500804, 0, 1, 0, 0.21500804, 0, -0.97661275, -5.372612, 0.49168992, -3.8125978)
+
+[node name="WorldEnvironment3" type="WorldEnvironment" parent="StuffnShit" unique_id=428804980]
+environment = SubResource("Environment_une3w")
+
+[node name="WorldEnvironment4" type="WorldEnvironment" parent="StuffnShit" unique_id=198484978]
+environment = SubResource("Environment_une3w")
+
+[node name="Hill_8x4x2_Color35" parent="StuffnShit" unique_id=580261283 instance=ExtResource("7_jk26s")]
+transform = Transform3D(-0.9904933, 0, -0.13756545, 0, 1, 0, 0.13756545, 0, -0.9904933, -5.154994, 0.25944495, -14.3793125)
+
+[node name="Hill_8x4x2_Color36" parent="StuffnShit" unique_id=1860642407 instance=ExtResource("7_jk26s")]
+transform = Transform3D(0.029648677, 0, -0.9995605, 0, 1, 0, 0.9995605, 0, 0.029648677, -1.5930014, 0.26775503, -16.939936)
+
+[node name="WorldEnvironment2" type="WorldEnvironment" parent="StuffnShit" unique_id=828439094]
+environment = SubResource("Environment_une3w")
+
+[node name="Tree_1_C_Color12" parent="StuffnShit" unique_id=1670295416 instance=ExtResource("3_31f11")]
+transform = Transform3D(0.7791194, 0, 0.6268759, 0, 1, 0, -0.6268759, 0, 0.7791194, -5.501136, 4.4331827, -26.912483)
+
+[node name="Hill_8x4x2_Color37" parent="StuffnShit" unique_id=1546368286 instance=ExtResource("7_jk26s")]
+transform = Transform3D(0.038108878, 0, 0.99927443, 0, 1, 0, -0.99927443, 0, 0.038108878, 0.4856453, 8.782296, -26.953066)
+
+[node name="Hill_8x4x2_Color32" parent="StuffnShit" unique_id=1778484606 instance=ExtResource("7_jk26s")]
 transform = Transform3D(0.10813812, 0, -0.99413586, 0, 1, 0, 0.99413586, 0, 0.10813812, -2.0229495, 0.5, -6.645324)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Node/Hill_8x4x2_Color32" unique_id=891788412]
-environment = SubResource("Environment_une3w")
-
-[node name="Hill_8x4x2_Color32" parent="Node/Hill_8x4x2_Color32" unique_id=600710140 instance=ExtResource("7_jk26s")]
-transform = Transform3D(0.10813814, 0, -0.99413633, 0, 1, 0, 0.99413633, 0, 0.10813814, 2.453889, -0.00831008, 3.6363456)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Node/Hill_8x4x2_Color32/Hill_8x4x2_Color32" unique_id=2028735611]
-environment = SubResource("Environment_une3w")
-
-[node name="Hill_8x4x2_Color33" parent="Node/Hill_8x4x2_Color32" unique_id=1860642407 instance=ExtResource("7_jk26s")]
-transform = Transform3D(0.99690515, 0, -0.078615785, 0, 1, 0, 0.078615785, 0, 0.99690515, -10.187748, -0.23224497, -1.5406667)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Node/Hill_8x4x2_Color32/Hill_8x4x2_Color33" unique_id=428804980]
-environment = SubResource("Environment_une3w")
-
-[node name="Hill_8x4x2_Color32" parent="Node/Hill_8x4x2_Color32/Hill_8x4x2_Color33" unique_id=580261283 instance=ExtResource("7_jk26s")]
-transform = Transform3D(0.10813814, 0, -0.99413633, 0, 1, 0, 0.99413633, 0, 0.10813814, 2.453889, -0.00831008, 3.6363456)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Node/Hill_8x4x2_Color32/Hill_8x4x2_Color33/Hill_8x4x2_Color32" unique_id=198484978]
-environment = SubResource("Environment_une3w")
-
-[node name="Hill_8x4x2_Color34" parent="Node/Hill_8x4x2_Color32" unique_id=1546368286 instance=ExtResource("7_jk26s")]
-transform = Transform3D(-0.9892936, 0, 0.14594507, 0, 1, 0, -0.14594507, 0, -0.9892936, -19.91738, 8.282296, -4.689925)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Node/Hill_8x4x2_Color32/Hill_8x4x2_Color34" unique_id=828439094]
-environment = SubResource("Environment_une3w")
-
-[node name="Tree_1_C_Color12" parent="Node/Hill_8x4x2_Color32/Hill_8x4x2_Color34" unique_id=1670295416 instance=ExtResource("3_31f11")]
-transform = Transform3D(0.6561113, 0, -0.7546632, 0, 1, 0, 0.7546632, 0, 0.6561113, -0.26870537, -4.3491135, -5.9808807)
-
-[node name="Tree_1_C_Color13" parent="Node" unique_id=328147339 instance=ExtResource("3_31f11")]
+[node name="Tree_1_C_Color13" parent="StuffnShit" unique_id=328147339 instance=ExtResource("3_31f11")]
 transform = Transform3D(0.94316465, 0, 0.33232573, 0, 1, 0, -0.33232573, 0, 0.94316465, -7.058832, 6.2293634, -15.149004)
 
-[node name="Tree_1_B_Color13" parent="Node" unique_id=1922870222 instance=ExtResource("4_f1eln")]
+[node name="Tree_1_B_Color13" parent="StuffnShit" unique_id=1922870222 instance=ExtResource("4_f1eln")]
 transform = Transform3D(-0.6702053, 0.12461454, -0.7316393, 0.1828018, 0.98314977, -5.518712e-09, 0.71931106, -0.133745, -0.6816919, 6.118254, 4.27799, -17.232822)
 
-[node name="Tree_1_A_Color14" parent="Node" unique_id=858664876 instance=ExtResource("5_rohao")]
+[node name="Tree_1_A_Color14" parent="StuffnShit" unique_id=858664876 instance=ExtResource("5_rohao")]
 transform = Transform3D(-0.061334863, 0.2693622, 0.9610839, 0.0070924736, 0.96299, -0.26944372, -0.99809194, -0.0097098015, -0.06097518, -0.32953894, 8.114302, -10.519096)
 
-[node name="Tree_1_A_Color15" parent="Node" unique_id=507956176 instance=ExtResource("5_rohao")]
+[node name="Tree_1_A_Color15" parent="StuffnShit" unique_id=507956176 instance=ExtResource("5_rohao")]
 transform = Transform3D(0.8440673, -0.10124734, -0.52659243, 0.08590097, 0.9948614, -0.053591467, 0.5293123, 1.1656862e-09, 0.84842706, -4.796244, 6.417423, -10.275477)
 
-[node name="Tree_4_A_Color53" parent="Node" unique_id=2071387720 instance=ExtResource("25_lhfyk")]
+[node name="Tree_4_A_Color53" parent="StuffnShit" unique_id=2071387720 instance=ExtResource("25_lhfyk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.151617, 4.177897, -0.15840435)
 
-[node name="Tree_4_A_Color52" parent="Node" unique_id=1562795740 instance=ExtResource("25_lhfyk")]
+[node name="Tree_4_A_Color54" parent="StuffnShit" unique_id=533429019 instance=ExtResource("25_lhfyk")]
+transform = Transform3D(-0.55331886, 0, -0.8329697, 0, 1, 0, 0.8329697, 0, -0.55331886, 15.77018, 2.2992659, 4.986856)
+
+[node name="Tree_4_A_Color55" parent="StuffnShit" unique_id=1872149294 instance=ExtResource("25_lhfyk")]
+transform = Transform3D(-0.98760355, 0, 0.15696873, 0, 1, 0, -0.15696873, 0, -0.98760355, 20.352648, 2.622631, 1.8492603)
+
+[node name="Tree_4_A_Color56" parent="StuffnShit" unique_id=44951154 instance=ExtResource("25_lhfyk")]
+transform = Transform3D(0.67721045, 0, 0.7357905, 0, 1, 0, -0.7357905, 0, 0.67721045, 20.698948, 0.9853344, -2.165996)
+
+[node name="Tree_4_A_Color57" parent="StuffnShit" unique_id=649327534 instance=ExtResource("25_lhfyk")]
+transform = Transform3D(0.95072216, 0, -0.31004608, 0, 1, 0, 0.31004608, 0, 0.95072216, 22.347788, 2.9366112, 5.929651)
+
+[node name="Tree_4_A_Color58" parent="StuffnShit" unique_id=1044453322 instance=ExtResource("25_lhfyk")]
+transform = Transform3D(-0.98760355, 0, 0.15696873, 0, 1, 0, -0.15696873, 0, -0.98760355, 12.8710165, 4.2505426, -2.7496123)
+
+[node name="Tree_4_A_Color52" parent="StuffnShit" unique_id=1562795740 instance=ExtResource("25_lhfyk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.039465, 0.84212494, 7.61291)
 
-[node name="Tree_4_A_Color52" parent="Node/Tree_4_A_Color52" unique_id=1044453322 instance=ExtResource("25_lhfyk")]
-transform = Transform3D(-0.98760355, 0, 0.15696873, 0, 1, 0, -0.15696873, 0, -0.98760355, -1.1684484, 3.4084177, -10.362522)
+[node name="Tree_4_C_Color53" parent="StuffnShit" unique_id=2144563414 instance=ExtResource("26_6m0ls")]
+transform = Transform3D(-0.03498667, 0, 0.9993878, 0, 1, 0, -0.9993878, 0, -0.03498667, 16.22103, 2.1328297, 1.3609409)
 
-[node name="Tree_4_A_Color52" parent="Node/Tree_4_A_Color52/Tree_4_A_Color52" unique_id=533429019 instance=ExtResource("25_lhfyk")]
-transform = Transform3D(0.4157095, 0, 0.9094976, 0, 1, 0, -0.9094976, 0, 0.4157095, -4.077608, -1.9512768, -7.185486)
+[node name="Tree_4_C_Color54" parent="StuffnShit" unique_id=89424750 instance=ExtResource("26_6m0ls")]
+transform = Transform3D(0.1999152, 0, -0.9798132, 0, 1, 0, 0.9798132, 0, 0.1999152, 18.478128, 0.8283402, 5.721285)
 
-[node name="Tree_4_A_Color53" parent="Node/Tree_4_A_Color52/Tree_4_A_Color52" unique_id=1872149294 instance=ExtResource("25_lhfyk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.110765, -1.6279116, -3.3674808)
+[node name="Hill_8x8x4_Color53" parent="StuffnShit" unique_id=527039512 instance=ExtResource("27_ded85")]
+transform = Transform3D(0.46216673, 0, -0.88679355, 0, 1, 0, 0.88679355, 0, 0.46216673, 12.458015, 3.7553635, -7.7127028)
 
-[node name="Tree_4_A_Color54" parent="Node/Tree_4_A_Color52/Tree_4_A_Color52" unique_id=649327534 instance=ExtResource("25_lhfyk")]
-transform = Transform3D(-0.98760414, 0, 0.15696895, 0, 1, 0, -0.15696895, 0, -0.98760414, -10.721666, -1.3139315, -7.0841146)
-
-[node name="Tree_4_A_Color52" parent="Node/Tree_4_A_Color52/Tree_4_A_Color52/Tree_4_A_Color54" unique_id=44951154 instance=ExtResource("25_lhfyk")]
-transform = Transform3D(0.4157095, 0, 0.9094976, 0, 1, 0, -0.9094976, 0, 0.4157095, -4.077608, -1.9512768, -7.185486)
-
-[node name="Tree_4_C_Color52" parent="Node" unique_id=1931572477 instance=ExtResource("26_6m0ls")]
+[node name="Tree_4_C_Color52" parent="StuffnShit" unique_id=1931572477 instance=ExtResource("26_6m0ls")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.843597, 0.2922488, 0.28730178)
 
-[node name="Tree_4_C_Color52" parent="Node/Tree_4_C_Color52" unique_id=2144563414 instance=ExtResource("26_6m0ls")]
-transform = Transform3D(-0.03498667, 0, 0.9993878, 0, 1, 0, -0.9993878, 0, -0.03498667, 7.377432, 1.8405809, 1.0736392)
+[node name="Hill_8x8x4_Color52" parent="StuffnShit" unique_id=236394468 instance=ExtResource("27_ded85")]
+transform = Transform3D(0.69360304, 0, -0.7203575, 0, 1, 0, 0.7203575, 0, 0.69360304, 17.693924, -1.0492015, 3.9058595)
 
-[node name="Tree_4_C_Color53" parent="Node/Tree_4_C_Color52" unique_id=89424750 instance=ExtResource("26_6m0ls")]
-transform = Transform3D(0.1999152, 0, -0.9798132, 0, 1, 0, 0.9798132, 0, 0.1999152, 9.634531, 0.5360914, 5.433983)
-
-[node name="Hill_8x8x4_Color52" parent="Node" unique_id=236394468 instance=ExtResource("27_ded85")]
-transform = Transform3D(0.69360304, 0, -0.7203575, 0, 1, 0, 0.7203575, 0, 0.69360304, 18.604002, -1.0492015, 4.667955)
-
-[node name="Hill_8x8x4_Color52" parent="Node/Hill_8x8x4_Color52" unique_id=527039512 instance=ExtResource("27_ded85")]
-transform = Transform3D(0.9593686, 0, -0.28215742, 0, 1, 0, 0.28215742, 0, 0.9593686, -13.181374, 4.804565, -4.159954)
-
-[node name="Bush_1_G_Color33" parent="." unique_id=1136229079 instance=ExtResource("17_une3w")]
+[node name="Bush_1_G_Color33" parent="StuffnShit" unique_id=1136229079 instance=ExtResource("17_une3w")]
 transform = Transform3D(0.8291547, 0, 0.55901927, 0.107499026, 0.9813363, -0.15944588, -0.5485859, 0.19229932, 0.8136796, -2.8506837, 0.3547833, -1.5154538)
 
-[node name="Hill_2x2x8_Color32" parent="." unique_id=720204401 instance=ExtResource("24_yi2um")]
+[node name="Hill_2x2x8_Color33" parent="StuffnShit" unique_id=485038182 instance=ExtResource("24_yi2um")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0198617, -3.8282967, -21.883816)
+
+[node name="Hill_2x2x8_Color34" parent="StuffnShit" unique_id=1970913184 instance=ExtResource("24_yi2um")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5757551, -1.0266457, -32.831257)
+
+[node name="Hill_2x2x8_Color35" parent="StuffnShit" unique_id=1139973376 instance=ExtResource("24_yi2um")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2603383, 1, -21.575972)
+
+[node name="Hill_2x2x8_Color32" parent="StuffnShit" unique_id=720204401 instance=ExtResource("24_yi2um")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8201828, 0.5, -10.628531)
 
-[node name="Hill_2x2x8_Color32" parent="Hill_2x2x8_Color32" unique_id=485038182 instance=ExtResource("24_yi2um")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.8400445, -4.3282967, -11.255284)
-
-[node name="Hill_2x2x8_Color33" parent="Hill_2x2x8_Color32" unique_id=1139973376 instance=ExtResource("24_yi2um")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4401555, 0.5, -10.94744)
-
-[node name="Hill_2x2x8_Color32" parent="Hill_2x2x8_Color32/Hill_2x2x8_Color33" unique_id=1970913184 instance=ExtResource("24_yi2um")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.8360934, -2.0266457, -11.255284)
-
-[node name="Rock_3_N_Color32" parent="." unique_id=1199358482 instance=ExtResource("25_1bhpc")]
+[node name="Rock_3_N_Color32" parent="StuffnShit" unique_id=1199358482 instance=ExtResource("25_1bhpc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.899636, 1.1932228, -10.21127)
 
-[node name="Rock_3_J_Color32" parent="." unique_id=977655170 instance=ExtResource("26_rxbnq")]
+[node name="Rock_3_J_Color32" parent="StuffnShit" unique_id=977655170 instance=ExtResource("26_rxbnq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1709557, 0.602458, -7.714221)
 
-[node name="Rock_3_E_Color32" parent="." unique_id=1713336747 instance=ExtResource("27_qjt8p")]
+[node name="Rock_3_E_Color32" parent="StuffnShit" unique_id=1713336747 instance=ExtResource("27_qjt8p")]
 transform = Transform3D(-0.29096934, 0, -0.9567324, 0, 1, 0, 0.9567324, 0, -0.29096934, 0.2311517, 0.6628665, -5.179981)
 
-[node name="Tree_1_B_Color32" parent="." unique_id=1916402845 instance=ExtResource("28_aw363")]
+[node name="Tree_1_B_Color33" parent="StuffnShit" unique_id=1708928903 instance=ExtResource("28_aw363")]
+transform = Transform3D(0.19074048, 0, -0.9816405, 0, 1, 0, 0.9816405, 0, 0.19074048, 7.5266423, 7.676056, -6.7331743)
+
+[node name="Tree_1_B_Color32" parent="StuffnShit" unique_id=1916402845 instance=ExtResource("28_aw363")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1097027, 1.9558563, -6.4160166)
 
-[node name="Tree_1_B_Color32" parent="Tree_1_B_Color32" unique_id=1708928903 instance=ExtResource("28_aw363")]
-transform = Transform3D(0.19074048, 0, -0.9816405, 0, 1, 0, 0.9816405, 0, 0.19074048, 8.636345, 5.7201996, -0.31715775)
-
-[node name="Tree_1_C_Color32" parent="." unique_id=1760445612 instance=ExtResource("29_3dywd")]
+[node name="Tree_1_C_Color32" parent="StuffnShit" unique_id=1760445612 instance=ExtResource("29_3dywd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.852131, 0.16478497, -4.7483425)
 
-[node name="Bush_1_F_Color36" parent="." unique_id=1547667002 instance=ExtResource("30_qjt8p")]
+[node name="Bush_1_F_Color36" parent="StuffnShit" unique_id=1547667002 instance=ExtResource("30_qjt8p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.913343, 10.702867, -9.75459)
 
-[node name="Bush_1_F_Color35" parent="." unique_id=68392864 instance=ExtResource("30_qjt8p")]
+[node name="Bush_1_F_Color35" parent="StuffnShit" unique_id=68392864 instance=ExtResource("30_qjt8p")]
 transform = Transform3D(-0.9680427, 0, 0.25078544, 0, 1, 0, -0.25078544, 0, -0.9680427, -4.826067, 6.5533276, -1.6018114)
 
-[node name="Bush_1_F_Color32" parent="." unique_id=929625879 instance=ExtResource("30_qjt8p")]
+[node name="Bush_1_F_Color32" parent="StuffnShit" unique_id=929625879 instance=ExtResource("30_qjt8p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8016133, 4.6313224, -10.907644)
 
-[node name="Rock_3_C_Color32" parent="." unique_id=454023809 instance=ExtResource("13_6g32d")]
+[node name="Rock_3_C_Color33" parent="StuffnShit" unique_id=454023809 instance=ExtResource("13_6g32d")]
 transform = Transform3D(-0.21662699, 0.97625446, 0, -0.97625446, -0.21662699, 0, 0, 0, 1, -2.7996306, 2.5317817, -6.3683352)
 
-[node name="Rock_3_E_Color33" parent="." unique_id=1415967955 instance=ExtResource("27_qjt8p")]
+[node name="Rock_3_E_Color33" parent="StuffnShit" unique_id=1415967955 instance=ExtResource("27_qjt8p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2583964, 2.5487213, -7.3582973)
 
-[node name="Rock_3_H_Color32" parent="." unique_id=379651176 instance=ExtResource("31_aw363")]
+[node name="Rock_3_H_Color32" parent="StuffnShit" unique_id=379651176 instance=ExtResource("31_aw363")]
 transform = Transform3D(0.73518676, -0.6778646, 0, 0.6778646, 0.73518676, 0, 0, 0, 1, -2.667788, 2.782007, -8.666693)
 
-[node name="Rock_3_D_Color32" parent="." unique_id=563756589 instance=ExtResource("14_une3w")]
+[node name="Rock_3_D_Color33" parent="StuffnShit" unique_id=563756589 instance=ExtResource("14_une3w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6132212, 2.411762, -9.618054)
 
-[node name="Hill_4x2x4_Color32" parent="." unique_id=1537163125 instance=ExtResource("16_pcyi0")]
+[node name="Hill_4x2x4_Color33" parent="StuffnShit" unique_id=1537163125 instance=ExtResource("16_pcyi0")]
 transform = Transform3D(-1, 0, 8.754432e-08, 0, 0.99999994, 0, -8.940697e-08, 0, -1, 3.1716547, 8.307714, -25.913313)
 
-[node name="Hill_4x4x8_Color33" parent="." unique_id=2101241007 instance=ExtResource("6_rt1yw")]
+[node name="Hill_4x4x8_Color38" parent="StuffnShit" unique_id=2101241007 instance=ExtResource("6_rt1yw")]
 transform = Transform3D(0.9997425, 0, -0.022687342, 0, 0.99999964, 0, 0.022687333, 0, 0.99974257, -0.40172052, -3.0336118, -21.66146)
 
-[node name="Rock_3_R_Color34" parent="." unique_id=97151126 instance=ExtResource("32_aw363")]
+[node name="Rock_3_R_Color34" parent="StuffnShit" unique_id=97151126 instance=ExtResource("32_aw363")]
 transform = Transform3D(5.2278337, 0, 5.83484, 0, 1, 0, -4.7277193, 0, 7.294942, 1.7729454, -1.3335927, -28.950401)
 
-[node name="Rock_3_R_Color33" parent="." unique_id=1173364262 instance=ExtResource("32_aw363")]
+[node name="Rock_3_R_Color33" parent="StuffnShit" unique_id=1173364262 instance=ExtResource("32_aw363")]
 transform = Transform3D(-2.5862365, 0, -0.6424811, 0, 1, 0, 0.5544412, 0, -2.9969056, 2.448717, 4.3833895, -30.14878)
 
-[node name="Rock_3_R_Color32" parent="." unique_id=81594569 instance=ExtResource("32_aw363")]
+[node name="Rock_3_R_Color32" parent="StuffnShit" unique_id=81594569 instance=ExtResource("32_aw363")]
 transform = Transform3D(0.8277493, -0.2006926, -0.52397865, -0.54234934, -0.04678937, -0.8388492, 0.1438342, 0.9785363, -0.14757536, 4.216803, 4.9077396, -23.589252)
 
-[node name="Rock_3_H_Color33" parent="." unique_id=387470434 instance=ExtResource("31_aw363")]
+[node name="Rock_3_H_Color33" parent="StuffnShit" unique_id=387470434 instance=ExtResource("31_aw363")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.425676, 4.2618833, -22.648453)
 
-[node name="Bush_1_F_Color34" parent="." unique_id=1230524529 instance=ExtResource("30_qjt8p")]
+[node name="Bush_1_F_Color34" parent="StuffnShit" unique_id=1230524529 instance=ExtResource("30_qjt8p")]
 transform = Transform3D(-0.9273931, 0.009467299, 0.37396908, 0.009661716, 0.9999524, -0.0013547715, -0.37396407, 0.0023567758, -0.92744035, 3.799858, 12.091429, -26.30128)
 
-[node name="Bush_1_F_Color33" parent="." unique_id=720555664 instance=ExtResource("30_qjt8p")]
+[node name="Bush_1_F_Color33" parent="StuffnShit" unique_id=720555664 instance=ExtResource("30_qjt8p")]
 transform = Transform3D(0.7546066, 0, 0.6561776, 0, 1, 0, -0.6561776, 0, 0.7546066, -0.07661915, 10.760796, -23.810398)
 
-[node name="Tree_7_C_Color32" parent="." unique_id=1773716537 instance=ExtResource("34_3hj7f")]
+[node name="Tree_7_C_Color32" parent="StuffnShit" unique_id=1773716537 instance=ExtResource("34_3hj7f")]
 transform = Transform3D(-0.16952154, 0, 0.9855265, 0, 1, 0, -0.9855265, 0, -0.16952154, -0.31499934, 2.5238833, -14.352361)
 
-[node name="Hill_8x4x8_Color34" parent="." unique_id=344162415 instance=ExtResource("35_ay7lf")]
+[node name="Hill_8x4x8_Color34" parent="StuffnShit" unique_id=344162415 instance=ExtResource("35_ay7lf")]
 transform = Transform3D(0.005672173, 0, -0.9999837, 0, 1, 0, 0.9999837, 0, 0.005672173, 16.156284, 1.1112652, -21.644629)
 
-[node name="Hill_8x4x8_Color33" parent="." unique_id=1513848953 instance=ExtResource("35_ay7lf")]
+[node name="Hill_8x4x8_Color33" parent="StuffnShit" unique_id=1513848953 instance=ExtResource("35_ay7lf")]
 transform = Transform3D(-0.0029320992, 0, 0.9999956, 0, 1, 0, -0.9999956, 0, -0.0029320992, 8.614092, 2.9505873, -11.876188)
 
-[node name="Hill_8x4x8_Color32" parent="." unique_id=506367989 instance=ExtResource("35_ay7lf")]
+[node name="Hill_8x4x8_Color32" parent="StuffnShit" unique_id=506367989 instance=ExtResource("35_ay7lf")]
 transform = Transform3D(-0.0014660731, 0, 0.99999887, 0, 1, 0, -0.99999887, 0, -0.0014660731, -4.9792423, -1.0401785, -15.5645895)
 
-[node name="Hill_8x8x8_Color32" parent="." unique_id=1963849841 instance=ExtResource("36_3hj7f")]
+[node name="Hill_8x8x8_Color32" parent="StuffnShit" unique_id=1963849841 instance=ExtResource("36_3hj7f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8887825, -4.6849594, -18.908451)
 
-[node name="Gems_Chest2" parent="." unique_id=2074065441 instance=ExtResource("37_lyt3f")]
+[node name="Gems_Chest2" parent="StuffnShit" unique_id=2074065441 instance=ExtResource("37_lyt3f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9673336, 0.7444343, -25.480764)
 
-[node name="Hill_12x12x4_Color32" parent="." unique_id=1631417188 instance=ExtResource("38_sk1hx")]
+[node name="Hill_12x12x4_Color32" parent="StuffnShit" unique_id=1631417188 instance=ExtResource("38_sk1hx")]
 transform = Transform3D(1, 0, 0, 0, 1.325, 0, 0, 0, 1, 2.8996382, 4.029191, -28.3733)
 
-[node name="Rock_3_H_Color34" parent="." unique_id=731567967 instance=ExtResource("31_aw363")]
+[node name="Rock_3_H_Color35" parent="StuffnShit" unique_id=1561046926 instance=ExtResource("31_aw363")]
+transform = Transform3D(-0.07234585, 1.1163226, 0.10066503, 0.65148336, 0.15689354, -0.9065017, -0.812043, 0, -0.58359796, 1.3842683, 4.3992124, -23.6978)
+
+[node name="Rock_3_H_Color34" parent="StuffnShit" unique_id=731567967 instance=ExtResource("31_aw363")]
 transform = Transform3D(-0.45629057, 0, -0.8898308, 0, 1.125, 0, 0.8898308, 0, -0.45629057, 1.9884338, 4.946777, -22.392027)
 
-[node name="Rock_3_H_Color34" parent="Rock_3_H_Color34" unique_id=1561046926 instance=ExtResource("31_aw363")]
-transform = Transform3D(-0.6895702, -0.5093675, -0.565236, 0.5790963, 0.13946092, -0.8057793, 0.43490314, -0.99333835, 0.17671539, -0.8862419, -0.4867239, 1.1334171)
-
-[node name="Hill_4x4x8_Color34" parent="." unique_id=1516879242 instance=ExtResource("6_rt1yw")]
+[node name="Hill_4x4x8_Color39" parent="StuffnShit" unique_id=1516879242 instance=ExtResource("6_rt1yw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.87583685, 0.5, -25.422703)
 
-[node name="Hill_8x4x4_Color32" parent="." unique_id=1231543946 instance=ExtResource("39_qx0cg")]
+[node name="Hill_8x4x4_Color32" parent="StuffnShit" unique_id=1231543946 instance=ExtResource("39_qx0cg")]
 transform = Transform3D(0.9371421, 0, 0.34894824, 0, 1, 0, -0.34894824, 0, 0.9371421, 1.9799199, 0.5, -28.514385)
 
-[node name="Hill_4x4x8_Color35" parent="." unique_id=1799693012 instance=ExtResource("6_rt1yw")]
+[node name="Hill_4x4x8_Color40" parent="StuffnShit" unique_id=1799693012 instance=ExtResource("6_rt1yw")]
 transform = Transform3D(0.44465083, 0, -0.895704, 0, 1, 0, 0.895704, 0, 0.44465083, 6.161936, -1.1620444, -28.528826)
 
-[node name="Hill_4x4x4_Color32" parent="." unique_id=1686253319 instance=ExtResource("40_v3rym")]
+[node name="Hill_4x4x4_Color32" parent="StuffnShit" unique_id=1686253319 instance=ExtResource("40_v3rym")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.687287, 0.5, -24.472181)
 
-[node name="Gems_Pile_Large2" parent="." unique_id=1029864333 instance=ExtResource("42_v3rym")]
+[node name="Gems_Pile_Large3" parent="StuffnShit" unique_id=1348782016 instance=ExtResource("42_v3rym")]
+transform = Transform3D(0.33217758, 0, 0.94321686, 0, 1, 0, -0.94321686, 0, 0.33217758, 4.3431687, 0.6661773, -25.818922)
+
+[node name="Gems_Pile_Large2" parent="StuffnShit" unique_id=1029864333 instance=ExtResource("42_v3rym")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.096661, 0.61013484, -24.54724)
 
-[node name="Gems_Pile_Large2" parent="Gems_Pile_Large2" unique_id=1348782016 instance=ExtResource("42_v3rym")]
-transform = Transform3D(0.33217758, 0, 0.94321686, 0, 1, 0, -0.94321686, 0, 0.33217758, 0.24650764, 0.056042433, -1.2716827)
-
-[node name="Gems_Pile_Small2" parent="." unique_id=1548701308 instance=ExtResource("43_8bgh2")]
+[node name="Gems_Pile_Small2" parent="StuffnShit" unique_id=1548701308 instance=ExtResource("43_8bgh2")]
 transform = Transform3D(0.5187434, 0, 0.85493, 0, 1, 0, -0.85493, 0, 0.5187434, 1.7059784, 0.70598966, -24.854443)
 
-[node name="Gems_Sack2" parent="." unique_id=988623793 instance=ExtResource("44_pjchn")]
+[node name="Gems_Sack3" parent="StuffnShit" unique_id=1824044143 instance=ExtResource("44_pjchn")]
+transform = Transform3D(-0.05425308, 0, -0.9985272, 0, 1, 0, 0.9985272, 0, -0.05425308, 1.4528658, 0.68754053, -25.888687)
+
+[node name="Gems_Sack2" parent="StuffnShit" unique_id=988623793 instance=ExtResource("44_pjchn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4135413, 1.0908133, -26.290405)
 
-[node name="Gems_Sack2" parent="Gems_Sack2" unique_id=1824044143 instance=ExtResource("44_pjchn")]
-transform = Transform3D(-0.05425308, 0, -0.9985272, 0, 1, 0, 0.9985272, 0, -0.05425308, -2.9606755, -0.40327275, 0.40171814)
-
-[node name="building_home_A_blue" parent="." unique_id=688253751 instance=ExtResource("46_pjchn")]
+[node name="building_home_A_blue" parent="StuffnShit" unique_id=688253751 instance=ExtResource("46_pjchn")]
 transform = Transform3D(3.4402165, 0, 3.2752724, 0, 4.75, 0, -3.2752724, 0, 3.4402165, -1.1906345, 0.48304087, 0.4143579)
 
 [node name="InteractDetector" parent="." unique_id=69040450 instance=ExtResource("46_14fyh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.061047792, 0, 1.6585662)
 
 [node name="Hill_2x2x2_Color32" parent="." unique_id=138826144 instance=ExtResource("46_w28bb")]
+[node name="Hill_2x2x2_Color32" parent="StuffnShit" unique_id=138826144 instance=ExtResource("46_w28bb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.21529, 0.16792893, 6.19608)
 
-[node name="Hill_4x2x8_Color32" parent="." unique_id=1881818570 instance=ExtResource("47_3ucvo")]
+[node name="Hill_4x2x8_Color32" parent="StuffnShit" unique_id=1881818570 instance=ExtResource("47_3ucvo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6459074, -3.4619155, 7.756002)
 
-[node name="Containers_Crate_Medium_Tan4" parent="." unique_id=1030972048 instance=ExtResource("48_magj1")]
+[node name="Containers_Crate_Medium_Tan4" parent="StuffnShit" unique_id=1030972048 instance=ExtResource("48_magj1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2876364, 0.9110298, 11.000087)
 
-[node name="Containers_Crate_Medium_Tan5" parent="." unique_id=1909720336 instance=ExtResource("48_magj1")]
+[node name="Containers_Crate_Medium_Tan5" parent="StuffnShit" unique_id=1909720336 instance=ExtResource("48_magj1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2876364, 0.9110298, 10.008859)
 
-[node name="Hill_8x4x2_Color33" parent="." unique_id=594529587 instance=ExtResource("49_14fyh")]
+[node name="Hill_8x4x2_Color33" parent="StuffnShit" unique_id=594529587 instance=ExtResource("49_14fyh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8578787, -0.6249459, 7.661685)
 
-[node name="Tree_1_A_Color15" parent="." unique_id=849515553 instance=ExtResource("5_rohao")]
+[node name="Tree_1_A_Color16" parent="StuffnShit" unique_id=849515553 instance=ExtResource("5_rohao")]
 transform = Transform3D(0.8440673, -0.10124734, -0.52659243, 0.08590097, 0.9948614, -0.053591467, 0.5293123, 1.1656862e-09, 0.84842706, 1.4507632, 1.2150271, 7.13239)
 
-[node name="Bush_1_F_Color37" parent="." unique_id=1149749416 instance=ExtResource("30_qjt8p")]
+[node name="Bush_1_F_Color37" parent="StuffnShit" unique_id=1149749416 instance=ExtResource("30_qjt8p")]
 transform = Transform3D(-0.9680427, 0, 0.25078544, 0, 1, 0, -0.25078544, 0, -0.9680427, -3.778463, 1.3148894, 8.135359)
 
-[node name="Hill_12x6x8_Color53" parent="." unique_id=966422004 instance=ExtResource("53_31f0h")]
+[node name="Hill_12x6x8_Color54" parent="StuffnShit" unique_id=2014494578 instance=ExtResource("53_31f0h")]
+transform = Transform3D(0.05498582, 0, -5.2059236, 0, 3.9480014, 0, 3.9476197, 0, 0.072512925, 35.679222, -29.831707, -22.360838)
+
+[node name="Hill_12x6x8_Color55" parent="StuffnShit" unique_id=938293571 instance=ExtResource("53_31f0h")]
+transform = Transform3D(1.6415812, 0, -0.10601222, 0, 1.645, 0, 0.10601222, 0, 1.6415812, 20.980488, -12.535066, 3.9265194)
+
+[node name="Hill_12x6x8_Color53" parent="StuffnShit" unique_id=966422004 instance=ExtResource("53_31f0h")]
 transform = Transform3D(-0.99999756, 0, -0.0022515543, 0, 1, 0, 0.0022515543, 0, -0.99999756, 11.851614, -7.329891, 5.716998)
 
-[node name="Hill_12x6x8_Color53" parent="Hill_12x6x8_Color53" unique_id=336779886 instance=ExtResource("53_31f0h")]
-transform = Transform3D(-0.99777377, 0, 0.066691786, 0, 1, 0, -0.066691786, 0, -0.99777377, 11.851614, -7.329891, 5.2948027)
-
-[node name="Hill_12x6x8_Color54" parent="Hill_12x6x8_Color53" unique_id=938293571 instance=ExtResource("53_31f0h")]
-transform = Transform3D(-1.6413382, 0, 0.10970805, 0, 1.645, 0, -0.10970805, 0, -1.6413382, -9.132882, -5.2051744, 1.7699199)
-
-[node name="Hill_12x6x8_Color54" parent="Hill_12x6x8_Color53/Hill_12x6x8_Color54" unique_id=2014494578 instance=ExtResource("53_31f0h")]
-transform = Transform3D(0.38929626, 0, -3.1230853, 0, 2.4000008, 0, 2.3682165, 0, 0.5133845, 6.5150385, -10.514675, -12.565895)
-
-[node name="Hill_12x6x8_Color52" parent="." unique_id=2138235716 instance=ExtResource("53_31f0h")]
+[node name="Hill_12x6x8_Color52" parent="StuffnShit" unique_id=2138235716 instance=ExtResource("53_31f0h")]
 transform = Transform3D(0.46406916, 0, 0.885799, 0, 1, 0, -0.885799, 0, 0.46406916, 10.505233, -7.349034, -2.6585867)
 
-[node name="Bush_4_E_Color52" parent="." unique_id=672695129 instance=ExtResource("54_wxcyn")]
+[node name="Bush_4_E_Color55" parent="StuffnShit" unique_id=1291668543 instance=ExtResource("54_wxcyn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.101292, 2.793395, 7.7524586)
+
+[node name="Bush_4_C_Color54" parent="StuffnShit" unique_id=1407390951 instance=ExtResource("55_bwguq")]
+transform = Transform3D(1.5656064, 0, 0.2941541, 0, 1.593, 0, -0.2941541, 0, 1.5656064, 19.848297, 1.851152, 4.934943)
+
+[node name="Bush_4_C_Color53" parent="StuffnShit" unique_id=404087167 instance=ExtResource("55_bwguq")]
+transform = Transform3D(1.0479221, 0, 1.0380194, 0, 1.4750001, 0, -1.0380194, 0, 1.0479221, 17.32602, 2.1120718, 3.9076147)
+
+[node name="Bush_4_E_Color54" parent="StuffnShit" unique_id=673662271 instance=ExtResource("54_wxcyn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.840389, 4.304535, 0.11060381)
+
+[node name="Bush_4_E_Color52" parent="StuffnShit" unique_id=672695129 instance=ExtResource("54_wxcyn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.9201946, 0.42467988, 2.238111)
 
-[node name="Bush_4_E_Color52" parent="Bush_4_E_Color52" unique_id=673662271 instance=ExtResource("54_wxcyn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.9201946, 3.8798552, -2.1275072)
+[node name="Bush_4_C_Color55" parent="StuffnShit" unique_id=71621562 instance=ExtResource("55_bwguq")]
+transform = Transform3D(1.1212, 0, 1.1316186, 0, 1.5930002, 0, -1.1316186, 0, 1.1212, 10.578455, 7.0493464, -5.611535)
 
-[node name="Bush_4_E_Color53" parent="Bush_4_E_Color52" unique_id=1291668543 instance=ExtResource("54_wxcyn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.181097, 2.3687153, 5.5143476)
+[node name="Bush_4_C_Color56" parent="StuffnShit" unique_id=1044186976 instance=ExtResource("55_bwguq")]
+transform = Transform3D(0.8228985, 0, 0.56818855, 0, 1, 0, -0.56818855, 0, 0.8228985, 10.817981, 7.4976454, -4.040807)
 
-[node name="Bush_4_C_Color52" parent="Bush_4_E_Color52" unique_id=404087167 instance=ExtResource("55_bwguq")]
-transform = Transform3D(1.0479221, 0, 1.0380194, 0, 1.4750001, 0, -1.0380194, 0, 1.0479221, 10.405825, 1.6873919, 1.6695037)
+[node name="Bush_4_E_Color56" parent="StuffnShit" unique_id=303475881 instance=ExtResource("54_wxcyn")]
+transform = Transform3D(-0.851791, 0, -0.52388173, 0, 1, 0, 0.52388173, 0, -0.851791, 10.047846, 0.5648434, -0.061272144)
 
-[node name="Bush_4_C_Color52" parent="Bush_4_E_Color52/Bush_4_C_Color52" unique_id=1407390951 instance=ExtResource("55_bwguq")]
-transform = Transform3D(0.8944423, 0, -0.60528773, 0, 1.0799999, 0, 0.60528773, 0, 0.8944423, 0.724741, -0.17689478, 1.6982403)
+[node name="Bush_4_E_Color57" parent="StuffnShit" unique_id=1225724178 instance=ExtResource("54_wxcyn")]
+transform = Transform3D(-0.851791, 0, -0.52388173, 0, 1, 0, 0.52388173, 0, -0.851791, 15.37381, 0.4516704, 7.78907)
 
-[node name="Bush_4_E_Color53" parent="." unique_id=1189946920 instance=ExtResource("54_wxcyn")]
+[node name="Bush_4_E_Color53" parent="StuffnShit" unique_id=1189946920 instance=ExtResource("54_wxcyn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.133009, 0.3550502, 6.4360476)
 
-[node name="Bush_4_C_Color52" parent="Bush_4_E_Color53" unique_id=71621562 instance=ExtResource("55_bwguq")]
-transform = Transform3D(1.1212, 0, 1.1316186, 0, 1.5930002, 0, -1.1316186, 0, 1.1212, 4.445446, 6.6942964, -12.047583)
+[node name="Bush_4_C_Color57" parent="StuffnShit" unique_id=1984956349 instance=ExtResource("55_bwguq")]
+transform = Transform3D(1.4071491, 0, 0.7467135, 0, 1.593, 0, -0.7467135, 0, 1.4071491, 8.360965, -0.01177609, 7.072931)
 
-[node name="Bush_4_C_Color53" parent="Bush_4_E_Color53" unique_id=1044186976 instance=ExtResource("55_bwguq")]
-transform = Transform3D(0.8228985, 0, 0.56818855, 0, 1, 0, -0.56818855, 0, 0.8228985, 4.684972, 7.1425953, -10.476854)
+[node name="Bush_4_C_Color58" parent="StuffnShit" unique_id=817610522 instance=ExtResource("55_bwguq")]
+transform = Transform3D(0.6915612, 0, 1.3028308, 0, 1.4750001, 0, -1.3028308, 0, 0.6915612, 8.041458, 0.24914408, -0.36163473)
 
-[node name="Bush_4_E_Color53" parent="Bush_4_E_Color53" unique_id=303475881 instance=ExtResource("54_wxcyn")]
-transform = Transform3D(-0.851791, 0, -0.52388173, 0, 1, 0, 0.52388173, 0, -0.851791, 3.914837, 0.20979321, -6.4973197)
+[node name="Bush_4_C_Color52" parent="StuffnShit" unique_id=581403422 instance=ExtResource("55_bwguq")]
+transform = Transform3D(0.9546985, 0, 0.29757485, 0, 1, 0, -0.29757485, 0, 0.9546985, 12.817947, 0.50578773, 2.2253036)
 
-[node name="Bush_4_E_Color55" parent="Bush_4_E_Color53" unique_id=1225724178 instance=ExtResource("54_wxcyn")]
-transform = Transform3D(-0.851791, 0, -0.52388173, 0, 1, 0, 0.52388173, 0, -0.851791, 8.867582, 0.0966202, 1.2845106)
+[node name="Tree_4_B_Color53" parent="StuffnShit" unique_id=659756394 instance=ExtResource("56_yjl0o")]
+transform = Transform3D(0.03722021, 0, 0.3781728, 0, 0.38, 0, -0.3781728, 0, 0.03722021, 12.588249, -0.6841639, 6.3787875)
 
-[node name="Bush_4_C_Color52" parent="." unique_id=581403422 instance=ExtResource("55_bwguq")]
-transform = Transform3D(0.9546985, 0, 0.29757485, 0, 1, 0, -0.29757485, 0, 0.9546985, 12.303738, 0.50578773, 2.8421416)
+[node name="Tree_4_B_Color54" parent="StuffnShit" unique_id=698465338 instance=ExtResource("56_yjl0o")]
+transform = Transform3D(-0.8319349, 0, -0.5548734, 0, 1, 0, 0.5548734, 0, -0.8319349, 11.375519, 0.32283068, 2.5368881)
 
-[node name="Bush_4_C_Color52" parent="Bush_4_C_Color52" unique_id=817610522 instance=ExtResource("55_bwguq")]
-transform = Transform3D(1.0479221, 0, 1.0380194, 0, 1.4750001, 0, -1.0380194, 0, 1.0479221, -3.7902994, -0.25664365, -3.8911092)
-
-[node name="Bush_4_C_Color52" parent="Bush_4_C_Color52/Bush_4_C_Color52" unique_id=1984956349 instance=ExtResource("55_bwguq")]
-transform = Transform3D(0.8944423, 0, -0.60528773, 0, 1.0799999, 0, 0.60528773, 0, 0.8944423, -3.9901478, -0.17689501, 2.5455108)
-
-[node name="Tree_4_B_Color52" parent="." unique_id=811691007 instance=ExtResource("56_yjl0o")]
+[node name="Tree_4_B_Color52" parent="StuffnShit" unique_id=811691007 instance=ExtResource("56_yjl0o")]
 transform = Transform3D(0.9564322, 0, -0.29195443, 0, 1, 0, 0.29195443, 0, 0.9564322, 5.3100705, 0.4328797, 0.930913)
 
-[node name="Tree_4_B_Color52" parent="Tree_4_B_Color52" unique_id=698465338 instance=ExtResource("56_yjl0o")]
-transform = Transform3D(-0.6336916, 0, -0.7735859, 0, 1, 0, 0.7735859, 0, -0.6336916, 6.2700624, -0.11004901, -0.23482841)
-
-[node name="Hill_12x6x4_Color52" parent="." unique_id=734531433 instance=ExtResource("57_t2l4f")]
+[node name="Hill_12x6x4_Color52" parent="StuffnShit" unique_id=734531433 instance=ExtResource("57_t2l4f")]
 transform = Transform3D(0.8025884, 0, -0.59653306, 0, 1, 0, 0.59653306, 0, 0.8025884, 12.833507, 0.5, -2.6780295)
+
+[node name="Food_Cheese3" parent="StuffnShit" unique_id=1047359283 instance=ExtResource("58_6m0ls")]
+transform = Transform3D(-0.057848122, -0.1466493, 0.13299099, -0.05029182, 0.1448929, 0.13789767, -0.19147679, 0.0062485514, -0.0763978, 12.226875, 1.1026723, 6.2349434)
+
+[node name="Food_Cheese2" parent="StuffnShit" unique_id=359302418 instance=ExtResource("58_6m0ls")]
+transform = Transform3D(-0.0021768569, -0.27872968, 0.17664951, 0.17439707, 0.14899656, 0.23724607, -0.2801445, 0.09492001, 0.14631905, 12.375599, 1.2568018, 6.563139)
+
+[node name="Food_Cheese4" parent="StuffnShit" unique_id=1979435525 instance=ExtResource("58_6m0ls")]
+transform = Transform3D(-0.07707391, -0.19158664, 0.03813351, -0.1427809, 0.0832281, 0.1295635, -0.13331628, 0.021624895, -0.16080776, 12.461268, 1.6572123, 6.211059)
+
+[node name="Food_Cheese5" parent="StuffnShit" unique_id=1626040190 instance=ExtResource("58_6m0ls")]
+transform = Transform3D(0.23312071, 0.08444757, -0.07825165, -0.114916235, 0.15993655, -0.16974849, -0.006998267, 0.18678567, 0.18072663, 12.651481, 1.125315, 6.6729712)
+
+[node name="Food_Cheese6" parent="StuffnShit" unique_id=2073371578 instance=ExtResource("58_6m0ls")]
+transform = Transform3D(-0.05242651, 0.052011132, -0.2492916, -0.22605519, 0.10769342, 0.07000857, 0.11726265, 0.23086134, 0.023505382, 12.651481, 1.6117562, 6.4079432)
+
+[node name="Food_Cheese7" parent="StuffnShit" unique_id=558876124 instance=ExtResource("58_6m0ls")]
+transform = Transform3D(-0.32951194, 0.012100086, 0.013246113, -0.0075221197, 0.1280184, -0.3040637, -0.016287709, -0.30391595, -0.12755322, 12.578581, 1.0819751, 6.057912)
+
+[node name="Food_Cheese8" parent="StuffnShit" unique_id=140105235 instance=ExtResource("58_6m0ls")]
+transform = Transform3D(0.14954534, 0.029145118, 0.13901713, -0.14093713, 0.05554761, 0.13996494, -0.017661983, -0.1964791, 0.060191654, 12.677344, 1.5705081, 6.1033645)
+
+[node name="Food_Cheese9" parent="StuffnShit" unique_id=811778253 instance=ExtResource("58_6m0ls")]
+transform = Transform3D(-0.011715331, -0.32931, -0.01782372, 0.24151354, -0.020711787, 0.2239246, -0.22457515, -0.0050948854, 0.24174382, 12.852474, 1.1561171, 6.0995502)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StuffnShit" unique_id=1451324930]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.810483, -1.0038528, 2.5752277)
+shape = SubResource("BoxShape3D_ded85")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="StuffnShit" unique_id=222721564]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.810483, -1.0038528, 2.5752277)
+
+[node name="Hill_12x12x2_Color82" parent="StuffnShit" unique_id=1384366988 instance=ExtResource("59_ded85")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.810483, -1.0038528, 2.5752277)
+
+[node name="Tree_2_E_Color85" parent="StuffnShit" unique_id=120612626 instance=ExtResource("61_woxgy")]
+transform = Transform3D(0.88666636, -0.014024249, 0.4622005, 0.027285507, 0.9993859, -0.022019725, -0.46160707, 0.03213549, 0.8865041, -21.50301, -0.37267196, 2.675276)
+
+[node name="Tree_2_D_Color82" parent="StuffnShit" unique_id=1152499689 instance=ExtResource("60_t2l4f")]
+transform = Transform3D(0.617338, 0, -0.78669804, 0, 1, 0, 0.78669804, 0, 0.617338, -9.903951, -2.9003024, 7.446368)
+
+[node name="Tree_2_E_Color87" parent="StuffnShit" unique_id=1491459517 instance=ExtResource("61_woxgy")]
+transform = Transform3D(-0.9149224, 0.03561927, 0.40205646, 0.030943291, 0.999357, -0.018120943, -0.4024435, -0.0041382927, -0.91543615, -18.438168, -2.8382382, 4.797273)
+
+[node name="Tree_2_E_Color86" parent="StuffnShit" unique_id=952109032 instance=ExtResource("61_woxgy")]
+transform = Transform3D(0.8455281, -0.00021965755, -0.533933, 0.003037742, 0.99998605, 0.00439916, 0.5339246, -0.0053415624, 0.84551686, -20.111818, -1.6021552, -0.7542515)
+
+[node name="Tree_2_E_Color82" parent="StuffnShit" unique_id=1236705208 instance=ExtResource("61_woxgy")]
+transform = Transform3D(0.9651217, 0, -0.26180178, 0, 1, 0, 0.26180178, 0, 0.9651217, -13.996819, -4.34965, 7.320015)
+
+[node name="Bush_2_C_Color82" parent="StuffnShit" unique_id=713227578 instance=ExtResource("62_jp487")]
+transform = Transform3D(0.9067866, 0.42158982, 0, -0.40412402, 0.86921984, -0.28485194, -0.12009068, 0.25829992, 0.95857155, -6.041637, 0.03715974, 4.1984434)
+
+[node name="Bush_2_D_Color83" parent="StuffnShit" unique_id=1167110192 instance=ExtResource("63_8g5xj")]
+transform = Transform3D(-0.37183776, 0, -0.92829776, 0, 1, 0, 0.92829776, 0, -0.37183776, -7.2521157, 0.84650135, 5.3025947)
+
+[node name="Bush_2_D_Color82" parent="StuffnShit" unique_id=802416737 instance=ExtResource("63_8g5xj")]
+transform = Transform3D(0.9293518, 0, -0.36919534, 0, 1, 0, 0.36919534, 0, 0.9293518, -6.577312, 0.8610045, -0.050596)
+
+[node name="Tree_2_C_Color82" parent="StuffnShit" unique_id=1248861680 instance=ExtResource("64_gm1gl")]
+transform = Transform3D(0.26325008, 0, -0.96472764, 0, 1, 0, 0.96472764, 0, 0.26325008, -17.756481, -4.1568804, 1.3908286)
+
+[node name="Tree_2_D_Color83" parent="StuffnShit" unique_id=1900866122 instance=ExtResource("60_t2l4f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.353397, -3.4961643, -0.02209711)
+
+[node name="Tree_2_E_Color83" parent="StuffnShit" unique_id=1262856418 instance=ExtResource("61_woxgy")]
+transform = Transform3D(-0.55687207, 0.038772274, 0.8296931, 0.02955605, 0.9992026, -0.026856221, -0.8300724, 0.009566972, -0.55757415, -19.023024, -1.443544, 7.6309566)
+
+[node name="Tree_2_E_Color84" parent="StuffnShit" unique_id=515195677 instance=ExtResource("61_woxgy")]
+transform = Transform3D(0.5033198, 0.008335894, 0.86406064, 0.029556055, 0.99920267, -0.026856225, -0.8635949, 0.039055463, 0.5026717, -16.15246, -0.54459774, -2.8198767)
+
+[node name="Tree_1_C_Color14" parent="StuffnShit" unique_id=1307856504 instance=ExtResource("3_31f11")]
+transform = Transform3D(0.5839664, 0, -0.811778, 0, 1, 0, 0.811778, 0, 0.5839664, -9.764944, 6.2293634, -1.463067)
+
+[node name="Tree_1_A_Color13" parent="StuffnShit" unique_id=193250051 instance=ExtResource("5_rohao")]
+transform = Transform3D(0.78616977, 0, -0.6180106, 0, 1, 0, 0.6180106, 0, 0.78616977, -12.799258, 6.441592, -0.24824905)
+
+[node name="Hill_12x12x8_Color82" parent="StuffnShit" unique_id=856139382 instance=ExtResource("65_woxgy")]
+transform = Transform3D(1.635, 0, 0, 0, 1, 0, 0, 0, 1, -17.258907, -7.3611484, 3.461197)
+
+[node name="Bush_1_G_Color35" parent="StuffnShit" unique_id=2138820066 instance=ExtResource("17_une3w")]
+transform = Transform3D(0.4504543, -0.35711157, -0.8182679, 0.18566626, 0.93395084, -0.30538982, 0.87328064, -0.014360361, 0.4870059, 6.411848, 0.3778662, -19.767479)
+
+[node name="Bush_1_G_Color34" parent="StuffnShit" unique_id=386915986 instance=ExtResource("17_une3w")]
+transform = Transform3D(0.84755796, -0.17527375, 0.50092363, 0.17883575, 0.9830088, 0.041367523, -0.49966297, 0.054521695, 0.8645022, -0.1903727, 0.15055001, -12.346384)
+
+[node name="Hill_4x4x8_Color41" parent="StuffnShit" unique_id=551344792 instance=ExtResource("6_rt1yw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0257845, -3.1390429, -11.4979925)
