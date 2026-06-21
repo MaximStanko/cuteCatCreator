@@ -15,4 +15,5 @@ func _on_static_body_3d_input_event(camera, event, event_position, normal, shape
 				_label.text += "???"
 			_label.text += " (" + shape + ", " + str(Inventory.is_found(shape)) + ")\n"
 		_label.text += "Overall: " + str(Inventory.found_count()) + "/12"
+		GameManager.update_compendium.emit()
 		$"../Camera3D/CompendiumOverlay".visible = true
