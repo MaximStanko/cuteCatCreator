@@ -1,9 +1,49 @@
 [gd_scene format=3 uid="uid://kmegs8uujgdr"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_f26pf"]
+[ext_resource type="PackedScene" uid="uid://bns4r0lmamwlv" path="res://assets/book/gltf/journal_open.gltf" id="1_eby8d"]
+[ext_resource type="Script" uid="uid://cjntda5yokstu" path="res://assets/scripts/compendium.gd" id="2_2fq43"]
+[ext_resource type="Script" uid="uid://depk858ijcksa" path="res://assets/scripts/compendium_overlay.gd" id="3_ieoop"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eby8d"]
+size = Vector3(0.52233887, 0.21972656, 0.42773438)
 
 [node name="Compendium" type="Node3D" unique_id=1748706587]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+script = ExtResource("2_2fq43")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=77768299]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
-mesh = SubResource("BoxMesh_f26pf")
+[node name="journal_open2" parent="." unique_id=1663325750 instance=ExtResource("1_eby8d")]
+transform = Transform3D(0.49133664, -0.06618081, -0.0648722, 0.07036084, 0.03861184, 0.49351645, -0.06031297, -0.49409437, 0.0472559, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=522500122]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=2054990082]
+shape = SubResource("BoxShape3D_eby8d")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=873044872]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1520715818]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_ieoop")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control" unique_id=873852061]
+layout_mode = 0
+offset_left = 510.0
+offset_top = 174.0
+offset_right = 889.0
+offset_bottom = 262.0
+text = "This is a compendium"
+
+[node name="Button" type="Button" parent="CanvasLayer/Control" unique_id=1153505801]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 1325.0
+offset_top = 217.0
+offset_right = 1550.0
+offset_bottom = 350.0
+
+[connection signal="input_event" from="StaticBody3D" to="." method="_on_static_body_3d_input_event"]
+[connection signal="button_down" from="CanvasLayer/Control/Button" to="CanvasLayer/Control" method="_on_button_button_down"]

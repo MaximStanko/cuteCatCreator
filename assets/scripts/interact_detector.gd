@@ -24,5 +24,6 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		return
 	match (event as InputEventKey).physical_keycode:
 		KEY_E:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			get_tree().change_scene_to_file("res://scenes/cat_pot_scene.tscn")
-			pass
+			Inventory.hide()

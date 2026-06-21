@@ -47,6 +47,7 @@
 [ext_resource type="PackedScene" uid="uid://8ulet0hunwva" path="res://assets/itemsnshit/gltf/Gems_Pile_Large.gltf" id="42_v3rym"]
 [ext_resource type="PackedScene" uid="uid://bxt6oyxe0v7dy" path="res://assets/itemsnshit/gltf/Gems_Pile_Small.gltf" id="43_8bgh2"]
 [ext_resource type="PackedScene" uid="uid://ca7umy0df8kf6" path="res://assets/itemsnshit/gltf/Gems_Sack.gltf" id="44_pjchn"]
+[ext_resource type="PackedScene" uid="uid://dmsct6i5brv7y" path="res://assets/prefabs/interact_detector.tscn" id="46_14fyh"]
 [ext_resource type="PackedScene" uid="uid://c3d1p76qenrnb" path="res://assets/blue/building_home_A_blue.fbx" id="46_pjchn"]
 [ext_resource type="PackedScene" uid="uid://r4ejoa75buf0" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Hill_2x2x2_Color3.gltf" id="46_w28bb"]
 [ext_resource type="PackedScene" uid="uid://bq36bopjxnasg" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Hill_4x2x8_Color3.gltf" id="47_3ucvo"]
@@ -438,6 +439,9 @@ transform = Transform3D(-0.05425308, 0, -0.9985272, 0, 1, 0, 0.9985272, 0, -0.05
 
 [node name="building_home_A_blue" parent="." unique_id=688253751 instance=ExtResource("46_pjchn")]
 transform = Transform3D(3.4402165, 0, 3.2752724, 0, 4.75, 0, -3.2752724, 0, 3.4402165, -1.1906345, 0.48304087, 0.4143579)
+
+[node name="InteractDetector" parent="." unique_id=69040450 instance=ExtResource("46_14fyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.061047792, 0, 1.6585662)
 
 [node name="Hill_2x2x2_Color32" parent="." unique_id=138826144 instance=ExtResource("46_w28bb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.21529, 0.16792893, 6.19608)
