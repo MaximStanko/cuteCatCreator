@@ -20,12 +20,6 @@ config/icon="res://icon.svg"
 Inventory="*res://scenes/inventory.tscn"
 GameManager="*uid://dm3m4wqdvlaqp"
 
-[display]
-
-window/size/viewport_width=1920
-window/size/viewport_height=1080
-window/stretch/mode="canvas_items"
-
 [filesystem]
 
 import/blender/enabled=false
