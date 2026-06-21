@@ -23,7 +23,11 @@ MusicPlayer="*uid://ckvk2ua1t21ms"
 
 [display]
 
-window/stretch/aspect="keep_width"
+window/size/resizable=false
+window/size/window_width_override=1152
+window/size/window_height_override=648
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [filesystem]
 
