@@ -27,7 +27,6 @@ mesh = SubResource("CylinderMesh_4x516")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, 0)
 billboard = 2
 double_sided = false
-no_depth_test = true
 render_priority = 4
 outline_render_priority = 3
 text = "🐟"
