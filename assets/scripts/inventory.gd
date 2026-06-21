@@ -1,5 +1,9 @@
 extends CanvasLayer
 
+signal rotate_item(item)
+signal place_item(item)
+signal change_selected_item
+
 const SLOT_COUNT := 4
 
 const TOOLS := {
@@ -44,15 +48,20 @@ func _ready() -> void:
 		_rows.append(row)
 	_refresh()
 
-func _unhandled_key_input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if not event.is_pressed() or event.is_echo():
 		return
-	match (event as InputEventKey).physical_keycode:
-		KEY_1: _select_slot(0)
-		KEY_2: _select_slot(1)
-		KEY_3: _select_slot(2)
-		KEY_4: _select_slot(3)
-		KEY_Q: _discard()
+	
+	if event.is_action_pressed("rotate_item"):
+		rotate_item.emit(peek_held_tool())
+	if event.is_action_pressed("place_item"):
+		place_item.emit(peek_held_tool())
+	
+	for i in range(4):
+		if event.is_action_pressed("slot" + str(i + 1)):
+			_select_slot(i)
+	if event.is_action_pressed("discard_item"):
+		_discard()
 
 func _select_slot(index: int) -> void:
 	current_slot = index
@@ -113,3 +122,4 @@ func _refresh() -> void:
 		var marker := ">" if i == current_slot else " "
 		_rows[i].text = "%s %d: %s" % [marker, i + 1, content]
 		_rows[i].modulate = Color(1, 1, 0.5) if i == current_slot else Color(1, 1, 1)
+	change_selected_item.emit()

@@ -12,6 +12,7 @@ var currentTempOrientation: int = 0
 var currentMaxOrientation: int = 0
 var currentEdgePossibilities = null
 var currentEdges = null
+var selectedVertex = null
 
 var verticesUsed: Array = [
 	null, null, null, null, null, null, null
@@ -276,14 +277,20 @@ func remove_vertex(index: int):
 			itemsUsed[index] = null
 		print(checkShape())
 
-func add_vertex(index: int, edges):
+func add_vertex(index: int, edges, tool):
 	verticesUsed[index] = edges
-	if edges != null:
+	var item = tool
+	print(currentItem)
+	print(item)
+	if edges != null and item != "" and item != null:
 		for edge in edges:
-			spawnLockedMagicEdge(edge[0], edge[1], itemColors[currentItem])
+			spawnLockedMagicEdge(edge[0], edge[1], itemColors.get(item))
 		print(checkShape())
 
-func vertex_pressed(index: int):
+func vertex_pressed(tool):
+	var index = selectedVertex
+	if index == null:
+		return
 	print("Vertex " + str(index) + " pressed")
 	if verticesUsed[index] != null:
 		remove_vertex(index)
@@ -300,9 +307,10 @@ func vertex_pressed(index: int):
 		if item == "":
 			return
 		itemsUsed[index] = item
-		add_vertex(index, full_edges)
+		add_vertex(index, full_edges, tool)
 
 func vertex_hovered(index: int):
+	selectedVertex = index
 	print("Vertex " + str(index) + " hovered")
 	if verticesUsed[index] != null:
 		return
@@ -323,6 +331,7 @@ func vertex_hovered(index: int):
 		currentMaxOrientation = 0
 
 func vertex_unhovered(index: int):
+	selectedVertex = null
 	print("Vertex " + str(index) + " unhovered")
 	currentMaxOrientation = 0
 	currentEdges = null
@@ -330,17 +339,29 @@ func vertex_unhovered(index: int):
 		if magicEdges[edge] != null:
 			removeMagicEdge(edge[0], edge[1])
 
-func item_rotated(index: int):
+func item_rotated(item):
+	var index = selectedVertex
+	if index == null:
+		return
 	print("Vertex " + str(index) + " rotated")
 	if currentMaxOrientation > 0:
 		currentTempOrientation = (currentTempOrientation + 1) % currentMaxOrientation
 		while currentEdgePossibilities[currentTempOrientation] == null:
 			currentTempOrientation = (currentTempOrientation + 1) % currentMaxOrientation
 		currentOrientation = currentTempOrientation
+		_refresh()
+
+func _refresh():
+	var index = selectedVertex
+	if index != null:
 		vertex_unhovered(index)
 		vertex_hovered(index)
 
 func _ready() -> void:
+	Inventory.rotate_item.connect(item_rotated)
+	Inventory.place_item.connect(vertex_pressed)
+	Inventory.change_selected_item.connect(_refresh)
+	
 	for vertex_count in shapes:
 		for shape_name in shapes[vertex_count]:
 			shapes[vertex_count][shape_name].sort()
