@@ -1,6 +1,40 @@
 [gd_scene format=3 uid="uid://cyi15lwt7c0uh"]
 
-[ext_resource type="Script" uid="uid://cyt3ifapbhyev" path="res://assets/scripts/pause_menu.gd" id="1_jc6fo"]
+[ext_resource type="Texture2D" uid="uid://c6vdb63ervkey" path="res://assets/book.png" id="1_343vm"]
+[ext_resource type="FontFile" uid="uid://bud6irhaqyrcb" path="res://assets/font/TrueType (.ttf)/Kaph-Regular.ttf" id="2_gde2t"]
+
+[sub_resource type="GDScript" id="GDScript_bjv3s"]
+script/source = "extends Control
+
+func _ready() -> void:
+	hide()
+	$resumeButton.pressed.connect(_on_play)
+	$quitButton.pressed.connect(_on_quit)
+	process_mode = Node.PROCESS_MODE_ALWAYS
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed(\"ui_cancel\"):
+		toggle_pause()
+
+func toggle_pause() -> void:
+	var paused := not get_tree().paused
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	get_tree().paused = paused
+	visible = paused
+	Inventory.visible = not paused
+
+func _on_play() -> void:
+	Inventory.show()
+	get_tree().paused = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	hide()
+	
+func _on_quit() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	get_tree().paused = false
+	get_tree().quit()
+	Inventory.hide()
+"
 
 [node name="PauseMenu" type="Control" unique_id=1200248516]
 process_mode = 3
@@ -10,29 +44,55 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_jc6fo")
+script = SubResource("GDScript_bjv3s")
+
+[node name="Book" type="Sprite2D" parent="." unique_id=2081408235]
+position = Vector2(554, 370)
+texture = ExtResource("1_343vm")
 
 [node name="Label" type="Label" parent="." unique_id=548455682]
 layout_mode = 0
-offset_left = 390.0
-offset_top = 80.0
-offset_right = 687.0
-offset_bottom = 168.0
+offset_left = 417.0
+offset_top = 154.0
+offset_right = 729.0
+offset_bottom = 242.0
+theme_override_colors/font_color = Color(0.13137859, 0.13137859, 0.13137859, 1)
+theme_override_fonts/font = ExtResource("2_gde2t")
 theme_override_font_sizes/font_size = 64
 text = "PAUSED"
 
+[node name="Label2" type="Label" parent="." unique_id=1321550491]
+layout_mode = 0
+offset_left = 656.0
+offset_top = 339.0
+offset_right = 855.0
+offset_bottom = 427.0
+theme_override_colors/font_color = Color(0.13137859, 0.13137859, 0.13137859, 1)
+theme_override_fonts/font = ExtResource("2_gde2t")
+theme_override_font_sizes/font_size = 64
+text = "QUIT"
+
+[node name="Label3" type="Label" parent="." unique_id=650796112]
+layout_mode = 0
+offset_left = 185.0
+offset_top = 339.0
+offset_right = 508.0
+offset_bottom = 413.0
+theme_override_colors/font_color = Color(0.13137859, 0.13137859, 0.13137859, 1)
+theme_override_fonts/font = ExtResource("2_gde2t")
+theme_override_font_sizes/font_size = 64
+text = "RESUME"
+
 [node name="resumeButton" type="MenuButton" parent="." unique_id=158809874]
 layout_mode = 0
-offset_left = 280.0
-offset_top = 306.0
-offset_right = 404.0
-offset_bottom = 368.0
-text = "RESUME"
+offset_left = 176.0
+offset_top = 333.0
+offset_right = 521.0
+offset_bottom = 417.0
 
 [node name="quitButton" type="MenuButton" parent="." unique_id=1526038880]
 layout_mode = 0
-offset_left = 660.0
-offset_top = 322.0
-offset_right = 707.0
-offset_bottom = 353.0
-text = "QUIT"
+offset_left = 649.0
+offset_top = 336.0
+offset_right = 850.0
+offset_bottom = 415.0
