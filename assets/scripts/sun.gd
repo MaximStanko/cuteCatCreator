@@ -7,6 +7,9 @@ const SPEEDUP = 10
 
 var is_day = true
 
+func _ready():
+	rotation_degrees = GameManager.sun_location
+
 func _process(delta: float) -> void:
 	if not running or day_length <= 0.0:
 		return
