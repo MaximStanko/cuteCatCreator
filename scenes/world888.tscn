@@ -41,7 +41,6 @@
 [ext_resource type="PackedScene" uid="uid://ctpf1fukt2xy6" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Hill_12x12x4_Color3.gltf" id="38_sk1hx"]
 [ext_resource type="PackedScene" uid="uid://ckkm275mppeh3" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Hill_8x4x4_Color3.gltf" id="39_qx0cg"]
 [ext_resource type="PackedScene" uid="uid://y1aown0v4qib" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Hill_4x4x4_Color3.gltf" id="40_v3rym"]
-[ext_resource type="PackedScene" uid="uid://bkvka3saacfff" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color4/Rock_3_D_Color4.gltf" id="41_8bgh2"]
 [ext_resource type="PackedScene" uid="uid://8ulet0hunwva" path="res://assets/itemsnshit/gltf/Gems_Pile_Large.gltf" id="42_v3rym"]
 [ext_resource type="PackedScene" uid="uid://bxt6oyxe0v7dy" path="res://assets/itemsnshit/gltf/Gems_Pile_Small.gltf" id="43_8bgh2"]
 [ext_resource type="PackedScene" uid="uid://ca7umy0df8kf6" path="res://assets/itemsnshit/gltf/Gems_Sack.gltf" id="44_pjchn"]
@@ -357,6 +356,9 @@ transform = Transform3D(1, 0, 0, 0, 1.325, 0, 0, 0, 1, 2.8996382, 4.029191, -28.
 [node name="Rock_3_H_Color34" parent="." unique_id=731567967 instance=ExtResource("31_aw363")]
 transform = Transform3D(-0.45629057, 0, -0.8898308, 0, 1.125, 0, 0.8898308, 0, -0.45629057, 1.9884338, 4.946777, -22.392027)
 
+[node name="Rock_3_H_Color34" parent="Rock_3_H_Color34" unique_id=1561046926 instance=ExtResource("31_aw363")]
+transform = Transform3D(-0.6895702, -0.5093675, -0.565236, 0.5790963, 0.13946092, -0.8057793, 0.43490314, -0.99333835, 0.17671539, -0.8862419, -0.4867239, 1.1334171)
+
 [node name="Hill_4x4x8_Color34" parent="." unique_id=1516879242 instance=ExtResource("6_rt1yw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.87583685, 0.5, -25.422703)
 
@@ -368,9 +370,6 @@ transform = Transform3D(0.44465083, 0, -0.895704, 0, 1, 0, 0.895704, 0, 0.444650
 
 [node name="Hill_4x4x4_Color32" parent="." unique_id=1686253319 instance=ExtResource("40_v3rym")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.687287, 0.5, -24.472181)
-
-[node name="Rock_3_D_Color42" parent="." unique_id=1216453193 instance=ExtResource("41_8bgh2")]
-transform = Transform3D(2.230646, 0.6696712, 0, -1.0815082, 1.3812187, 0, 0, 0, 1.5349997, 1.5009284, 4.1409035, -23.637356)
 
 [node name="Gems_Pile_Large2" parent="." unique_id=1029864333 instance=ExtResource("42_v3rym")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.096661, 0.61013484, -24.54724)
