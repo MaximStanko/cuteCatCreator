@@ -3,10 +3,52 @@
 [ext_resource type="PackedScene" uid="uid://dvd7hpxe60lk1" path="res://assets/gatzen/FBX/CatLoafBrown256.fbx" id="1_ybuyo"]
 [ext_resource type="PackedScene" uid="uid://bswc1la10pwhx" path="res://assets/gatzen/fisch/scene.gltf" id="2_kx5up"]
 
+[sub_resource type="Animation" id="Animation_ymguh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5hg1n"]
+resource_name = "spin"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.2831855, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ybuyo"]
+_data = {
+&"RESET": SubResource("Animation_ymguh"),
+&"spin": SubResource("Animation_5hg1n")
+}
+
 [node name="CatLoafBrown256" unique_id=748265159 instance=ExtResource("1_ybuyo")]
 
-[node name="CatLoafBrown256" parent="." index="0" unique_id=633543584]
+[node name="CatLoafBrown256" parent="." index="0" unique_id=933651691]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010165006, 0.12081537, 0)
 
 [node name="Sketchfab_Scene" parent="." index="1" unique_id=745340296 instance=ExtResource("2_kx5up")]
 transform = Transform3D(0.0264909, -0.022112506, -0.24766316, 0.1787314, 0.20005003, 0.015308129, 0.12551227, -0.28020716, 0.030473331, -0.103, -0.058513165, 0.23961687)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2" unique_id=97511062]
+libraries/ = SubResource("AnimationLibrary_ybuyo")
+autoplay = &"spin"

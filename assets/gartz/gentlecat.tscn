@@ -5,6 +5,44 @@
 [ext_resource type="PackedScene" uid="uid://854qrvtxyigc" path="res://assets/gartz/huh/Cup of tea.glb" id="3_5g8jf"]
 [ext_resource type="PackedScene" uid="uid://dlfpwhacxlxsh" path="res://assets/gartz/huh/Monocle.glb" id="4_lf6kh"]
 
+[sub_resource type="Animation" id="Animation_ymguh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5hg1n"]
+resource_name = "spin"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.2831855, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e78au"]
+_data = {
+&"RESET": SubResource("Animation_ymguh"),
+&"spin": SubResource("Animation_5hg1n")
+}
+
 [node name="CatLoafBrown256" unique_id=748265159 instance=ExtResource("1_e78au")]
 
 [node name="Top hat" parent="." index="1" unique_id=1748193225 instance=ExtResource("2_iegbl")]
@@ -15,3 +53,7 @@ transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, -0.051688075, 0.0477
 
 [node name="Monocle" parent="." index="3" unique_id=1927227538 instance=ExtResource("4_lf6kh")]
 transform = Transform3D(0.024537176, 0, -0.004788213, 0, 0.025, 0, 0.004788213, 0, 0.024537176, 0.024488691, 0.06343821, -0.23092592)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4" unique_id=1865276825]
+libraries/ = SubResource("AnimationLibrary_e78au")
+autoplay = &"spin"
