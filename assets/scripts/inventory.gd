@@ -17,7 +17,7 @@ var slots: Array[Dictionary] = []
 var current_slot: int = 0
 
 var found: Dictionary = {
-	"triangle": {"found": false, "cat": "res://assets/gartz/astronaut.tscn", "cat_name": "Astro Gadse"},
+	"triangle": {"found": true, "cat": "res://assets/gartz/astronaut.tscn", "cat_name": "Astro Gadse"},
 	"rhombus": {"found": false, "cat": "res://assets/gartz/broet.tscn", "cat_name": "Bröt Gadse"},
 	"trapezoid": {"found": false, "cat": "res://assets/gartz/buff.tscn", "cat_name": "Buff Gadse"},
 	"hexagon": {"found": false, "cat": "res://assets/gartz/chonk.tscn", "cat_name": "Chonker"},
