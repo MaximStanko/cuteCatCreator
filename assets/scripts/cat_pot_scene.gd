@@ -2,6 +2,7 @@ extends Node3D
 
 var magicEdgePrefab: PackedScene = preload("res://assets/prefabs/magic_edge.tscn")
 
+@export var summonButton: TextureButton
 @export var hexagonParentNode: Node3D
 @onready var hexagonVertices: Dictionary[int, Node]
 @onready var catAnimator = $CatContainer
@@ -223,9 +224,7 @@ func checkShape():
 			edges.sort()
 			print(edges, shapes[vertex_count][shape_name])
 			if shapes[vertex_count][shape_name] == edges:
-				catAnimator.summon(shape_name)
-				Inventory.mark_found(shape_name)
-				print("I have summoned a cat")
+				
 				return shape_name
 		for i in range(vertex_count):
 			if edges[i][0] != 0:
@@ -252,9 +251,6 @@ func checkShape():
 			edges.sort()
 			print(edges, shapes[vertex_count][shape_name])
 			if shapes[vertex_count][shape_name] == edges:
-				catAnimator.summon(shape_name)
-				Inventory.mark_found(shape_name)
-				print("I have summoned a cat")
 				return shape_name
 		for i in range(vertex_count):
 			if edges[i][0] != 0:
@@ -266,6 +262,10 @@ func checkShape():
 	
 	return null
 
+func handleSummonButton():
+	var shape_name = checkShape()
+	summonButton.visible = (shape_name != null)
+
 func remove_vertex(index: int):
 	var edges = verticesUsed[index]
 	if edges != null:
@@ -275,7 +275,7 @@ func remove_vertex(index: int):
 		if itemsUsed[index] != null:
 			Inventory.give_item(itemsUsed[index])
 			itemsUsed[index] = null
-		print(checkShape())
+		handleSummonButton()
 
 func add_vertex(index: int, edges, tool):
 	verticesUsed[index] = edges
@@ -285,7 +285,7 @@ func add_vertex(index: int, edges, tool):
 	if edges != null and item != "" and item != null:
 		for edge in edges:
 			spawnLockedMagicEdge(edge[0], edge[1], itemColors.get(item))
-		print(checkShape())
+		handleSummonButton()
 
 func vertex_pressed(tool):
 	var index = selectedVertex
@@ -358,6 +358,8 @@ func _refresh():
 		vertex_hovered(index)
 
 func _ready() -> void:
+	summonButton.visible = false
+	
 	Inventory.rotate_item.connect(item_rotated)
 	Inventory.place_item.connect(vertex_pressed)
 	Inventory.change_selected_item.connect(_refresh)
@@ -377,6 +379,27 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
+		for item in itemsUsed:
+			if item != null:
+				Inventory.give_item(item)
 		GameManager.player_rot = Vector3(0,38.8,0)
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		get_tree().change_scene_to_file("res://scenes/world888.tscn")
+
+
+func _on_summon_button_button_up() -> void:
+	var shape_name = checkShape()
+	if shape_name != null:
+		catAnimator.summon(shape_name)
+		Inventory.mark_found(shape_name)
+		print("I have summoned a cat")
+		
+		verticesUsed = [
+			null, null, null, null, null, null, null
+		]
+		itemsUsed = [
+			null, null, null, null, null, null, null
+		]
+		for magicEdge in magicEdgesLocked:
+			if magicEdgesLocked[magicEdge] != null:
+				removeLockedMagicEdge(magicEdge[0], magicEdge[1])

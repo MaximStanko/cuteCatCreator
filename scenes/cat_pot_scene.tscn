@@ -4,6 +4,9 @@
 [ext_resource type="Script" uid="uid://diyduhlne5mnn" path="res://assets/scripts/cat_pot_scene.gd" id="1_twrch"]
 [ext_resource type="PackedScene" uid="uid://kmegs8uujgdr" path="res://assets/prefabs/compendium.tscn" id="3_ruq8n"]
 [ext_resource type="Script" uid="uid://c3h5smofy4fth" path="res://assets/scripts/cat_animator.gd" id="4_oo8qf"]
+[ext_resource type="Texture2D" uid="uid://btjruq1j6a056" path="res://assets/brackeys_particle_bundle/particles/alpha/star_04_a.png" id="5_buu6a"]
+[ext_resource type="Texture2D" uid="uid://cqvl6j2ytskg0" path="res://assets/brackeys_particle_bundle/particles/alpha/star_02_a.png" id="6_kp424"]
+[ext_resource type="Texture2D" uid="uid://jihb0ebvvjue" path="res://assets/brackeys_particle_bundle/particles/alpha/star_01_a.png" id="7_qiqxt"]
 
 [sub_resource type="Animation" id="Animation_g1mu8"]
 length = 0.001
@@ -144,8 +147,9 @@ _data = {
 &"summon_car": SubResource("Animation_oo8qf")
 }
 
-[node name="CatPotScene" type="Node3D" unique_id=869297221 node_paths=PackedStringArray("hexagonParentNode")]
+[node name="CatPotScene" type="Node3D" unique_id=869297221 node_paths=PackedStringArray("summonButton", "hexagonParentNode")]
 script = ExtResource("1_twrch")
+summonButton = NodePath("CanvasLayer/Control/SummonButton")
 hexagonParentNode = NodePath("PotHexagon")
 
 [node name="PotHexagon" type="Node3D" parent="." unique_id=1700891085]
@@ -180,7 +184,7 @@ vertex_index = 6
 transform = Transform3D(1, 0, 0, 0, 0.41732794, 0.90875596, 0, -0.90875596, 0.41732794, 0, 1.3382157, 0.6766542)
 
 [node name="Compendium" parent="." unique_id=1748706587 instance=ExtResource("3_ruq8n")]
-transform = Transform3D(0.9394536, 0, -0.3426761, -0.009000108, 0.999655, -0.024673982, 0.34255788, 0.026264183, 0.9391295, 1.1070362, 0, -0.534455)
+transform = Transform3D(0.907899, 0.018510547, 0.4187799, -0.009000107, 0.999655, -0.024673982, -0.41909227, 0.018632418, 0.9077524, -1.1250488, 0, -0.534455)
 
 [node name="CatContainer" type="Node3D" parent="." unique_id=1787767159]
 script = ExtResource("4_oo8qf")
@@ -189,4 +193,24 @@ script = ExtResource("4_oo8qf")
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_0p3br")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1181126019]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=137938678]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 239.0
+offset_bottom = 256.0
+
+[node name="SummonButton" type="TextureButton" parent="CanvasLayer/Control" unique_id=272104811]
+layout_mode = 0
+offset_left = 424.00003
+offset_top = 413.00003
+offset_right = 936.0
+offset_bottom = 925.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("5_buu6a")
+texture_pressed = ExtResource("6_kp424")
+texture_hover = ExtResource("7_qiqxt")
+
 [connection signal="animation_finished" from="CatContainer/AnimationPlayer" to="CatContainer" method="_on_animation_player_animation_finished"]
+[connection signal="button_up" from="CanvasLayer/Control/SummonButton" to="." method="_on_summon_button_button_up"]
