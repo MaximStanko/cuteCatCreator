@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cev85b7eeyu3a" path="res://assets/gartz/astronaut.tscn" id="3_m4078"]
 [ext_resource type="PackedScene" uid="uid://ck66uhay4q87e" path="res://assets/gartz/unknown.tscn" id="4_m4078"]
 [ext_resource type="PackedScene" uid="uid://dpx3p1f2lhhi7" path="res://assets/gartz/broet.tscn" id="5_3r845"]
+[ext_resource type="FontFile" uid="uid://b1nl0lxpl5jto" path="res://assets/font/Web Open Font Format (.woff)/Kaph-Regular.woff2" id="5_fq1dh"]
 [ext_resource type="PackedScene" uid="uid://d2n8sclhxmoln" path="res://assets/gartz/buff.tscn" id="6_fq1dh"]
 [ext_resource type="PackedScene" uid="uid://dc4147s8uvue" path="res://assets/gartz/chonk.tscn" id="7_bn803"]
 [ext_resource type="PackedScene" uid="uid://cstq6o7yjo1e7" path="res://assets/gartz/Gatzenhai.tscn" id="8_2qcug"]
@@ -33,150 +34,164 @@ transform = Transform3D(-0.90270543, 0, -0.43025914, 0, 1, 0, 0.43025914, 0, -0.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.057131916, 0)
 
 [node name="astronaut" parent="spinnings/leftpage" unique_id=1917823511 instance=ExtResource("3_m4078")]
-transform = Transform3D(0.1, 0, 3.7252903e-09, 0, 0.1, 0, -3.7252903e-09, 0, 0.1, 0.12746863, 0, -0.0011726022)
+transform = Transform3D(0.2, 0, 1.4901161e-08, 0, 0.2, 0, -1.4901161e-08, 0, 0.2, 0.12746862, 0.026382148, -0.0011726022)
 visible = false
 
 [node name="un1" parent="spinnings/leftpage" unique_id=1570418218 instance=ExtResource("4_m4078")]
-transform = Transform3D(0.1, 0, 7.450581e-09, 0, 0.1, 0, -7.450581e-09, 0, 0.1, 0.12746862, 0.0065826476, -0.0011726022)
+transform = Transform3D(0.2, 0, 2.2351742e-08, 0, 0.2, 0, -2.2351742e-08, 0, 0.2, 0.12746862, 0.029058486, -0.0011726022)
 
 [node name="cat1" type="Label3D" parent="spinnings/leftpage" unique_id=1814909666]
-transform = Transform3D(-0.099996194, 0, 0.0008726637, 0, 0.1, 0, -0.0008726637, 0, -0.099996194, 0.12385827, -0.009105913, -0.044337273)
+transform = Transform3D(-0.099996194, 0, 0.00087266415, 0, 0.1, 0, -0.00087266415, 0, -0.099996194, 0.12385827, -0.019304566, -0.044337273)
 text = "triangle"
+font = ExtResource("5_fq1dh")
 outline_size = 2
 
 [node name="brot" parent="spinnings/leftpage" unique_id=1919258756 instance=ExtResource("5_3r845")]
-transform = Transform3D(0.1, 0, 1.1175871e-08, 0, 0.1, 0, -1.1175871e-08, 0, 0.1, -0.010717362, -0.015932202, -0.005169928)
+transform = Transform3D(0.19999999, 0, 2.2351742e-08, 0, 0.2, 0, -2.2351742e-08, 0, 0.19999999, -0.010717377, 0.027653337, -0.005169928)
 visible = false
 
 [node name="un2" parent="spinnings/leftpage" unique_id=869823439 instance=ExtResource("4_m4078")]
-transform = Transform3D(0.099999994, 0, 1.1175871e-08, 0, 0.1, 0, -1.1175871e-08, 0, 0.099999994, -0.010717377, 0.0033542514, -0.005169928)
+transform = Transform3D(0.2, 0, 2.9802326e-08, 0, 0.2, 0, -2.9802326e-08, 0, 0.2, -0.010717392, 0.028398544, -0.005169928)
 
 [node name="cat2" type="Label3D" parent="spinnings/leftpage" unique_id=1511283480]
-transform = Transform3D(-0.099996194, 0, 0.00087266415, 0, 0.1, 0, -0.00087266415, 0, -0.099996194, -0.0049150363, -0.014839165, -0.05317208)
+transform = Transform3D(-0.099996194, 0, 0.00087266415, 0, 0.1, 0, -0.00087266415, 0, -0.099996194, -0.004915051, -0.021377556, -0.05317208)
 text = "rhombus"
+font = ExtResource("5_fq1dh")
 outline_size = 2
 
 [node name="buff" parent="spinnings/leftpage" unique_id=2043778116 instance=ExtResource("6_fq1dh")]
-transform = Transform3D(0.1, 0, 3.7252903e-09, 0, 0.1, 0, -3.7252903e-09, 0, 0.1, 0.15656994, -0.14760256, -0.0515005)
+transform = Transform3D(0.1, 0, 1.1175871e-08, 0, 0.1, 0, -1.1175871e-08, 0, 0.1, 0.12610944, -0.12502, -0.066019)
 visible = false
 
 [node name="un3" parent="spinnings/leftpage" unique_id=1469817251 instance=ExtResource("4_m4078")]
-transform = Transform3D(-0.099996194, 0, 0.00087266415, 0, 0.1, 0, -0.00087266415, 0, -0.099996194, 0.12528078, -0.15539011, -0.06641397)
+transform = Transform3D(-0.19999239, 0, 0.0017453274, 0, 0.2, 0, -0.0017453274, 0, -0.19999239, 0.12528078, -0.1390857, -0.06641397)
 
 [node name="cat3" type="Label3D" parent="spinnings/leftpage" unique_id=685801354]
-transform = Transform3D(-0.099996194, 0, 0.0008726637, 0, 0.1, 0, -0.0008726637, 0, -0.099996194, 0.1305573, -0.17203957, -0.05663061)
+transform = Transform3D(-0.099996194, 0, 0.00087266415, 0, 0.1, 0, -0.00087266415, 0, -0.099996194, 0.1305573, -0.17850745, -0.05663064)
 text = "trapezoid"
+font = ExtResource("5_fq1dh")
 outline_size = 2
 
 [node name="chonk" parent="spinnings/leftpage" unique_id=402724094 instance=ExtResource("7_bn803")]
-transform = Transform3D(0.1, 0, 7.450581e-09, 0, 0.1, 0, -7.450581e-09, 0, 0.1, -0.0048756152, -0.16543952, -0.03442183)
+transform = Transform3D(0.2, 0, 2.2351742e-08, 0, 0.2, 0, -2.2351742e-08, 0, 0.2, -0.0048756152, -0.13788085, -0.03442186)
 visible = false
 
 [node name="un4" parent="spinnings/leftpage" unique_id=1574016546 instance=ExtResource("4_m4078")]
-transform = Transform3D(0.1, 0, 1.1175871e-08, 0, 0.1, 0, -1.1175871e-08, 0, 0.1, -0.0048756152, -0.1536212, -0.03442186)
+transform = Transform3D(0.2, 0, 2.2351744e-08, 0, 0.2, 0, -2.2351744e-08, 0, 0.2, -0.0048756227, -0.13858294, -0.03442186)
 
 [node name="cat4" type="Label3D" parent="spinnings/leftpage" unique_id=1035231842]
-transform = Transform3D(-0.099996194, 0, 0.00087266415, 0, 0.1, 0, -0.00087266415, 0, -0.099996194, 0.003706105, -0.16740811, -0.09127438)
+transform = Transform3D(-0.099996194, 0, 0.00087266415, 0, 0.1, 0, -0.00087266415, 0, -0.099996194, 0.003706105, -0.17427507, -0.09127438)
 text = "hexagon"
+font = ExtResource("5_fq1dh")
 outline_size = 2
 
 [node name="hai" parent="spinnings/leftpage" unique_id=748265159 instance=ExtResource("8_2qcug")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.12682727, -0.321025, 0)
+transform = Transform3D(0.2, 0, 7.450581e-09, 0, 0.2, 0, -7.450581e-09, 0, 0.2, 0.12682725, -0.30783245, 0)
 visible = false
 
 [node name="un5" parent="spinnings/leftpage" unique_id=1695939607 instance=ExtResource("4_m4078")]
-transform = Transform3D(0.1, 0, 3.7252903e-09, 0, 0.1, 0, -3.7252903e-09, 0, 0.1, 0.12682725, -0.3124193, 0)
+transform = Transform3D(0.2, 0, 1.4901161e-08, 0, 0.2, 0, -1.4901161e-08, 0, 0.2, 0.12682725, -0.31961554, 0)
 
 [node name="cat5" type="Label3D" parent="spinnings/leftpage" unique_id=1037856743]
-transform = Transform3D(-0.099996194, 0, 0.0008726637, 0, 0.1, 0, -0.0008726637, 0, -0.099996194, 0.13917468, -0.30490863, -0.10182589)
+transform = Transform3D(-0.099996194, 0, 0.00087266415, 0, 0.1, 0, -0.00087266415, 0, -0.099996194, 0.12710276, -0.32029566, -0.1075798)
 text = "pacman"
+font = ExtResource("5_fq1dh")
 outline_size = 2
 
 [node name="gentlecat" parent="spinnings/leftpage" unique_id=1557844672 instance=ExtResource("9_6pedb")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.025209881, -0.321025, -0.016490191)
+transform = Transform3D(0.2, 0, 7.450581e-09, 0, 0.2, 0, -7.450581e-09, 0, 0.2, -0.025209896, -0.31706154, -0.016490191)
 visible = false
 
 [node name="un6" parent="spinnings/leftpage" unique_id=828297531 instance=ExtResource("4_m4078")]
-transform = Transform3D(0.1, 0, 3.7252903e-09, 0, 0.1, 0, -3.7252903e-09, 0, 0.1, -0.025209896, -0.31181234, -0.016490191)
+transform = Transform3D(0.2, 0, 1.4901161e-08, 0, 0.2, 0, -1.4901161e-08, 0, 0.2, -0.025209911, -0.3109308, -0.016490191)
 
 [node name="cat6" type="Label3D" parent="spinnings/leftpage" unique_id=2113081389]
-transform = Transform3D(-0.09933507, 0, -0.011512768, 0, 0.1, 0, 0.011512768, 0, -0.09933507, -0.009019099, -0.3088221, -0.09077811)
-text = "crooked hourglass"
+transform = Transform3D(-0.099335074, 0, -0.0115127675, 0, 0.1, 0, 0.0115127675, 0, -0.099335074, -0.009019099, -0.32859862, -0.09077811)
+text = "crooked 
+hourglass"
+font = ExtResource("5_fq1dh")
 outline_size = 2
 
 [node name="rightpage" type="Node3D" parent="spinnings" unique_id=1134079421]
 transform = Transform3D(0.48488587, 0, -0.87457776, 0, 1, 0, 0.87457776, 0, 0.48488587, -0.29151776, -0.07233319, -0.24450079)
 
 [node name="hexe" parent="spinnings/rightpage" unique_id=872607788 instance=ExtResource("10_fqhs3")]
-transform = Transform3D(0.1, 0, -3.7252903e-09, 0, 0.1, 0, 3.7252903e-09, 0, 0.1, 0.12863286, 0, 0.00021582842)
+transform = Transform3D(0.19999999, 0, -2.9802322e-08, 0, 0.2, 0, 2.9802322e-08, 0, 0.19999999, 0.12863286, 0.047628403, 0.00021582842)
 visible = false
 
 [node name="un1" parent="spinnings/rightpage" unique_id=176547742 instance=ExtResource("4_m4078")]
-transform = Transform3D(0.10000001, 0, -7.450581e-09, 0, 0.1, 0, 7.450581e-09, 0, 0.10000001, 0.12863286, 0.010207623, 0.00021582842)
+transform = Transform3D(0.2, 0, -2.980232e-08, 0, 0.2, 0, 2.980232e-08, 0, 0.2, 0.12863286, 0.043776065, 0.00021582842)
 
 [node name="cat1" type="Label3D" parent="spinnings/rightpage" unique_id=509696988]
-transform = Transform3D(-0.099996194, 0, 0.00087266415, 0, 0.1, 0, -0.00087266415, 0, -0.099996194, 0.12336896, -0.009105913, -0.040868104)
+transform = Transform3D(-0.099996194, 0, 0.00087266415, 0, 0.1, 0, -0.00087266415, 0, -0.099996194, 0.12336896, -0.008363567, -0.040868104)
 text = "hourglass"
+font = ExtResource("5_fq1dh")
 outline_size = 2
 
 [node name="orange" parent="spinnings/rightpage" unique_id=575646518 instance=ExtResource("11_iarpw")]
-transform = Transform3D(0.10000001, 0, -7.450581e-09, 0, 0.1, 0, 7.450581e-09, 0, 0.10000001, -0.010648489, 0.017736107, -0.013930798)
+transform = Transform3D(0.19999999, 0, -2.9802322e-08, 0, 0.2, 0, 2.9802322e-08, 0, 0.19999999, -0.010648519, 0.034862787, -0.013930798)
 visible = false
 
 [node name="un2" parent="spinnings/rightpage" unique_id=496476841 instance=ExtResource("4_m4078")]
-transform = Transform3D(0.10000001, 0, -1.4901161e-08, 0, 0.1, 0, 1.4901161e-08, 0, 0.10000001, -0.010648519, 0.0059957206, -0.013930798)
+transform = Transform3D(0.2, 0, -3.72529e-08, 0, 0.2, 0, 3.72529e-08, 0, 0.2, -0.010648534, 0.033569247, -0.013930768)
 
 [node name="cat2" type="Label3D" parent="spinnings/rightpage" unique_id=200047034]
-transform = Transform3D(-0.099996194, 0, 0.00087266415, 0, 0.1, 0, -0.00087266415, 0, -0.099996194, -0.013986111, -0.009105913, -0.03552106)
-text = "crescent moon"
+transform = Transform3D(-0.099996194, 0, 0.00087266415, 0, 0.1, 0, -0.00087266415, 0, -0.099996194, -0.015660629, -0.015181832, 0.005789101)
+text = "crescent 
+moon"
+font = ExtResource("5_fq1dh")
 outline_size = 2
 
 [node name="poempl" parent="spinnings/rightpage" unique_id=444222470 instance=ExtResource("12_qf14c")]
-transform = Transform3D(0.1, 0, -3.7252903e-09, 0, 0.1, 0, 3.7252903e-09, 0, 0.1, 0.113787144, -0.14760256, -0.04040554)
+transform = Transform3D(0.15, 0, -2.2351742e-08, 0, 0.15, 0, 2.2351742e-08, 0, 0.15, 0.113787144, -0.12297734, -0.04040554)
 visible = false
 
 [node name="un3" parent="spinnings/rightpage" unique_id=569788529 instance=ExtResource("4_m4078")]
-transform = Transform3D(0.1, 0, -3.7252903e-09, 0, 0.1, 0, 3.7252903e-09, 0, 0.1, 0.113787144, -0.14760256, -0.04040554)
+transform = Transform3D(0.2, 0, -1.490116e-08, 0, 0.2, 0, 1.490116e-08, 0, 0.2, 0.113787144, -0.11827411, -0.04040554)
 
 [node name="cat3" type="Label3D" parent="spinnings/rightpage" unique_id=1335567369]
-transform = Transform3D(-0.099996194, 0, 0.00087266415, 0, 0.1, 0, -0.00087266415, 0, -0.099996194, 0.12275213, -0.15604654, -0.031123847)
+transform = Transform3D(-0.099996194, 0, 0.00087266415, 0, 0.1, 0, -0.00087266415, 0, -0.099996194, 0.12275213, -0.16104645, -0.031123847)
 text = "raft"
+font = ExtResource("5_fq1dh")
 outline_size = 2
 
 [node name="rainbow" parent="spinnings/rightpage" unique_id=693190557 instance=ExtResource("13_wnsxw")]
-transform = Transform3D(0.10000001, 0, -7.450581e-09, 0, 0.1, 0, 7.450581e-09, 0, 0.10000001, 0.012217969, -0.18426874, 0.009693205)
+transform = Transform3D(0.19999999, 0, -2.9802322e-08, 0, 0.2, 0, 2.9802322e-08, 0, 0.19999999, -0.011954531, -0.122718096, -0.024181604)
 visible = false
 
 [node name="un4" parent="spinnings/rightpage" unique_id=142843717 instance=ExtResource("4_m4078")]
-transform = Transform3D(0.10000001, 0, -1.8626451e-08, 0, 0.1, 0, 1.8626451e-08, 0, 0.10000001, -0.011912197, -0.14332198, -0.024122298)
+transform = Transform3D(0.2, 0, -3.72529e-08, 0, 0.2, 0, 3.72529e-08, 0, 0.2, -0.011912197, -0.11735822, -0.024122298)
 
 [node name="cat4" type="Label3D" parent="spinnings/rightpage" unique_id=1703343063]
-transform = Transform3D(-0.099996194, 0, 0.00087266415, 0, 0.1, 0, -0.00087266415, 0, -0.099996194, -0.015944645, -0.15923917, -0.068731725)
+transform = Transform3D(-0.099996194, 0, 0.00087266415, 0, 0.1, 0, -0.00087266415, 0, -0.099996194, -0.01854451, -0.15510985, -0.06687653)
 text = "boat"
+font = ExtResource("5_fq1dh")
 outline_size = 2
 
 [node name="silly" parent="spinnings/rightpage" unique_id=1701616122 instance=ExtResource("14_goqld")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.12682727, -0.321025, 0)
+transform = Transform3D(0.19999999, 0, -2.9802322e-08, 0, 0.2, 0, 2.9802322e-08, 0, 0.19999999, 0.124643296, -0.29787332, -0.007559359)
 visible = false
 
 [node name="un5" parent="spinnings/rightpage" unique_id=1080643003 instance=ExtResource("4_m4078")]
-transform = Transform3D(0.1, 0, -3.7252903e-09, 0, 0.1, 0, 3.7252903e-09, 0, 0.1, 0.12682724, -0.30833334, 2.9802322e-08)
+transform = Transform3D(0.2, 0, -1.490116e-08, 0, 0.2, 0, 1.490116e-08, 0, 0.2, 0.12682723, -0.3030352, 5.9604645e-08)
 
 [node name="cat5" type="Label3D" parent="spinnings/rightpage" unique_id=553729038]
 transform = Transform3D(-0.099996194, 0, 0.00087266415, 0, 0.1, 0, -0.00087266415, 0, -0.099996194, 0.10889888, -0.30490863, -0.075523585)
 text = "infinity"
+font = ExtResource("5_fq1dh")
 outline_size = 2
 
 [node name="unicorn" parent="spinnings/rightpage" unique_id=1039286370 instance=ExtResource("15_7rpuo")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.025209881, -0.321025, -0.016490191)
+transform = Transform3D(0.20000002, 0, -2.9802322e-08, 0, 0.2, 0, 2.9802322e-08, 0, 0.20000002, -0.026104048, -0.28893632, -0.015852153)
 visible = false
 
 [node name="un6" parent="spinnings/rightpage" unique_id=1837773602 instance=ExtResource("4_m4078")]
-transform = Transform3D(0.1, 0, -3.7252903e-09, 0, 0.1, 0, 3.7252903e-09, 0, 0.1, -0.025209904, -0.30240464, -0.016490161)
+transform = Transform3D(0.2, 0, -1.490116e-08, 0, 0.2, 0, 1.490116e-08, 0, 0.2, -0.025209934, -0.28812695, -0.016490161)
 
 [node name="cat6" type="Label3D" parent="spinnings/rightpage" unique_id=2086248660]
-transform = Transform3D(-0.09933507, 0, -0.011512764, 0, 0.1, 0, 0.011512764, 0, -0.09933507, -0.02873692, -0.3088221, -0.064002216)
+transform = Transform3D(-0.09933507, 0, -0.011512764, 0, 0.1, 0, 0.011512764, 0, -0.09933507, -0.028736934, -0.30187204, -0.064002216)
 text = "radioactive"
+font = ExtResource("5_fq1dh")
 outline_size = 2
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=29015242]

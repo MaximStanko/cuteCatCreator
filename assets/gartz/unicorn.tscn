@@ -1,8 +1,7 @@
-[gd_scene format=3 uid="uid://uti8auyyneir"]
+[gd_scene format=4 uid="uid://uti8auyyneir"]
 
 [ext_resource type="PackedScene" uid="uid://cehqtooir8iss" path="res://assets/gatzen/FBX/CatLoafWhite256.fbx" id="1_vi8wl"]
 [ext_resource type="Texture2D" uid="uid://dq25onxrcl2gp" path="res://assets/gatzen/catmythic256.png" id="2_nq1km"]
-[ext_resource type="PackedScene" uid="uid://b66uqc7pn73ui" path="res://assets/gatzen/horn.tscn" id="3_s0lsr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vseyn"]
 albedo_texture = ExtResource("2_nq1km")

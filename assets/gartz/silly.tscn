@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bg64v7siqnsm0" path="res://assets/gatzen/FBX/CatLoafTurtoise256.fbx" id="1_3sm15"]
 [ext_resource type="PackedScene" uid="uid://dbuhj0n6a7ve3" path="res://assets/gatzen/propeller/scene.gltf" id="2_pw0kq"]
-[ext_resource type="PackedScene" uid="uid://b1ps51251k883" path="res://assets/gatzen/lolli/scene.gltf" id="3_ct2hb"]
+[ext_resource type="PackedScene" uid="uid://yridf2ncjnlr" path="res://assets/gartz/help.tscn" id="3_3sm15"]
 
 [sub_resource type="Animation" id="Animation_ymguh"]
 length = 0.001
