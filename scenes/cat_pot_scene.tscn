@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c4he21ievo3up" path="res://assets/prefabs/pot_vertex.tscn" id="1_6cmo6"]
 [ext_resource type="Script" uid="uid://diyduhlne5mnn" path="res://assets/scripts/cat_pot_scene.gd" id="1_twrch"]
+[ext_resource type="PackedScene" uid="uid://by3f5c387edf5" path="res://assets/prefabs/compendium_overlay.tscn" id="3_oo8qf"]
 [ext_resource type="PackedScene" uid="uid://kmegs8uujgdr" path="res://assets/prefabs/compendium.tscn" id="3_ruq8n"]
 [ext_resource type="Script" uid="uid://c3h5smofy4fth" path="res://assets/scripts/cat_animator.gd" id="4_oo8qf"]
 [ext_resource type="Texture2D" uid="uid://btjruq1j6a056" path="res://assets/brackeys_particle_bundle/particles/alpha/star_04_a.png" id="5_buu6a"]
@@ -196,6 +197,9 @@ vertex_index = 6
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2129322711]
 transform = Transform3D(1, 0, 0, 0, 0.41732794, 0.90875596, 0, -0.90875596, 0.41732794, 0, 1.3382157, 0.6766542)
 size = 1.5
+
+[node name="CompendiumOverlay" parent="Camera3D" unique_id=1294993737 instance=ExtResource("3_oo8qf")]
+visible = false
 
 [node name="Compendium" parent="." unique_id=1748706587 instance=ExtResource("3_ruq8n")]
 transform = Transform3D(0.907899, 0.018510547, 0.4187799, -0.009000107, 0.999655, -0.024673982, -0.41909227, 0.018632418, 0.9077524, -1.3303431, 0, 0.33177626)
