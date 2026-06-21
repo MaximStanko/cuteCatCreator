@@ -29,21 +29,30 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_ieoop")
 
+[node name="Header" type="Label" parent="CanvasLayer/Control" unique_id=1400817948]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 68.0
+offset_right = 1154.0
+offset_bottom = 103.0
+theme_override_font_sizes/font_size = 32
+text = "This is a compendium!"
+horizontal_alignment = 1
+
 [node name="Label" type="Label" parent="CanvasLayer/Control" unique_id=873852061]
 layout_mode = 0
-offset_left = 510.0
-offset_top = 174.0
-offset_right = 889.0
-offset_bottom = 262.0
-text = "This is a compendium"
+offset_left = 434.0
+offset_top = 132.0
+offset_right = 871.0
+offset_bottom = 167.0
 
 [node name="Button" type="Button" parent="CanvasLayer/Control" unique_id=1153505801]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = 1325.0
-offset_top = 217.0
-offset_right = 1550.0
-offset_bottom = 350.0
+offset_left = 1.0
+offset_top = -4.0
+offset_right = 1156.0
+offset_bottom = 652.0
 
 [connection signal="input_event" from="StaticBody3D" to="." method="_on_static_body_3d_input_event"]
 [connection signal="button_down" from="CanvasLayer/Control/Button" to="CanvasLayer/Control" method="_on_button_button_down"]
