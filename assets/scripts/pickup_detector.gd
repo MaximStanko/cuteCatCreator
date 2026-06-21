@@ -3,7 +3,6 @@ extends Area3D
 @export var pickupName: String
 
 var player_inside = false
-@onready var _label: Label3D = $Label3D
 
 func _ready() -> void:
 	$Sprite3D.hide()
