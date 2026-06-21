@@ -1,5 +1,7 @@
 extends Area3D
 
+@export var inside_house: PackedScene
+
 var awayName = "name"
 
 var player_inside = false
@@ -24,6 +26,6 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		return
 	match (event as InputEventKey).physical_keycode:
 		KEY_E:
+			GameManager.player_pos = $"../Player".global_position
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			get_tree().change_scene_to_file("res://scenes/cat_pot_scene.tscn")
-			Inventory.hide()
+			get_tree().change_scene_to_packed(inside_house)

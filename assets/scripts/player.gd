@@ -17,7 +17,9 @@ const JUMP_VELOCITY = 4.5
 @onready var animation_player: AnimationPlayer = $Mage/AnimationPlayer
 
 
-func _ready() -> void:
+func _ready() -> void:#
+	global_position = GameManager.player_pos
+	rotation_degrees = GameManager.player_rot
 	_play_animation(idle_animation)
 
 

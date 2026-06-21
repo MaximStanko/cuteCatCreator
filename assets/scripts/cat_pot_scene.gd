@@ -329,3 +329,9 @@ func _ready() -> void:
 		vertex.connect("item_rotated", item_rotated.bind(index))
 		vertex.connect("vertex_hovered", vertex_hovered.bind(index))
 		vertex.connect("vertex_unhovered", vertex_unhovered.bind(index))
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("ui_cancel"):
+		GameManager.player_rot = Vector3(0,38.8,0)
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		get_tree().change_scene_to_file("res://scenes/world888.tscn")
