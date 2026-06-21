@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cev85b7eeyu3a"]
+
+[ext_resource type="PackedScene" uid="uid://cehqtooir8iss" path="res://assets/gatzen/FBX/CatLoafWhite256.fbx" id="1_ymguh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5hg1n"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.22745098)
+
+[sub_resource type="SphereMesh" id="SphereMesh_5hg1n"]
+material = SubResource("StandardMaterial3D_5hg1n")
+
+[node name="CatLoafWhite256" unique_id=1917823511 instance=ExtResource("1_ymguh")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1" unique_id=1893705105]
+transform = Transform3D(0.205, 0, 0, 0, 0.205, 0, 0, 0, 0.205, -0.00057941675, 0.1661968, -0.1614462)
+mesh = SubResource("SphereMesh_5hg1n")

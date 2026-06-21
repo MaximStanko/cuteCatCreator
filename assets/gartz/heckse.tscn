@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://ccteurob6ixj0"]
+
+[ext_resource type="PackedScene" uid="uid://bsipneml4b5im" path="res://assets/gatzen/hexenhut/scene.gltf" id="2_t0roq"]
+[ext_resource type="PackedScene" uid="uid://dfwiasm3axnmw" path="res://assets/gatzen/FBX/CatLoafGrey256.fbx" id="3_t0roq"]
+
+[node name="CatLoafGrey256" unique_id=402724094 instance=ExtResource("3_t0roq")]
+
+[node name="Sketchfab_Scene" parent="." index="1" unique_id=838116887 instance=ExtResource("2_t0roq")]
+transform = Transform3D(0.05485968, -0.0014562092, 0.043454517, 0.008069107, 0.06908635, -0.007871781, -0.04272359, 0.011178322, 0.054311503, -0.005528018, 0.19573453, -0.14657022)

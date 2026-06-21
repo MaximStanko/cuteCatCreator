@@ -66,8 +66,10 @@
 [ext_resource type="PackedScene" uid="uid://cyfxuahef2g8p" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color8/Bush_2_D_Color8.gltf" id="63_8g5xj"]
 [ext_resource type="PackedScene" uid="uid://dembd84sfk1yb" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color8/Tree_2_C_Color8.gltf" id="64_gm1gl"]
 [ext_resource type="PackedScene" uid="uid://elbk71fl2mwa" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color8/Hill_12x12x8_Color8.gltf" id="65_woxgy"]
-[ext_resource type="PackedScene" uid="uid://dcofqh7ftsm5q" path="res://assets/gatzen/FBX/CatLoafGrey64.fbx" id="68_s1np6"]
-[ext_resource type="PackedScene" uid="uid://bsipneml4b5im" path="res://assets/gatzen/hexenhut/scene.gltf" id="69_e8xm5"]
+[ext_resource type="PackedScene" uid="uid://cehqtooir8iss" path="res://assets/gatzen/FBX/CatLoafWhite256.fbx" id="67_e8xm5"]
+[ext_resource type="PackedScene" uid="uid://dvd7hpxe60lk1" path="res://assets/gatzen/FBX/CatLoafBrown256.fbx" id="68_mw0ll"]
+[ext_resource type="PackedScene" uid="uid://bg64v7siqnsm0" path="res://assets/gatzen/FBX/CatLoafTurtoise256.fbx" id="69_bhxdo"]
+[ext_resource type="PackedScene" uid="uid://dfwiasm3axnmw" path="res://assets/gatzen/FBX/CatLoafGrey256.fbx" id="70_blvv6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ct31b"]
 render_priority = 0
@@ -889,10 +891,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0257845, -3.1390429, -11.4
 [node name="InteractDetector" parent="." unique_id=69040450 instance=ExtResource("46_14fyh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.061047792, 0, 1.6585662)
 
-[node name="Hexengatze" type="Node" parent="." unique_id=465595349]
+[node name="CatLoafWhite256" parent="." unique_id=1917823511 instance=ExtResource("67_e8xm5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1151184, 1.3953123, 7.135665)
 
-[node name="Sketchfab_Scene" parent="Hexengatze" unique_id=838116887 instance=ExtResource("69_e8xm5")]
-transform = Transform3D(0.15937676, 0.016862025, 0.1357008, -0.011587627, 0.2093131, -0.012399659, -0.13625257, 0.0019226894, 0.1597859, -0.8980932, 2.1751678, 6.002698)
+[node name="CatLoafBrown256" parent="." unique_id=748265159 instance=ExtResource("68_mw0ll")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6209384, 1.3953123, 7.0935645)
 
-[node name="CatLoafGrey64" parent="Hexengatze" unique_id=1922339645 instance=ExtResource("68_s1np6")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.89544255, 1.8002344, 6.2410655)
+[node name="CatLoafTurtoise256" parent="." unique_id=1570418218 instance=ExtResource("69_bhxdo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5080998, 1.3953123, 7.0578136)
+
+[node name="CatLoafGrey256" parent="." unique_id=402724094 instance=ExtResource("70_blvv6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93943375, 1.3953123, 6.712795)
