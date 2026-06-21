@@ -107,6 +107,7 @@ func _on_sunrise():
 	$Mage/Lantern.visible = false
 
 func _on_sunset():
+	$Mage/Lantern/AnimationPlayer.play("bob")
 	$Mage/Lantern.visible = true
 
 var item_name: String

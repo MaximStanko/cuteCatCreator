@@ -25,6 +25,44 @@ _data = {
 &"jump_start": ExtResource("8_e5sg8")
 }
 
+[sub_resource type="Animation" id="Animation_e5sg8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.92548084, 0.44609773, 0.009869695)]
+}
+
+[sub_resource type="Animation" id="Animation_as852"]
+resource_name = "bob"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.9666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.92548084, 0.44609773, 0.009869695), Vector3(0.92548084, 0.31401575, 0.009869695), Vector3(0.925, 0.446, 0.01)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7jatv"]
+_data = {
+&"RESET": SubResource("Animation_e5sg8"),
+&"bob": SubResource("Animation_as852")
+}
+
 [node name="Player" type="CharacterBody3D" unique_id=930000287]
 script = ExtResource("1_8cprv")
 
@@ -47,12 +85,15 @@ current = true
 libraries/ = SubResource("AnimationLibrary_hdmdu")
 "libraries/Player Animationen" = SubResource("AnimationLibrary_dyjkh")
 
-[node name="Lantern" parent="Mage" unique_id=743183696 instance=ExtResource("9_mr52g")]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.8240706, 0.51489997, 0.41823268)
+[node name="Lantern" parent="Mage" unique_id=1817988472 instance=ExtResource("9_mr52g")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.92548084, 0.44609773, 0.009869695)
 visible = false
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Mage/Lantern" unique_id=751911090]
+[node name="OmniLight3D" type="OmniLight3D" parent="Mage/Lantern" unique_id=1732448843]
 light_color = Color(1, 0.6670737, 0.5467538, 1)
 light_energy = 4.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Mage/Lantern" unique_id=788680410]
+libraries/ = SubResource("AnimationLibrary_7jatv")
 
 [connection signal="animation_finished" from="Mage/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
