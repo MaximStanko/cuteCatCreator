@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://jihb0ebvvjue" path="res://assets/brackeys_particle_bundle/particles/alpha/star_01_a.png" id="7_qiqxt"]
 [ext_resource type="PackedScene" uid="uid://ch62xggqtb7lh" path="res://assets/prefabs/witch_table.tscn" id="8_kp424"]
 [ext_resource type="Texture2D" uid="uid://qus6wmp7vh07" path="res://assets/magic_hexagon.png" id="9_qiqxt"]
+[ext_resource type="AudioStream" uid="uid://crkavopfkj7tc" path="res://assets/sounds/cat_meow.mp3" id="10_d6674"]
 
 [sub_resource type="Animation" id="Animation_g1mu8"]
 length = 0.001
@@ -277,6 +278,9 @@ light_energy = 0.2
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=2039607019]
 transform = Transform3D(0.094999835, 0.00017741356, -7.754993e-12, 0, -4.152582e-09, -0.095, -0.00017741356, 0.094999835, -4.1525747e-09, 0.010293275, -0.000333488, -0.0063875616)
 texture = ExtResource("9_qiqxt")
+
+[node name="MeowPlayer" type="AudioStreamPlayer" parent="." unique_id=1401792524]
+stream = ExtResource("10_d6674")
 
 [connection signal="animation_finished" from="CatContainer/AnimationPlayer" to="CatContainer" method="_on_animation_player_animation_finished"]
 [connection signal="button_up" from="CanvasLayer/Control/SummonButton" to="." method="_on_summon_button_button_up"]

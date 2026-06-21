@@ -12,6 +12,7 @@ var itemSugar = preload("res://assets/prefabs/item_sugar.tscn")
 @export var hexagonParentNode: Node3D
 @onready var hexagonVertices: Dictionary[int, Node]
 @onready var catAnimator = $CatContainer
+@onready var meow_sound: AudioStreamPlayer = $MeowPlayer
 
 var hexagonItemInstances = [null, null, null, null, null, null, null]
 
@@ -416,6 +417,7 @@ func _on_summon_button_button_up() -> void:
 	if shape_name != null:
 		catAnimator.summon(shape_name)
 		Inventory.mark_found(shape_name)
+		meow_sound.play()
 		print("I have summoned a cat")
 		
 		verticesUsed = [
