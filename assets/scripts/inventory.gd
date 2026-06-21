@@ -13,18 +13,18 @@ var slots: Array[Dictionary] = []
 var current_slot: int = 0
 
 var found: Dictionary = {
-	"triangle": {"found": false, "cat": "res://assets/gartz/heckse.tscn", "cat_name": "Hecksen Gadse"},
-	"rhombus": {"found": false, "cat": "res://assets/gartz/astronaut.tscn", "cat_name": "Astronauten Gadse"},
-	"trapezoid": {"found": false, "cat": "res://assets/gartz/astronaut.tscn", "cat_name": "Astronauten Gadse"},
-	"hexagon": {"found": false, "cat": "res://assets/gartz/astronaut.tscn", "cat_name": "Astronauten Gadse"},
-	"pacman": {"found": false, "cat": "res://assets/gartz/astronaut.tscn", "cat_name": "Astronauten Gadse"},
-	"crooked_hourglass": {"found": false, "cat": "res://assets/gartz/astronaut.tscn", "cat_name": "Astronauten Gadse"},
-	"hourglass": {"found": false, "cat": "res://assets/gartz/astronaut.tscn", "cat_name": "Astronauten Gadse"},
-	"crescent_moon": {"found": false, "cat": "res://assets/gartz/astronaut.tscn", "cat_name": "Astronauten Gadse"},
-	"raft": {"found": false, "cat": "res://assets/gartz/astronaut.tscn", "cat_name": "Astronauten Gadse"},
-	"boat": {"found": false, "cat": "res://assets/gartz/astronaut.tscn", "cat_name": "Astronauten Gadse"},
-	"infinity": {"found": false, "cat": "res://assets/gartz/astronaut.tscn", "cat_name": "Astronauten Gadse"},
-	"radioactive": {"found": false, "cat": "res://assets/gartz/astronaut.tscn", "cat_name": "Astronauten Gadse"},
+	"triangle": {"found": false, "cat": "res://assets/gartz/astronaut.tscn", "cat_name": "Astro Gadse"},
+	"rhombus": {"found": false, "cat": "res://assets/gartz/broet.tscn", "cat_name": "Bröt Gadse"},
+	"trapezoid": {"found": false, "cat": "res://assets/gartz/buff.tscn", "cat_name": "Buff Gadse"},
+	"hexagon": {"found": false, "cat": "res://assets/gartz/chonk.tscn", "cat_name": "Chonker"},
+	"pacman": {"found": false, "cat": "res://assets/gartz/Gatzenhai.tscn", "cat_name": "Gadsenhai"},
+	"crooked_hourglass": {"found": false, "cat": "res://assets/gartz/gentlecat.tscn", "cat_name": "Gentlecat"},
+	"hourglass": {"found": false, "cat": "res://assets/gartz/heckse.tscn", "cat_name": "Gadsmagie"},
+	"crescent_moon": {"found": false, "cat": "res://assets/gartz/orange.tscn", "cat_name": "Orange Gadse"},
+	"raft": {"found": false, "cat": "res://assets/gartz/poempl.tscn", "cat_name": "Pömpel Gatse"},
+	"boat": {"found": false, "cat": "res://assets/gartz/rainbow.tscn", "cat_name": "Regenbogen Gadse"},
+	"infinity": {"found": false, "cat": "res://assets/gartz/silly.tscn", "cat_name": "Silly Gadse"},
+	"radioactive": {"found": false, "cat": "res://assets/gartz/unicorn.tscn", "cat_name": "Einhorn Gadse"},
 }
 
 var _rows: Array[Label] = []

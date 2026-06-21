@@ -67,10 +67,6 @@
 [ext_resource type="PackedScene" uid="uid://cyfxuahef2g8p" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color8/Bush_2_D_Color8.gltf" id="63_8g5xj"]
 [ext_resource type="PackedScene" uid="uid://dembd84sfk1yb" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color8/Tree_2_C_Color8.gltf" id="64_gm1gl"]
 [ext_resource type="PackedScene" uid="uid://elbk71fl2mwa" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color8/Hill_12x12x8_Color8.gltf" id="65_woxgy"]
-[ext_resource type="PackedScene" uid="uid://cehqtooir8iss" path="res://assets/gatzen/FBX/CatLoafWhite256.fbx" id="67_e8xm5"]
-[ext_resource type="PackedScene" uid="uid://dvd7hpxe60lk1" path="res://assets/gatzen/FBX/CatLoafBrown256.fbx" id="68_mw0ll"]
-[ext_resource type="PackedScene" uid="uid://bg64v7siqnsm0" path="res://assets/gatzen/FBX/CatLoafTurtoise256.fbx" id="69_bhxdo"]
-[ext_resource type="PackedScene" uid="uid://dfwiasm3axnmw" path="res://assets/gatzen/FBX/CatLoafGrey256.fbx" id="70_blvv6"]
 [ext_resource type="Script" uid="uid://dshbhbsgw55ye" path="res://assets/scripts/post_process.gd" id="70_pp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ct31b"]
