@@ -5,8 +5,8 @@ const SLOT_COUNT := 4
 const TOOLS := {
 	"full_edge": {"symbol": "(C)", "items": ["Koi", "Trout", "Catfish", "Salmon", "Anchovy", "Pike", "Eel", "Tuna"]},
 	"half_edge": {"symbol": "(L)", "items": ["Diamond"]},
-	"cross":     {"symbol": "(X)", "items": ["Miaunkohle"]},
-	"single":    {"symbol": "(I)", "items": ["Pilz"]},
+	"cross":     {"symbol": "(X)", "items": ["Pink"]},
+	"single":    {"symbol": "(I)", "items": ["CHEESE"]},
 }
 
 var slots: Array[Dictionary] = []
