@@ -5,7 +5,49 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8adim"]
 albedo_color = Color(0.11706114, 0.11706114, 0.11706114, 1)
 
+[sub_resource type="Animation" id="Animation_ymguh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5hg1n"]
+resource_name = "spin"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.2831855, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pw4g6"]
+_data = {
+&"RESET": SubResource("Animation_ymguh"),
+&"spin": SubResource("Animation_5hg1n")
+}
+
 [node name="CatLoafTurtoise256" unique_id=1570418218 instance=ExtResource("1_pw4g6")]
 
-[node name="CatLoafTurtoise256" parent="." index="0" unique_id=1746928683]
+[node name="CatLoafTurtoise256" parent="." index="0" unique_id=673817454]
 surface_material_override/0 = SubResource("StandardMaterial3D_8adim")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1" unique_id=2008687768]
+libraries/ = SubResource("AnimationLibrary_pw4g6")
+autoplay = &"spin"
