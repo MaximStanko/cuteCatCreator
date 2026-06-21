@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bmtr3sirye4vf"]
+
+[ext_resource type="PackedScene" uid="uid://bx2qt0r3h8m8s" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Hill_8x4x2_Color3.gltf" id="1_kfsbb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d5ai5"]
+size = Vector3(7.945, 2.71, 3.63)
+
+[node name="Hill_8x4x2_Color32" unique_id=1778484606 instance=ExtResource("1_kfsbb")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=26932052]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=1217046028]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65889215, 0)
+shape = SubResource("BoxShape3D_d5ai5")

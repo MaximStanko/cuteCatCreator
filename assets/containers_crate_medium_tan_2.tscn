@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cpro6f7phwj8v"]
+
+[ext_resource type="PackedScene" uid="uid://in2dynjyq303" path="res://assets/itemsnshit/gltf/Containers_Crate_Medium_Tan.gltf" id="1_dgf5y"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f2btq"]
+size = Vector3(1.435, 0.425, 1)
+
+[node name="Containers_Crate_Medium_Tan2" unique_id=1030972048 instance=ExtResource("1_dgf5y")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=577086292]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=2012139516]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24448174, 0)
+shape = SubResource("BoxShape3D_f2btq")
