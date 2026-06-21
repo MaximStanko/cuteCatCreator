@@ -25,7 +25,8 @@ func _ready() -> void:#
 	rotation_degrees = GameManager.player_rot
 	start_position = global_position
 	_play_animation(idle_animation)
-
+	GameManager.sunrise.connect(_on_sunrise)
+	GameManager.sunset.connect(_on_sunset)
 
 func _physics_process(delta: float) -> void:
 	if global_position.y < fall_respawn_y:
@@ -95,3 +96,9 @@ func _respawn_at_start() -> void:
 	global_position = start_position
 	velocity = Vector3.ZERO
 	_play_animation(idle_animation)
+
+func _on_sunrise():
+	$Mage/Lantern.visible = false
+
+func _on_sunset():
+	$Mage/Lantern.visible = true

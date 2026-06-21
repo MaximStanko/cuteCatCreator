@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://kmegs8uujgdr"]
 
-[ext_resource type="PackedScene" uid="uid://bns4r0lmamwlv" path="res://assets/book/gltf/journal_open.gltf" id="1_eby8d"]
+[ext_resource type="PackedScene" uid="uid://bns4r0lmamwlv" path="res://assets/tools/gltf/journal_open.gltf" id="1_eby8d"]
 [ext_resource type="Script" uid="uid://cjntda5yokstu" path="res://assets/scripts/compendium.gd" id="2_2fq43"]
 [ext_resource type="Script" uid="uid://depk858ijcksa" path="res://assets/scripts/compendium_overlay.gd" id="3_ieoop"]
 

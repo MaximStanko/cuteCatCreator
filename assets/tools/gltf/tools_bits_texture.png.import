@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://btd8qh7dh6f00"
-path.s3tc="res://.godot/imported/tools_bits_texture.png-6e0249354cd6dd4514b525961a6fbea2.s3tc.ctex"
+path.s3tc="res://.godot/imported/tools_bits_texture.png-641bfd09e359491e635bfe1d3a036aee.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/book/gltf/tools_bits_texture.png"
-dest_files=["res://.godot/imported/tools_bits_texture.png-6e0249354cd6dd4514b525961a6fbea2.s3tc.ctex"]
+source_file="res://assets/tools/gltf/tools_bits_texture.png"
+dest_files=["res://.godot/imported/tools_bits_texture.png-641bfd09e359491e635bfe1d3a036aee.s3tc.ctex"]
 
 [params]
 

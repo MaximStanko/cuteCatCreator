@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bns4r0lmamwlv"
-path="res://.godot/imported/journal_open.gltf-ac4d7d0b54454fcc3db84f0b04c7c5fa.scn"
+uid="uid://ucf0bogn0d4"
+path="res://.godot/imported/lantern.gltf-5f25a1eb37125105efed826a8fd5a6d5.scn"
 
 [deps]
 
-source_file="res://assets/book/gltf/journal_open.gltf"
-dest_files=["res://.godot/imported/journal_open.gltf-ac4d7d0b54454fcc3db84f0b04c7c5fa.scn"]
+source_file="res://assets/tools/gltf/lantern.gltf"
+dest_files=["res://.godot/imported/lantern.gltf-5f25a1eb37125105efed826a8fd5a6d5.scn"]
 
 [params]
 
