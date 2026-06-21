@@ -3,6 +3,146 @@
 [ext_resource type="PackedScene" uid="uid://c4he21ievo3up" path="res://assets/prefabs/pot_vertex.tscn" id="1_6cmo6"]
 [ext_resource type="Script" uid="uid://diyduhlne5mnn" path="res://assets/scripts/cat_pot_scene.gd" id="1_twrch"]
 [ext_resource type="PackedScene" uid="uid://kmegs8uujgdr" path="res://assets/prefabs/compendium.tscn" id="3_ruq8n"]
+[ext_resource type="Script" uid="uid://c3h5smofy4fth" path="res://assets/scripts/cat_animator.gd" id="4_oo8qf"]
+
+[sub_resource type="Animation" id="Animation_g1mu8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.1402934, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CatContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CatContainer:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera3D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.3382157, 0.6766542)]
+}
+
+[sub_resource type="Animation" id="Animation_0p3br"]
+resource_name = "spinning"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CatContainer:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.2831855, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CatContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.895, 0), Vector3(0, 0.922, 0), Vector3(0, 0.895, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_oo8qf"]
+resource_name = "summon_car"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.1402934, 0, 0), Vector3(-0.36913708, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CatContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.89476573, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CatContainer:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 18.849556, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera3D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.3382157, 0.6766542), Vector3(0, 1.3382157, 0.809487)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0p3br"]
+_data = {
+&"RESET": SubResource("Animation_g1mu8"),
+&"spinning": SubResource("Animation_0p3br"),
+&"summon_car": SubResource("Animation_oo8qf")
+}
 
 [node name="CatPotScene" type="Node3D" unique_id=869297221 node_paths=PackedStringArray("hexagonParentNode")]
 script = ExtResource("1_twrch")
@@ -41,3 +181,12 @@ transform = Transform3D(1, 0, 0, 0, 0.41732794, 0.90875596, 0, -0.90875596, 0.41
 
 [node name="Compendium" parent="." unique_id=1748706587 instance=ExtResource("3_ruq8n")]
 transform = Transform3D(0.9394536, 0, -0.3426761, -0.009000108, 0.999655, -0.024673982, 0.34255788, 0.026264183, 0.9391295, 1.1070362, 0, -0.534455)
+
+[node name="CatContainer" type="Node3D" parent="." unique_id=1787767159]
+script = ExtResource("4_oo8qf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CatContainer" unique_id=57453532]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_0p3br")
+
+[connection signal="animation_finished" from="CatContainer/AnimationPlayer" to="CatContainer" method="_on_animation_player_animation_finished"]

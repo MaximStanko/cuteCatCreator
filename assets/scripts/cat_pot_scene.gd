@@ -4,6 +4,7 @@ var magicEdgePrefab: PackedScene = preload("res://assets/prefabs/magic_edge.tscn
 
 @export var hexagonParentNode: Node3D
 @onready var hexagonVertices: Dictionary[int, Node]
+@onready var catAnimator = $CatContainer
 
 var currentItem: String = "full_edge"
 var currentOrientation: int = 0
@@ -217,6 +218,8 @@ func checkShape():
 			edges.sort()
 			print(edges, shapes[vertex_count][shape_name])
 			if shapes[vertex_count][shape_name] == edges:
+				catAnimator.summon(shape_name)
+				print("I have summoned a cat")
 				return shape_name
 		for i in range(vertex_count):
 			if edges[i][0] != 0:
@@ -243,6 +246,8 @@ func checkShape():
 			edges.sort()
 			print(edges, shapes[vertex_count][shape_name])
 			if shapes[vertex_count][shape_name] == edges:
+				catAnimator.summon(shape_name)
+				print("I have summoned a cat")
 				return shape_name
 		for i in range(vertex_count):
 			if edges[i][0] != 0:

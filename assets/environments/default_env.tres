@@ -1,17 +1,10 @@
 [gd_resource type="Environment" format=3 uid="uid://denvworld001"]
 
-[ext_resource type="Texture2D" uid="uid://c5o7lc1ntjbkn" path="res://assets/quarry_04_puresky_4k.hdr" id="1_hdr"]
-
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_sky"]
-panorama = ExtResource("1_hdr")
-energy_multiplier = 0.8
-
-[sub_resource type="Sky" id="Sky_main"]
-sky_material = SubResource("PanoramaSkyMaterial_sky")
+[ext_resource type="Sky" uid="uid://cr3ruoexk4wob" path="res://assets/BinbunSky/skies/stylized/stylized_ridge_sky_01.tres" id="1_3i1a1"]
 
 [resource]
 background_mode = 2
-sky = SubResource("Sky_main")
+sky = ExtResource("1_3i1a1")
 ambient_light_source = 3
 ambient_light_sky_contribution = 0.6
 ambient_light_energy = 0.8
