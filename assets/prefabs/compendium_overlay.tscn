@@ -33,11 +33,11 @@ transform = Transform3D(-0.90270543, 0, -0.43025914, 0, 1, 0, 0.43025914, 0, -0.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.057131916, 0)
 
 [node name="astronaut" parent="spinnings/leftpage" unique_id=1917823511 instance=ExtResource("3_m4078")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+transform = Transform3D(0.1, 0, 3.7252903e-09, 0, 0.1, 0, -3.7252903e-09, 0, 0.1, 0.12746863, 0, -0.0011726022)
 visible = false
 
 [node name="un1" parent="spinnings/leftpage" unique_id=1570418218 instance=ExtResource("4_m4078")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+transform = Transform3D(0.1, 0, 3.7252903e-09, 0, 0.1, 0, -3.7252903e-09, 0, 0.1, 0.12746863, 0, -0.0011726022)
 
 [node name="cat1" type="Label3D" parent="spinnings/leftpage" unique_id=1814909666]
 transform = Transform3D(-0.099996194, 0, 0.0008726637, 0, 0.1, 0, -0.0008726637, 0, -0.099996194, 0.12385827, -0.009105913, -0.044337273)
@@ -45,11 +45,11 @@ text = "triangle"
 outline_size = 2
 
 [node name="brot" parent="spinnings/leftpage" unique_id=1919258756 instance=ExtResource("5_3r845")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.12682727, -0.14760256, 0)
+transform = Transform3D(0.1, 0, 1.1175871e-08, 0, 0.1, 0, -1.1175871e-08, 0, 0.1, -0.010717362, -0.015932202, -0.005169928)
 visible = false
 
 [node name="un2" parent="spinnings/leftpage" unique_id=869823439 instance=ExtResource("4_m4078")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.12682727, -0.14760256, 0)
+transform = Transform3D(0.1, 0, 1.1175871e-08, 0, 0.1, 0, -1.1175871e-08, 0, 0.1, -0.010717362, -0.015932202, -0.005169928)
 
 [node name="cat2" type="Label3D" parent="spinnings/leftpage" unique_id=1511283480]
 transform = Transform3D(-0.099996194, 0, 0.0008726637, 0, 0.1, 0, -0.0008726637, 0, -0.099996194, -0.0049150214, -0.009105913, -0.053172052)
@@ -57,11 +57,11 @@ text = "rhombus"
 outline_size = 2
 
 [node name="buff" parent="spinnings/leftpage" unique_id=2043778116 instance=ExtResource("6_fq1dh")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.008875005, -0.14760256, -0.012081325)
+transform = Transform3D(0.1, 0, 3.7252903e-09, 0, 0.1, 0, -3.7252903e-09, 0, 0.1, 0.15656994, -0.14760256, -0.0515005)
 visible = false
 
 [node name="un3" parent="spinnings/leftpage" unique_id=1469817251 instance=ExtResource("4_m4078")]
-transform = Transform3D(-0.099996194, 0, 0.0008726637, 0, 0.1, 0, -0.0008726637, 0, -0.099996194, -0.008875005, -0.14760256, -0.012081325)
+transform = Transform3D(-0.099996194, 0, 0.00087266415, 0, 0.1, 0, -0.00087266415, 0, -0.099996194, 0.15656994, -0.14760256, -0.0515005)
 
 [node name="cat3" type="Label3D" parent="spinnings/leftpage" unique_id=685801354]
 transform = Transform3D(-0.099996194, 0, 0.0008726637, 0, 0.1, 0, -0.0008726637, 0, -0.099996194, 0.1305573, -0.17203957, -0.05663061)
@@ -69,11 +69,11 @@ text = "trapezoid"
 outline_size = 2
 
 [node name="chonk" parent="spinnings/leftpage" unique_id=402724094 instance=ExtResource("7_bn803")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.12682728, 0, 0)
+transform = Transform3D(0.1, 0, 7.450581e-09, 0, 0.1, 0, -7.450581e-09, 0, 0.1, -0.0048756152, -0.16543952, -0.03442183)
 visible = false
 
 [node name="un4" parent="spinnings/leftpage" unique_id=1574016546 instance=ExtResource("4_m4078")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.12682728, 0, 0)
+transform = Transform3D(0.1, 0, 7.450581e-09, 0, 0.1, 0, -7.450581e-09, 0, 0.1, -0.0048756152, -0.16543952, -0.03442183)
 
 [node name="cat4" type="Label3D" parent="spinnings/leftpage" unique_id=1035231842]
 transform = Transform3D(-0.099996194, 0, 0.0008726637, 0, 0.1, 0, -0.0008726637, 0, -0.099996194, 0.0037060976, -0.15435886, -0.09127438)
@@ -108,11 +108,11 @@ outline_size = 2
 transform = Transform3D(0.48488587, 0, -0.87457776, 0, 1, 0, 0.87457776, 0, 0.48488587, -0.29151776, -0.07233319, -0.24450079)
 
 [node name="hexe" parent="spinnings/rightpage" unique_id=872607788 instance=ExtResource("10_fqhs3")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+transform = Transform3D(0.1, 0, -3.7252903e-09, 0, 0.1, 0, 3.7252903e-09, 0, 0.1, 0.12863286, 0, 0.00021582842)
 visible = false
 
 [node name="un1" parent="spinnings/rightpage" unique_id=176547742 instance=ExtResource("4_m4078")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+transform = Transform3D(0.1, 0, -3.7252903e-09, 0, 0.1, 0, 3.7252903e-09, 0, 0.1, 0.12863286, 0, 0.00021582842)
 
 [node name="cat1" type="Label3D" parent="spinnings/rightpage" unique_id=509696988]
 transform = Transform3D(-0.099996194, 0, 0.00087266415, 0, 0.1, 0, -0.00087266415, 0, -0.099996194, 0.12336896, -0.009105913, -0.040868104)
@@ -120,11 +120,11 @@ text = "hourglass"
 outline_size = 2
 
 [node name="orange" parent="spinnings/rightpage" unique_id=575646518 instance=ExtResource("11_iarpw")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.12682727, -0.14760256, 0)
+transform = Transform3D(0.10000001, 0, -7.450581e-09, 0, 0.1, 0, 7.450581e-09, 0, 0.10000001, -0.010648489, 0.017736107, -0.013930798)
 visible = false
 
 [node name="un2" parent="spinnings/rightpage" unique_id=496476841 instance=ExtResource("4_m4078")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.12682727, -0.14760256, 0)
+transform = Transform3D(0.10000001, 0, -7.450581e-09, 0, 0.1, 0, 7.450581e-09, 0, 0.10000001, -0.010648489, 0.017736107, -0.013930798)
 
 [node name="cat2" type="Label3D" parent="spinnings/rightpage" unique_id=200047034]
 transform = Transform3D(-0.099996194, 0, 0.00087266415, 0, 0.1, 0, -0.00087266415, 0, -0.099996194, -0.013986111, -0.009105913, -0.03552106)
@@ -132,11 +132,11 @@ text = "crescent moon"
 outline_size = 2
 
 [node name="poempl" parent="spinnings/rightpage" unique_id=444222470 instance=ExtResource("12_qf14c")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.008875005, -0.14760256, -0.012081325)
+transform = Transform3D(0.1, 0, -3.7252903e-09, 0, 0.1, 0, 3.7252903e-09, 0, 0.1, 0.113787144, -0.14760256, -0.04040554)
 visible = false
 
 [node name="un3" parent="spinnings/rightpage" unique_id=569788529 instance=ExtResource("4_m4078")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.008875005, -0.14760256, -0.012081325)
+transform = Transform3D(0.1, 0, -3.7252903e-09, 0, 0.1, 0, 3.7252903e-09, 0, 0.1, 0.113787144, -0.14760256, -0.04040554)
 
 [node name="cat3" type="Label3D" parent="spinnings/rightpage" unique_id=1335567369]
 transform = Transform3D(-0.099996194, 0, 0.00087266415, 0, 0.1, 0, -0.00087266415, 0, -0.099996194, 0.12275213, -0.17203957, -0.031123847)
@@ -144,11 +144,11 @@ text = "raft"
 outline_size = 2
 
 [node name="rainbow" parent="spinnings/rightpage" unique_id=693190557 instance=ExtResource("13_wnsxw")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.12682728, 0, 0)
+transform = Transform3D(0.10000001, 0, -7.450581e-09, 0, 0.1, 0, 7.450581e-09, 0, 0.10000001, 0.012217969, -0.18426874, 0.009693205)
 visible = false
 
 [node name="un4" parent="spinnings/rightpage" unique_id=142843717 instance=ExtResource("4_m4078")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.12682728, 0, 0)
+transform = Transform3D(0.10000001, 0, -7.450581e-09, 0, 0.1, 0, 7.450581e-09, 0, 0.10000001, 0.012217969, -0.18426874, 0.009693205)
 
 [node name="cat4" type="Label3D" parent="spinnings/rightpage" unique_id=1703343063]
 transform = Transform3D(-0.099996194, 0, 0.00087266415, 0, 0.1, 0, -0.00087266415, 0, -0.099996194, -0.015944615, -0.15435883, -0.068731725)
