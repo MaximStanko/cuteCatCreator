@@ -2,8 +2,30 @@ extends CanvasLayer
 
 const SLOT_COUNT := 4
 
+const TOOLS := {
+	"full_edge": {"symbol": "(C)", "items": ["Koi", "Trout", "Catfish", "Salmon", "Anchovy", "Pike", "Eel", "Tuna"]},
+	"half_edge": {"symbol": "(L)", "items": ["Diamond"]},
+	"cross":     {"symbol": "(X)", "items": ["Miaunkohle"]},
+	"single":    {"symbol": "(I)", "items": ["Pilz"]},
+}
+
 var slots: Array[Dictionary] = []
 var current_slot: int = 0
+
+var found: Dictionary = {
+	"triangle": false,
+	"rhombus": false,
+	"trapezoid": false,
+	"hexagon": false,
+	"pacman": false,
+	"crooked_hourglass": false,
+	"hourglass": false,
+	"crescent_moon": false,
+	"raft": false,
+	"boat": false,
+	"infinity": false,
+	"radioactive": false,
+}
 
 var _rows: Array[Label] = []
 
@@ -36,21 +58,58 @@ func _select_slot(index: int) -> void:
 	current_slot = index
 	_refresh()
 
-func set_held_item(item_name: String) -> void:
-	slots[current_slot] = {"name": item_name}
-	_select_slot((current_slot+1) % 4)
-	_refresh()
-
 func _discard() -> void:
 	slots[current_slot] = {}
 	_refresh()
+
+func tool_for_item(item_name: String) -> String:
+	for tool in TOOLS:
+		if item_name in TOOLS[tool].items:
+			return tool
+	return ""
+
+func peek_held_tool() -> String:
+	var item := slots[current_slot]
+	if item.is_empty():
+		return ""
+	return tool_for_item(item.name)
+
+func take_held_item() -> String:
+	var item := slots[current_slot]
+	if item.is_empty() or tool_for_item(item.name) == "":
+		return ""
+	slots[current_slot] = {}
+	_refresh()
+	return item.name
+
+func give_item(item_name: String) -> void:
+	for i in SLOT_COUNT:
+		if slots[i].is_empty():
+			slots[i] = {"name": item_name}
+			_refresh()
+			return
+	slots[current_slot] = {"name": item_name}
+	_refresh()
+
+func mark_found(shape_name: String) -> void:
+	if found.has(shape_name):
+		found[shape_name] = true
+
+func found_count() -> int:
+	var count := 0
+	for shape_name in found:
+		if found[shape_name]:
+			count += 1
+	return count
 
 func _refresh() -> void:
 	for i in SLOT_COUNT:
 		var item := slots[i]
 		var content := "(empty)"
 		if not item.is_empty():
-			content = "%s" % [item.name]
+			var tool := tool_for_item(item.name)
+			var prefix: String = TOOLS[tool].symbol if tool != "" else ""
+			content = ("%s %s" % [prefix, item.name]).strip_edges()
 		var marker := ">" if i == current_slot else " "
 		_rows[i].text = "%s %d: %s" % [marker, i + 1, content]
 		_rows[i].modulate = Color(1, 1, 0.5) if i == current_slot else Color(1, 1, 1)

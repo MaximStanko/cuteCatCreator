@@ -67,7 +67,7 @@ func _ready() -> void:
 func start() -> void:
 	pattern = FISH.keys().pick_random()
 	var data: Dictionary = FISH[pattern]
-	item_name = "%s (%s Fish)" % [data.item, pattern.capitalize()]
+	item_name = data.item
 	fish_color = data.color
 	max_lives = float(randi_range(data.lives.x, data.lives.y))
 	escape = max_lives

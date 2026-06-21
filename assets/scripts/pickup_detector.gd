@@ -23,4 +23,4 @@ func _unhandled_key_input(event: InputEvent) -> void:
 	if not event.is_pressed() or event.is_echo() or !player_inside:
 		return
 	match (event as InputEventKey).physical_keycode:
-		KEY_E: Inventory.set_held_item(pickupName)
+		KEY_E: Inventory.give_item(pickupName)

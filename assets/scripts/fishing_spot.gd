@@ -32,4 +32,4 @@ func _unhandled_key_input(event: InputEvent) -> void:
 func _on_finished(success: bool, item_name: String) -> void:
 	_game = null
 	if success:
-		Inventory.set_held_item(item_name)
+		Inventory.give_item(item_name)

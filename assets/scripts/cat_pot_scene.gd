@@ -17,6 +17,10 @@ var verticesUsed: Array = [
 	null, null, null, null, null, null, null
 ]
 
+var itemsUsed: Array = [
+	null, null, null, null, null, null, null
+]
+
 var shapes: Dictionary = {
 	3: {
 		"triangle": [[1, 2], [0, 1], [0, 2]], 
@@ -219,6 +223,7 @@ func checkShape():
 			print(edges, shapes[vertex_count][shape_name])
 			if shapes[vertex_count][shape_name] == edges:
 				catAnimator.summon(shape_name)
+				Inventory.mark_found(shape_name)
 				print("I have summoned a cat")
 				return shape_name
 		for i in range(vertex_count):
@@ -247,6 +252,7 @@ func checkShape():
 			print(edges, shapes[vertex_count][shape_name])
 			if shapes[vertex_count][shape_name] == edges:
 				catAnimator.summon(shape_name)
+				Inventory.mark_found(shape_name)
 				print("I have summoned a cat")
 				return shape_name
 		for i in range(vertex_count):
@@ -265,6 +271,9 @@ func remove_vertex(index: int):
 		for edge in edges:
 			removeLockedMagicEdge(edge[0], edge[1])
 		verticesUsed[index] = null
+		if itemsUsed[index] != null:
+			Inventory.give_item(itemsUsed[index])
+			itemsUsed[index] = null
 		print(checkShape())
 
 func add_vertex(index: int, edges):
@@ -280,16 +289,26 @@ func vertex_pressed(index: int):
 		remove_vertex(index)
 		vertex_hovered(index)
 	else:
+		if currentEdges == null:
+			return
 		var full_edges = []
 		for edge in currentEdges:
 			full_edges.append([index, edge])
 			if magicEdgesLocked.get([index, edge]) != null or magicEdgesLocked.get([edge, index]) != null:
 				return
+		var item := Inventory.take_held_item()
+		if item == "":
+			return
+		itemsUsed[index] = item
 		add_vertex(index, full_edges)
 
 func vertex_hovered(index: int):
 	print("Vertex " + str(index) + " hovered")
 	if verticesUsed[index] != null:
+		return
+	currentItem = Inventory.peek_held_tool()
+	if currentItem == "":
+		currentMaxOrientation = 0
 		return
 	currentEdgePossibilities = itemEdges[currentItem].get(index)
 	currentTempOrientation = currentOrientation
