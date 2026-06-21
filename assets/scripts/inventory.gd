@@ -13,18 +13,18 @@ var slots: Array[Dictionary] = []
 var current_slot: int = 0
 
 var found: Dictionary = {
-	"triangle": {"found": false, "cat": "res://assets/prefabs/cats/hexen_gatze.tscn", "cat_name": "Hexen Gadse"},
-	"rhombus": {"found": false, "cat": "res://assets/prefabs/cats/hexen_gatze.tscn", "cat_name": "Hexen Gadse"},
-	"trapezoid": {"found": false, "cat": "res://assets/prefabs/cats/hexen_gatze.tscn", "cat_name": "Hexen Gadse"},
-	"hexagon": {"found": false, "cat": "res://assets/prefabs/cats/hexen_gatze.tscn", "cat_name": "Hexen Gadse"},
-	"pacman": {"found": false, "cat": "res://assets/prefabs/cats/hexen_gatze.tscn", "cat_name": "Hexen Gadse"},
-	"crooked_hourglass": {"found": false, "cat": "res://assets/prefabs/cats/hexen_gatze.tscn", "cat_name": "Hexen Gadse"},
-	"hourglass": {"found": false, "cat": "res://assets/prefabs/cats/hexen_gatze.tscn", "cat_name": "Hexen Gadse"},
-	"crescent_moon": {"found": false, "cat": "res://assets/prefabs/cats/hexen_gatze.tscn", "cat_name": "Hexen Gadse"},
-	"raft": {"found": false, "cat": "res://assets/prefabs/cats/hexen_gatze.tscn", "cat_name": "Hexen Gadse"},
-	"boat": {"found": false, "cat": "res://assets/prefabs/cats/hexen_gatze.tscn", "cat_name": "Hexen Gadse"},
-	"infinity": {"found": false, "cat": "res://assets/prefabs/cats/hexen_gatze.tscn", "cat_name": "Hexen Gadse"},
-	"radioactive": {"found": false, "cat": "res://assets/prefabs/cats/hexen_gatze.tscn", "cat_name": "Hexen Gadse"},
+	"triangle": {"found": false, "cat": "res://assets/gartz/heckse.tscn", "cat_name": "Hecksen Gadse"},
+	"rhombus": {"found": false, "cat": "res://assets/gartz/astronaut.tscn", "cat_name": "Astronauten Gadse"},
+	"trapezoid": {"found": false, "cat": "res://assets/gartz/astronaut.tscn", "cat_name": "Astronauten Gadse"},
+	"hexagon": {"found": false, "cat": "res://assets/gartz/astronaut.tscn", "cat_name": "Astronauten Gadse"},
+	"pacman": {"found": false, "cat": "res://assets/gartz/astronaut.tscn", "cat_name": "Astronauten Gadse"},
+	"crooked_hourglass": {"found": false, "cat": "res://assets/gartz/astronaut.tscn", "cat_name": "Astronauten Gadse"},
+	"hourglass": {"found": false, "cat": "res://assets/gartz/astronaut.tscn", "cat_name": "Astronauten Gadse"},
+	"crescent_moon": {"found": false, "cat": "res://assets/gartz/astronaut.tscn", "cat_name": "Astronauten Gadse"},
+	"raft": {"found": false, "cat": "res://assets/gartz/astronaut.tscn", "cat_name": "Astronauten Gadse"},
+	"boat": {"found": false, "cat": "res://assets/gartz/astronaut.tscn", "cat_name": "Astronauten Gadse"},
+	"infinity": {"found": false, "cat": "res://assets/gartz/astronaut.tscn", "cat_name": "Astronauten Gadse"},
+	"radioactive": {"found": false, "cat": "res://assets/gartz/astronaut.tscn", "cat_name": "Astronauten Gadse"},
 }
 
 var _rows: Array[Label] = []
