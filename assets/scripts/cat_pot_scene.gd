@@ -415,6 +415,7 @@ func _process(delta: float) -> void:
 func _on_summon_button_button_up() -> void:
 	var shape_name = checkShape()
 	if shape_name != null:
+		summonButton.visible = false
 		catAnimator.summon(shape_name)
 		Inventory.mark_found(shape_name)
 		meow_sound.play()

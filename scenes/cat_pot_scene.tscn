@@ -150,6 +150,9 @@ _data = {
 &"summon_car": SubResource("Animation_oo8qf")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_d6674"]
+font_size = 147
+
 [sub_resource type="Environment" id="Environment_buu6a"]
 background_mode = 1
 ambient_light_energy = 0.1
@@ -214,14 +217,25 @@ offset_bottom = 256.0
 
 [node name="SummonButton" type="TextureButton" parent="CanvasLayer/Control" unique_id=272104811]
 layout_mode = 0
-offset_left = 424.00003
+offset_left = 361.0
 offset_top = 413.00003
-offset_right = 936.0
+offset_right = 1495.9999
 offset_bottom = 925.0
 scale = Vector2(0.2, 0.2)
 texture_normal = ExtResource("5_buu6a")
 texture_pressed = ExtResource("6_kp424")
 texture_hover = ExtResource("7_qiqxt")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/SummonButton" unique_id=1258581181]
+layout_mode = 0
+offset_left = 99.999756
+offset_top = 359.99988
+offset_right = 1074.9998
+offset_bottom = 614.99963
+text = "Summon Cat"
+label_settings = SubResource("LabelSettings_d6674")
+horizontal_alignment = 1
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1395975908]
 transform = Transform3D(1, 0, 0, 0, 0.28884798, 0.957375, 0, -0.957375, 0.28884798, 0, 3.0728943, 0.42099386)
