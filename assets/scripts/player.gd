@@ -4,6 +4,7 @@ extends CharacterBody3D
 const SPEED = 4.0
 const JUMP_VELOCITY = 4.5
 
+@export var fall_respawn_y: float = -10.0
 @export var turn_speed: float = 12.0
 @export var model_forward_offset: float = 0.0
 @export var run_animation: StringName = &"Player Animationen/Rennen"
@@ -16,14 +17,22 @@ const JUMP_VELOCITY = 4.5
 @onready var model: Node3D = $Mage
 @onready var animation_player: AnimationPlayer = $Mage/AnimationPlayer
 
+var start_position: Vector3
+
 
 func _ready() -> void:#
 	global_position = GameManager.player_pos
 	rotation_degrees = GameManager.player_rot
+func _ready() -> void:
+	start_position = global_position
 	_play_animation(idle_animation)
 
 
 func _physics_process(delta: float) -> void:
+	if global_position.y < fall_respawn_y:
+		_respawn_at_start()
+		return
+
 	var jumped := false
 
 	# Add the gravity.
@@ -81,3 +90,9 @@ func _play_animation(animation_name: StringName) -> void:
 
 func _is_animation_playing(animation_name: StringName) -> bool:
 	return animation_player.current_animation == animation_name and animation_player.is_playing()
+
+
+func _respawn_at_start() -> void:
+	global_position = start_position
+	velocity = Vector3.ZERO
+	_play_animation(idle_animation)
