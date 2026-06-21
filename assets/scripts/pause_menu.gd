@@ -11,11 +11,11 @@ func _process(delta: float) -> void:
 		toggle_pause()
 
 func toggle_pause() -> void:
-	Inventory.hide()
 	var paused := not get_tree().paused
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	get_tree().paused = paused
 	visible = paused
+	Inventory.visible = not paused
 
 func _on_play() -> void:
 	Inventory.show()
