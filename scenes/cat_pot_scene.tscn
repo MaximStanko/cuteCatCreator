@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://bfav78e55t4al"]
 
 [ext_resource type="PackedScene" uid="uid://c4he21ievo3up" path="res://assets/prefabs/pot_vertex.tscn" id="1_6cmo6"]
+[ext_resource type="Script" uid="uid://diyduhlne5mnn" path="res://assets/scripts/cat_pot_scene.gd" id="1_twrch"]
 
-[node name="CatPotScene" type="Node3D" unique_id=869297221]
+[node name="CatPotScene" type="Node3D" unique_id=869297221 node_paths=PackedStringArray("hexagonParentNode")]
+script = ExtResource("1_twrch")
+hexagonParentNode = NodePath("PotHexagon")
 
 [node name="PotHexagon" type="Node3D" parent="." unique_id=1700891085]
 
@@ -33,4 +36,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0, 0.433)
 vertex_index = 6
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2129322711]
-transform = Transform3D(1, 0, 0, 0, 0.4173279, 0.908756, 0, -0.908756, 0.4173279, 0, 1.3382157, 0.6766542)
+transform = Transform3D(1, 0, 0, 0, 0.41732794, 0.90875596, 0, -0.90875596, 0.41732794, 0, 1.3382157, 0.6766542)

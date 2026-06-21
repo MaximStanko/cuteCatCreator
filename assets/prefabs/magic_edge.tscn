@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://g2wja3bs16rh"]
+
+[ext_resource type="Script" uid="uid://0iefj3cucbh6" path="res://assets/scripts/magic_edge.gd" id="1_1t6eg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_abt0b"]
+metallic_specular = 1.0
+emission_enabled = true
+emission = Color(0.79561114, 0.83880186, 0.5882837, 1)
+emission_energy_multiplier = 14.11
+disable_receive_shadows = true
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_1t6eg"]
+material = SubResource("StandardMaterial3D_abt0b")
+top_radius = 0.02
+bottom_radius = 0.02
+height = 0.5
+cap_top = false
+cap_bottom = false
+
+[node name="MagicEdge" type="MeshInstance3D" unique_id=672046767]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_1t6eg")
+script = ExtResource("1_1t6eg")

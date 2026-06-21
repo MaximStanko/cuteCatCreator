@@ -6,6 +6,10 @@
 script = ExtResource("1_inventory")
 
 [node name="Panel" type="PanelContainer" parent="." unique_id=1683881130]
+[node name="Inventory" type="CanvasLayer" unique_id=1799327360]
+script = ExtResource("1_inventory")
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=1146957877]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -15,5 +19,5 @@ offset_right = -20.0
 offset_bottom = 160.0
 grow_horizontal = 0
 
-[node name="VBox" type="VBoxContainer" parent="Panel" unique_id=540522860]
+[node name="VBox" type="VBoxContainer" parent="Panel" unique_id=1906466516]
 layout_mode = 2
