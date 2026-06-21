@@ -1,32 +1,33 @@
 shader_type spatial;
-render_mode cull_back, specular_schlick_ggx;
-
+render_mode cull_back, diffuse_lambert, specular_disabled;
 
 uniform sampler2D DEPTH_TEXTURE : hint_depth_texture, filter_linear_mipmap;
+uniform sampler2D foam_tex : filter_linear_mipmap, repeat_enable, hint_default_black;
 
-// so viele juicy parameter!
-uniform vec3 shallow_color : source_color = vec3(0.34, 0.66, 0.69);
-uniform vec3 deep_color : source_color = vec3(0.05, 0.20, 0.33);
-uniform float depth_fade : hint_range(0.05, 10.0) = 1.6;
-uniform float water_opacity : hint_range(0.0, 1.0) = 0.9;
-uniform float surface_opacity : hint_range(0.0, 1.0) = 0.25;
+// so viele juicy parameter
+uniform vec3 shallow_color : source_color = vec3(0.27, 0.74, 0.86);
+uniform vec3 deep_color    : source_color = vec3(0.04, 0.28, 0.55);
+uniform vec3 foam_color    : source_color = vec3(0.95, 1.0, 1.0);
+
+uniform float depth_fade  : hint_range(0.05, 10.0) = 1.6;
+uniform float color_bands : hint_range(1.0, 6.0) = 3.0;
+uniform float water_opacity   : hint_range(0.0, 1.0) = 0.9;
+uniform float surface_opacity : hint_range(0.0, 1.0) = 0.4;
 
 uniform float wave_height : hint_range(0.0, 1.0) = 0.06;
-uniform float wave_scale : hint_range(0.1, 8.0) = 1.4;
-uniform float wave_speed : hint_range(0.0, 2.0) = 0.35;
+uniform float wave_scale  : hint_range(0.1, 8.0) = 1.0;
+uniform float wave_speed  : hint_range(0.0, 2.0) = 0.24;
 
-uniform float ripple_scale : hint_range(1.0, 40.0) = 12.0;
-uniform float ripple_speed : hint_range(0.0, 2.0) = 0.25;
-uniform float normal_strength : hint_range(0.0, 1.0) = 0.35;
-
-uniform float water_roughness : hint_range(0.0, 1.0) = 0.04;
-uniform float fresnel_power : hint_range(1.0, 8.0) = 5.0;
-
-uniform float lod_start : hint_range(0.1, 4.0) = 1.0;
-uniform float lod_end : hint_range(0.5, 16.0) = 12.0;
-uniform float far_roughness : hint_range(0.0, 1.0) = 0.6;
-uniform float max_flatten : hint_range(0.0, 1.0) = 0.5;
-uniform float low_poly_cell_size : hint_range(0.5, 12.0) = 1.0;
+uniform float foam_scale     : hint_range(0.005, 0.5) = 0.05;
+uniform float foam_scale2    : hint_range(0.005, 0.5) = 0.028;
+uniform float foam_speed     : hint_range(0.0, 0.2)   = 0.015;
+uniform float foam_warp      : hint_range(0.0, 1.0)   = 0.15;
+uniform float foam_threshold : hint_range(0.0, 1.0)   = 0.3;
+uniform float foam_softness  : hint_range(0.01, 0.8)  = 0.35;
+uniform float foam_aa        : hint_range(0.0, 8.0)   = 2.5;
+uniform float foam_secondary : hint_range(0.0, 1.0)   = 0.5;
+uniform float foam_glow      : hint_range(0.0, 1.0)   = 0.1;
+uniform float ambient_lift   : hint_range(0.0, 0.5)   = 0.06;
 
 vec2 hash22(vec2 p) {
 	p = vec2(dot(p, vec2(127.1, 311.7)), dot(p, vec2(269.5, 183.3)));
@@ -45,7 +46,6 @@ float perlin(vec2 p) {
 	return mix(mix(d00, d10, u.x), mix(d01, d11, u.x), u.y);
 }
 
-
 float fbm(vec2 p) {
 	float v = 0.0;
 	float a = 0.5;
@@ -59,7 +59,6 @@ float fbm(vec2 p) {
 }
 
 float wave_h(vec2 p, float t) {
-	p = floor(p / low_poly_cell_size) * low_poly_cell_size;
 	float h = fbm(p * wave_scale + vec2(t * 0.20, t * 0.13));
 	h += 0.5 * fbm(p * wave_scale * 2.1 + vec2(-t * 0.17, t * 0.23));
 	return h;
@@ -74,33 +73,13 @@ void vertex() {
 }
 
 void fragment() {
-	float t_wave = TIME * wave_speed;
-	float t_rip = TIME * ripple_speed;
+	float t = TIME * wave_speed;
+
 	float e = 0.15;
-
-	float h = wave_h(world_pos.xz, t_wave);
-	float hx = wave_h(world_pos.xz + vec2(e, 0.0), t_wave);
-	float hz = wave_h(world_pos.xz + vec2(0.0, e), t_wave);
-	vec3 swell_n = vec3(-(hx - h) / e * wave_height, 1.0, -(hz - h) / e * wave_height);
-
-	vec2 ruv = floor(world_pos.xz / low_poly_cell_size) * low_poly_cell_size * ripple_scale;
-	vec2 warp = vec2(fbm(ruv * 0.4 + t_rip * 0.15), fbm(ruv * 0.4 + 7.3 - t_rip * 0.12));
-	ruv += warp * 3.0;
-	vec2 flow = vec2(t_rip, t_rip * 0.6);
-	float r = fbm(ruv + flow);
-	float rx = fbm(ruv + vec2(0.3, 0.0) + flow) - r;
-	float rz = fbm(ruv + vec2(0.0, 0.3) + flow) - r;
-	vec3 ripple_n = vec3(-rx, 1.0, -rz);
-
-	vec3 world_n = normalize(mix(swell_n, ripple_n, normal_strength));
-
-	vec2 fw = fwidth(world_pos.xz);
-	float texels_per_px = max(fw.x, fw.y) * ripple_scale;
-	float foot = log2(max(texels_per_px, 1e-5));
-	float lod = smoothstep(log2(lod_start), log2(lod_end), foot);
-	float detail = 1.0 - lod;
-	world_n = normalize(mix(world_n, vec3(0.0, 1.0, 0.0), lod * max_flatten));
-
+	float h  = wave_h(world_pos.xz, t);
+	float hx = wave_h(world_pos.xz + vec2(e, 0.0), t);
+	float hz = wave_h(world_pos.xz + vec2(0.0, e), t);
+	vec3 world_n = normalize(vec3(-(hx - h) / e * wave_height, 1.0, -(hz - h) / e * wave_height));
 	NORMAL = normalize((VIEW_MATRIX * vec4(world_n, 0.0)).xyz);
 
 	float depth_raw = texture(DEPTH_TEXTURE, SCREEN_UV).x;
@@ -110,14 +89,31 @@ void fragment() {
 	float water_depth = max(-view.z - (-VERTEX.z), 0.0);
 	float depth_t = 1.0 - exp(-water_depth / depth_fade);
 
-	vec3 col = mix(shallow_color, deep_color, depth_t);
+	float bands = max(color_bands, 1.0);
+	float depth_band = clamp(floor(depth_t * bands) / max(bands - 1.0, 1.0), 0.0, 1.0);
+	vec3 water = mix(shallow_color, deep_color, depth_band);
 
-	float fres = pow(1.0 - clamp(dot(NORMAL, VIEW), 0.0, 1.0), fresnel_power);
+	float tt = TIME;
+	vec2 base = world_pos.xz;
+	vec2 warp = vec2(fbm(base * 0.25 + tt * 0.04),
+					 fbm(base * 0.25 + 11.3 - tt * 0.05)) * foam_warp;
+	vec2 drift = vec2(tt * foam_speed, tt * foam_speed * 0.6);
+	mat2 rot = mat2(vec2(0.866, 0.5), vec2(-0.5, 0.866)); // decorrelate the layers
+	vec2 uvA = base * foam_scale + warp + drift;
+	vec2 uvB = (rot * base) * foam_scale2 + warp * 0.7 - drift * 0.5;
+
+	float fa = texture(foam_tex, uvA).r;
+	float fb = texture(foam_tex, uvB).r;
+	float foam_raw = max(fa, fb * foam_secondary);
+
+	float hw = foam_softness * 0.5 + length(fwidth(uvA)) * foam_aa;
+	float foam = smoothstep(foam_threshold - hw, foam_threshold + hw, foam_raw);
+
+	vec3 col = mix(water, foam_color, foam);
 
 	ALBEDO = col;
 	METALLIC = 0.0;
-	SPECULAR = 0.5;
-	float base_rough = mix(water_roughness, far_roughness, lod);
-	ROUGHNESS = mix(base_rough, base_rough * 0.5, fres * detail);
-	ALPHA = clamp(mix(surface_opacity, water_opacity, depth_t) + fres * 0.4, 0.0, 1.0);
+	ROUGHNESS = 1.0;
+	EMISSION = col * ambient_lift + foam_color * foam * foam_glow;
+	ALPHA = clamp(max(mix(surface_opacity, water_opacity, depth_t), foam), 0.0, 1.0);
 }

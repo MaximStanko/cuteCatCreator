@@ -19,6 +19,7 @@
 [ext_resource type="Shader" uid="uid://cneyw035hahlm" path="res://assets/shaders/water.gdshader" id="10_is3qo"]
 [ext_resource type="Shader" uid="uid://cxmry2dovapvp" path="res://assets/shaders/frac_test.gdshader" id="11_grade"]
 [ext_resource type="PackedScene" uid="uid://bwluljqixlfbn" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Tree_7_A_Color3.gltf" id="11_une3w"]
+[ext_resource type="Texture2D" uid="uid://brswbayehsef6" path="res://assets/shaders/toonwater.png" id="12_foam"]
 [ext_resource type="PackedScene" uid="uid://bfk2li1np53m5" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Tree_7_B_Color3.gltf" id="12_x224o"]
 [ext_resource type="PackedScene" uid="uid://dl1h3ay81gj53" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Rock_3_C_Color3.gltf" id="13_6g32d"]
 [ext_resource type="PackedScene" uid="uid://blkk1ml40pori" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color3/Rock_3_D_Color3.gltf" id="14_une3w"]
@@ -70,39 +71,50 @@
 [ext_resource type="PackedScene" uid="uid://dvd7hpxe60lk1" path="res://assets/gatzen/FBX/CatLoafBrown256.fbx" id="68_mw0ll"]
 [ext_resource type="PackedScene" uid="uid://bg64v7siqnsm0" path="res://assets/gatzen/FBX/CatLoafTurtoise256.fbx" id="69_bhxdo"]
 [ext_resource type="PackedScene" uid="uid://dfwiasm3axnmw" path="res://assets/gatzen/FBX/CatLoafGrey256.fbx" id="70_blvv6"]
+[ext_resource type="Script" uid="uid://dshbhbsgw55ye" path="res://assets/scripts/post_process.gd" id="70_pp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ct31b"]
 render_priority = 0
 shader = ExtResource("10_is3qo")
+shader_parameter/foam_tex = ExtResource("12_foam")
 shader_parameter/shallow_color = Color(0.44151407, 0.84120613, 0.8825535, 1)
-shader_parameter/deep_color = Color(0.05, 0.2, 0.33, 1)
+shader_parameter/deep_color = Color(0.04, 0.28, 0.55, 1)
+shader_parameter/foam_color = Color(0.95, 1, 1, 1)
 shader_parameter/depth_fade = 1.6
+shader_parameter/color_bands = 3.0
 shader_parameter/water_opacity = 0.9
-shader_parameter/surface_opacity = 0.25
-shader_parameter/wave_height = 0.075
-shader_parameter/wave_scale = 1.05
+shader_parameter/surface_opacity = 0.4
+shader_parameter/wave_height = 1.0
+shader_parameter/wave_scale = 0.10000000149012
 shader_parameter/wave_speed = 0.24
-shader_parameter/ripple_scale = 6.5
-shader_parameter/ripple_speed = 0.12
-shader_parameter/normal_strength = 0.22
-shader_parameter/water_roughness = 0.1
-shader_parameter/fresnel_power = 3.5
-shader_parameter/lod_start = 0.10000000149012
-shader_parameter/lod_end = 4.0
-shader_parameter/far_roughness = 0.450000021375
-shader_parameter/max_flatten = 0.8
-shader_parameter/low_poly_cell_size = 1.0
+shader_parameter/foam_scale = 0.05
+shader_parameter/foam_scale2 = 0.028
+shader_parameter/foam_speed = 0.015
+shader_parameter/foam_warp = 0.15
+shader_parameter/foam_threshold = 0.3
+shader_parameter/foam_softness = 0.04000000120148
+shader_parameter/foam_aa = 2.50000011875
+shader_parameter/foam_secondary = 0.5
+shader_parameter/foam_glow = 0.326000015485
+shader_parameter/ambient_lift = 0.47200002242
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_grade"]
 shader = ExtResource("11_grade")
+shader_parameter/day_factor = 1.0
+shader_parameter/golden_factor = 0.0
 shader_parameter/warmth = 0.35
-shader_parameter/shadow_tint = Color(0.97, 0.86, 0.72, 1)
-shader_parameter/highlight_tint = Color(1, 0.94, 0.82, 1)
 shader_parameter/saturation = 1.12
 shader_parameter/contrast = 1.04
 shader_parameter/lift = 0.02
 shader_parameter/vignette = 0.4
 shader_parameter/vignette_warmth = 0.5
+shader_parameter/day_shadow_tint = Color(0.97, 0.86, 0.72, 1)
+shader_parameter/day_highlight_tint = Color(1, 0.94, 0.82, 1)
+shader_parameter/night_shadow_tint = Color(0.46, 0.55, 0.8, 1)
+shader_parameter/night_highlight_tint = Color(0.7, 0.8, 1, 1)
+shader_parameter/golden_tint = Color(1, 0.74, 0.46, 1)
+shader_parameter/night_exposure = 0.55
+shader_parameter/night_desat = 0.78
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_woxgy"]
 size = Vector3(2.863, 3.582, 10.492875)
@@ -221,7 +233,6 @@ layer = 101
 
 [node name="Water" parent="." unique_id=363647662 instance=ExtResource("9_xvndt")]
 transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, -10, 0)
-visible = false
 surface_material_override/0 = SubResource("ShaderMaterial_ct31b")
 metadata/_edit_lock_ = true
 
@@ -236,6 +247,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+script = ExtResource("70_pp")
 
 [node name="Collisions" type="Node" parent="." unique_id=713686999]
 
