@@ -221,7 +221,7 @@ func checkShape():
 		for shape_name in shapes[vertex_count]:
 			edges.sort()
 			print(edges, shapes[vertex_count][shape_name])
-			if shapes[vertex_count][shape_name] == edges:
+			if shapes[vertex_count][shape_name] == edges && not Inventory.is_found(shape_name):
 				catAnimator.summon(shape_name)
 				Inventory.mark_found(shape_name)
 				print("I have summoned a cat")
@@ -250,7 +250,7 @@ func checkShape():
 		for shape_name in shapes[vertex_count]:
 			edges.sort()
 			print(edges, shapes[vertex_count][shape_name])
-			if shapes[vertex_count][shape_name] == edges:
+			if shapes[vertex_count][shape_name] == edges && not Inventory.is_found(shape_name):
 				catAnimator.summon(shape_name)
 				Inventory.mark_found(shape_name)
 				print("I have summoned a cat")

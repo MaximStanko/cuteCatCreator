@@ -13,18 +13,18 @@ var slots: Array[Dictionary] = []
 var current_slot: int = 0
 
 var found: Dictionary = {
-	"triangle": false,
-	"rhombus": false,
-	"trapezoid": false,
-	"hexagon": false,
-	"pacman": false,
-	"crooked_hourglass": false,
-	"hourglass": false,
-	"crescent_moon": false,
-	"raft": false,
-	"boat": false,
-	"infinity": false,
-	"radioactive": false,
+	"triangle": {"found": false, "cat": "res://assets/prefabs/cats/hexen_gatze.tscn", "cat_name": "Hexen Gadse"},
+	"rhombus": {"found": false, "cat": "res://assets/prefabs/cats/hexen_gatze.tscn", "cat_name": "Hexen Gadse"},
+	"trapezoid": {"found": false, "cat": "res://assets/prefabs/cats/hexen_gatze.tscn", "cat_name": "Hexen Gadse"},
+	"hexagon": {"found": false, "cat": "res://assets/prefabs/cats/hexen_gatze.tscn", "cat_name": "Hexen Gadse"},
+	"pacman": {"found": false, "cat": "res://assets/prefabs/cats/hexen_gatze.tscn", "cat_name": "Hexen Gadse"},
+	"crooked_hourglass": {"found": false, "cat": "res://assets/prefabs/cats/hexen_gatze.tscn", "cat_name": "Hexen Gadse"},
+	"hourglass": {"found": false, "cat": "res://assets/prefabs/cats/hexen_gatze.tscn", "cat_name": "Hexen Gadse"},
+	"crescent_moon": {"found": false, "cat": "res://assets/prefabs/cats/hexen_gatze.tscn", "cat_name": "Hexen Gadse"},
+	"raft": {"found": false, "cat": "res://assets/prefabs/cats/hexen_gatze.tscn", "cat_name": "Hexen Gadse"},
+	"boat": {"found": false, "cat": "res://assets/prefabs/cats/hexen_gatze.tscn", "cat_name": "Hexen Gadse"},
+	"infinity": {"found": false, "cat": "res://assets/prefabs/cats/hexen_gatze.tscn", "cat_name": "Hexen Gadse"},
+	"radioactive": {"found": false, "cat": "res://assets/prefabs/cats/hexen_gatze.tscn", "cat_name": "Hexen Gadse"},
 }
 
 var _rows: Array[Label] = []
@@ -92,20 +92,28 @@ func give_item(item_name: String) -> void:
 	_refresh()
 
 func mark_found(shape_name: String) -> void:
-	if found.has(shape_name):
-		found[shape_name] = true
+	found[shape_name].found = true
+		
+func is_found(shape_name: String) -> bool:
+	return found[shape_name].found
 
 func found_count() -> int:
 	var count := 0
 	for shape_name in found:
-		if found[shape_name]:
+		if found[shape_name].found:
 			count += 1
 	return count
+	
+func shape_to_cat(shape_name: String) -> String:
+	return found[shape_name].cat
+	
+func shape_to_cat_name(shape_name: String) -> String:
+	return found[shape_name].cat_name
 	
 func print_found_dictionary() -> void:
 	var count := 1
 	for shape_name in found:
-		print(count, ": ", shape_name, " ", found[shape_name])
+		print(count, ": ", shape_name, " ", found[shape_name].found)
 		count += 1
 
 func _refresh() -> void:
