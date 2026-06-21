@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://uy8m23go7uuh"]
+
+[ext_resource type="PackedScene" uid="uid://dvd7hpxe60lk1" path="res://assets/gatzen/FBX/CatLoafBrown256.fbx" id="1_scbvi"]
+[ext_resource type="Texture2D" uid="uid://i4j5t15buvtw" path="res://assets/gatzen/catOrange256.png" id="2_i4q31"]
+[ext_resource type="PackedScene" uid="uid://xe58nqu64r6x" path="res://assets/gatzen/orange.fbx" id="3_3q3sp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3kt1a"]
+albedo_texture = ExtResource("2_i4q31")
+
+[node name="CatLoafBrown256" unique_id=748265159 instance=ExtResource("1_scbvi")]
+
+[node name="CatLoafBrown256" parent="." index="0" unique_id=633543584]
+surface_material_override/0 = SubResource("StandardMaterial3D_3kt1a")
+
+[node name="orange" parent="." index="1" unique_id=1610031335 instance=ExtResource("3_3q3sp")]
+transform = Transform3D(0.115, 0, 0, 0, 0.115, 0, 0, 0, 0.115, -0.0004929453, 0.23678257, -0.17560086)

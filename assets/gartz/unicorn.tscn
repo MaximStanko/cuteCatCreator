@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://uti8auyyneir"]
+
+[ext_resource type="PackedScene" uid="uid://cehqtooir8iss" path="res://assets/gatzen/FBX/CatLoafWhite256.fbx" id="1_vi8wl"]
+[ext_resource type="Texture2D" uid="uid://dq25onxrcl2gp" path="res://assets/gatzen/catmythic256.png" id="2_nq1km"]
+[ext_resource type="PackedScene" uid="uid://b66uqc7pn73ui" path="res://assets/gatzen/horn.tscn" id="3_s0lsr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vseyn"]
+albedo_texture = ExtResource("2_nq1km")
+
+[node name="CatLoafWhite256" unique_id=1917823511 instance=ExtResource("1_vi8wl")]
+
+[node name="CatLoafWhite256" parent="." index="0" unique_id=1937977548]
+surface_material_override/0 = SubResource("StandardMaterial3D_vseyn")
+
+[node name="Sketchfab_Scene2" parent="." index="1" unique_id=123505031 instance=ExtResource("3_s0lsr")]
+transform = Transform3D(0.1, 0, 0, 0, 0.07963611, 0.06048215, 0, -0.06048215, 0.07963611, 0.0024443418, 0.18848124, -0.16721573)

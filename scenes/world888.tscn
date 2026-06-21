@@ -903,15 +903,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0257845, -3.1390429, -11.4
 
 [node name="InteractDetector" parent="." unique_id=69040450 instance=ExtResource("46_14fyh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.061047792, 0, 1.6585662)
-
-[node name="CatLoafWhite256" parent="." unique_id=1917823511 instance=ExtResource("67_e8xm5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1151184, 1.3953123, 7.135665)
-
-[node name="CatLoafBrown256" parent="." unique_id=748265159 instance=ExtResource("68_mw0ll")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6209384, 1.3953123, 7.0935645)
-
-[node name="CatLoafTurtoise256" parent="." unique_id=1570418218 instance=ExtResource("69_bhxdo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5080998, 1.3953123, 7.0578136)
-
-[node name="CatLoafGrey256" parent="." unique_id=402724094 instance=ExtResource("70_blvv6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93943375, 1.3953123, 6.712795)

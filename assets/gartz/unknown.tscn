@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ck66uhay4q87e"]
+
+[ext_resource type="PackedScene" uid="uid://bg64v7siqnsm0" path="res://assets/gatzen/FBX/CatLoafTurtoise256.fbx" id="1_pw4g6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8adim"]
+albedo_color = Color(0.11706114, 0.11706114, 0.11706114, 1)
+
+[node name="CatLoafTurtoise256" unique_id=1570418218 instance=ExtResource("1_pw4g6")]
+
+[node name="CatLoafTurtoise256" parent="." index="0" unique_id=1746928683]
+surface_material_override/0 = SubResource("StandardMaterial3D_8adim")

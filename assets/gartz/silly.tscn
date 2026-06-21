@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dtnbydn5p1v44"]
+
+[ext_resource type="PackedScene" uid="uid://bg64v7siqnsm0" path="res://assets/gatzen/FBX/CatLoafTurtoise256.fbx" id="1_3sm15"]
+[ext_resource type="PackedScene" uid="uid://dbuhj0n6a7ve3" path="res://assets/gatzen/propeller/scene.gltf" id="2_pw0kq"]
+[ext_resource type="PackedScene" uid="uid://b1ps51251k883" path="res://assets/gatzen/lolli/scene.gltf" id="3_ct2hb"]
+
+[node name="CatLoafTurtoise256" unique_id=1570418218 instance=ExtResource("1_3sm15")]
+
+[node name="Sketchfab_Scene" parent="." index="1" unique_id=8773173 instance=ExtResource("2_pw0kq")]
+transform = Transform3D(-0.059595775, -9.685754e-10, -0.02594885, -0.009011502, 0.06095451, 0.020696385, 0.024333838, 0.022573158, -0.05588664, -0.00063063204, 0.19450894, -0.15901242)
+
+[node name="Sketchfab_Scene2" parent="." index="2" unique_id=1375927252 instance=ExtResource("3_ct2hb")]
+transform = Transform3D(10.831842, -0.42047232, 0, 0.42047232, 10.831842, 0, 0, 0, 10.84, 0.448, 0.539, -0.218)

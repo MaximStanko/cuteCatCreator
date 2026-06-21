@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cstq6o7yjo1e7"]
+
+[ext_resource type="PackedScene" uid="uid://dvd7hpxe60lk1" path="res://assets/gatzen/FBX/CatLoafBrown256.fbx" id="1_ybuyo"]
+[ext_resource type="PackedScene" uid="uid://bswc1la10pwhx" path="res://assets/gatzen/fisch/scene.gltf" id="2_kx5up"]
+
+[node name="CatLoafBrown256" unique_id=748265159 instance=ExtResource("1_ybuyo")]
+
+[node name="CatLoafBrown256" parent="." index="0" unique_id=633543584]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010165006, 0.12081537, 0)
+
+[node name="Sketchfab_Scene" parent="." index="1" unique_id=745340296 instance=ExtResource("2_kx5up")]
+transform = Transform3D(0.0264909, -0.022112506, -0.24766316, 0.1787314, 0.20005003, 0.015308129, 0.12551227, -0.28020716, 0.030473331, -0.103, -0.058513165, 0.23961687)

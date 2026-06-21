@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b66uqc7pn73ui"]
+
+[ext_resource type="PackedScene" uid="uid://w8hsvijeemvh" path="res://assets/gatzen/horn/scene.gltf" id="1_ddclw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_27k1c"]
+albedo_color = Color(1, 0.7647059, 1, 1)
+
+[node name="Sketchfab_Scene" unique_id=123505031 instance=ExtResource("1_ddclw")]
+
+[node name="Helix003_Material #2_0" parent="Sketchfab_model/111afcffeae24ea4befb3db95f158830_fbx/RootNode/Helix003" parent_id_path=PackedInt32Array(1682358423) index="0" unique_id=614714924]
+surface_material_override/0 = SubResource("StandardMaterial3D_27k1c")

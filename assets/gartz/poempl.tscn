@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bkk7wu6as7veh"]
+
+[ext_resource type="PackedScene" uid="uid://dvd7hpxe60lk1" path="res://assets/gatzen/FBX/CatLoafBrown256.fbx" id="1_rps5b"]
+[ext_resource type="Texture2D" uid="uid://bxv31pb7w171j" path="res://assets/gatzen/FBX/Textures/catNaked256.png" id="2_yoofm"]
+[ext_resource type="ArrayMesh" uid="uid://b2vctbc7kfbdu" path="res://assets/gatzen/poempl/10890_Plunger_v2_L3.obj" id="2_yxmfv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kith4"]
+albedo_texture = ExtResource("2_yoofm")
+
+[node name="CatLoafBrown256" unique_id=748265159 instance=ExtResource("1_rps5b")]
+
+[node name="CatLoafBrown256" parent="." index="0" unique_id=633543584]
+surface_material_override/0 = SubResource("StandardMaterial3D_kith4")
+
+[node name="10890PlungerV2L3" type="MeshInstance3D" parent="." index="1" unique_id=2065513752]
+transform = Transform3D(0.029999997, 0, 0, 0, 0.009259551, 0.02853525, 0, -0.02853525, 0.009259551, 1.9311905e-05, 0.1597111, 0.052474022)
+mesh = ExtResource("2_yxmfv")

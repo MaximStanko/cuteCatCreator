@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dc4147s8uvue"]
+
+[ext_resource type="PackedScene" uid="uid://dfwiasm3axnmw" path="res://assets/gatzen/FBX/CatLoafGrey256.fbx" id="1_ayajp"]
+[ext_resource type="PackedScene" uid="uid://d3clf31mpgew3" path="res://assets/itemsnshit/gltf/Food_Cheese.gltf" id="2_sy5be"]
+
+[node name="CatLoafGrey256" unique_id=402724094 instance=ExtResource("1_ayajp")]
+
+[node name="CatLoafGrey256" parent="." index="0" unique_id=1402818548]
+transform = Transform3D(1.7799991, -0.0010999594, -0.0005327113, 0.0017962616, 1.0899996, -3.4411148e-06, 0.000777239, 2.6008684e-06, 1.2199998, 0, 0, 0)
+
+[node name="Food_Cheese2" parent="." index="1" unique_id=1047359283 instance=ExtResource("2_sy5be")]
+transform = Transform3D(-0.08207358, -0.015309926, -0.15946642, 0.16019966, -0.007843582, -0.08169792, 6.705523e-09, -0.17917614, 0.017202197, -0.0060184896, 0.08714616, -0.21371228)

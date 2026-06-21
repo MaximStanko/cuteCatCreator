@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://drvdpyv0fpfro"]
+
+[ext_resource type="PackedScene" uid="uid://dvd7hpxe60lk1" path="res://assets/gatzen/FBX/CatLoafBrown256.fbx" id="1_e78au"]
+[ext_resource type="PackedScene" uid="uid://cys1gocmme66j" path="res://assets/gartz/huh/Top hat.glb" id="2_iegbl"]
+[ext_resource type="PackedScene" uid="uid://854qrvtxyigc" path="res://assets/gartz/huh/Cup of tea.glb" id="3_5g8jf"]
+[ext_resource type="PackedScene" uid="uid://dlfpwhacxlxsh" path="res://assets/gartz/huh/Monocle.glb" id="4_lf6kh"]
+
+[node name="CatLoafBrown256" unique_id=748265159 instance=ExtResource("1_e78au")]
+
+[node name="Top hat" parent="." index="1" unique_id=1748193225 instance=ExtResource("2_iegbl")]
+transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, -0.00026786327, 0.256494, -0.15402135)
+
+[node name="Cup of tea" parent="." index="2" unique_id=892881629 instance=ExtResource("3_5g8jf")]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, -0.051688075, 0.047713146, -0.21594164)
+
+[node name="Monocle" parent="." index="3" unique_id=1927227538 instance=ExtResource("4_lf6kh")]
+transform = Transform3D(0.024537176, 0, -0.004788213, 0, 0.025, 0, 0.004788213, 0, 0.024537176, 0.024488691, 0.06343821, -0.23092592)
