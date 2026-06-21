@@ -4,14 +4,14 @@ signal finished(success: bool, item_name: String)
 
 # Fish definitions: curve type -> item string, colour, and life range (min..max).
 const FISH := {
-	"calm":    {"item": "Koi",     "color": Color(0.95, 0.55, 0.25), "lives": Vector2i(6, 8)},
-	"sine":    {"item": "Trout",   "color": Color(0.55, 0.70, 0.55), "lives": Vector2i(4, 6)},
-	"bottom":  {"item": "Catfish", "color": Color(0.45, 0.40, 0.30), "lives": Vector2i(5, 7)},
-	"bouncer": {"item": "Salmon",  "color": Color(0.95, 0.55, 0.55), "lives": Vector2i(4, 6)},
-	"erratic": {"item": "Anchovy", "color": Color(0.75, 0.80, 0.88), "lives": Vector2i(2, 5)},
-	"lunger":  {"item": "Pike",    "color": Color(0.25, 0.45, 0.30), "lives": Vector2i(3, 5)},
-	"dodger":  {"item": "Eel",     "color": Color(0.55, 0.65, 0.25), "lives": Vector2i(3, 6)},
-	"frenzy":  {"item": "Tuna",    "color": Color(0.20, 0.35, 0.65), "lives": Vector2i(4, 7)},
+	"calm":    {"item": "Koi",     "color": Color(0.525, 0.349, 0.306, 1.0), "sprite": "res://assets/fish_sprites/Fish_Sprite_brown.png", "lives": Vector2i(6, 8)},
+	"sine":    {"item": "Trout",   "color": Color(0.463, 0.463, 0.624, 1.0), "sprite": "res://assets/fish_sprites/Fish_Sprite_lightBlue.png", "lives": Vector2i(4, 6)},
+	"bottom":  {"item": "Catfish", "color": Color(0.62, 0.349, 0.298, 1.0), "sprite": "res://assets/fish_sprites/Fish_Sprite_brown2.png", "lives": Vector2i(5, 7)},
+	"bouncer": {"item": "Salmon",  "color": Color(0.62, 0.294, 0.494, 1.0), "sprite": "res://assets/fish_sprites/Fish_Sprite_magenta.png", "lives": Vector2i(4, 6)},
+	"erratic": {"item": "Anchovy", "color": Color(0.325, 0.631, 0.612, 1.0), "sprite": "res://assets/fish_sprites/Fish_Sprite_cyan.png", "lives": Vector2i(2, 5)},
+	"lunger":  {"item": "Pike",    "color": Color(0.369, 0.631, 0.322, 1.0), "sprite": "res://assets/fish_sprites/Fish_Sprite_greeb.png", "lives": Vector2i(3, 5)},
+	"dodger":  {"item": "Eel",     "color": Color(0.251, 0.251, 0.29, 1.0), "sprite": "res://assets/fish_sprites/Fish_Sprite_black.png", "lives": Vector2i(3, 6)},
+	"frenzy":  {"item": "Tuna",    "color": Color(0.29, 0.341, 0.62, 1.0), "sprite": "res://assets/fish_sprites/Fish_Sprite_blue.png", "lives": Vector2i(4, 7)},
 }
 
 const TRACK_H := 400.0
@@ -58,6 +58,7 @@ var last_overlap: bool = false
 @onready var _title: Label = $Root/Panel/Title
 @onready var _bar: ColorRect = $Root/Panel/TrackBG/FishingBar
 @onready var _fish: ColorRect = $Root/Panel/TrackBG/Fish
+@onready var _fishSprite: Sprite2D = $Root/Panel/TrackBG/Sprite2D
 @onready var _catch: ProgressBar = $Root/Panel/CatchProgress
 @onready var _escape: ProgressBar = $Root/Panel/EscapeBar
 
@@ -72,8 +73,10 @@ func start() -> void:
 	max_lives = float(randi_range(data.lives.x, data.lives.y))
 	escape = max_lives
 
-	_title.text = "Fishing :3"
+	_title.text = "Fishing - %s" % item_name
 	_fish.color = fish_color
+	_fishSprite.texture = load(data.sprite)
+	_bar.color = fish_color
 	_escape.max_value = max_lives
 	_escape.value = escape
 
@@ -119,9 +122,10 @@ func _process(delta: float) -> void:
 	_bar.position.y = bar_pos
 	_bar.size.y = bar_h
 	_fish.position.y = fish_pos - FISH_H * 0.5
+	_fishSprite.position.y = _fish.position.y
 	_catch.value = catch_progress
 	_escape.value = escape
-	_bar.modulate = Color(0.6, 1.0, 0.6) if overlapping else Color.WHITE
+	_bar.modulate = Color(0.7, 0.7, 0.7) if overlapping else Color.WHITE
 	last_overlap = overlapping
 
 	if catch_progress >= 1.0:

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://fmkhxkhruyi3"]
 
 [ext_resource type="Script" uid="uid://dyhh6c756g2sw" path="res://assets/scripts/fishing_minigame.gd" id="1_mg"]
+[ext_resource type="Texture2D" uid="uid://7r0wjnxe7xy8" path="res://assets/fish_sprites/Fish_Sprite_cyan.png" id="2_krtbv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
 bg_color = Color(0.12, 0.13, 0.18, 0.98)
@@ -83,7 +84,7 @@ offset_left = 10.0
 offset_top = 24.0
 offset_right = 350.0
 offset_bottom = 54.0
-text = "Fishing"
+text = "Fishing - <NAME>"
 horizontal_alignment = 1
 
 [node name="TrackBG" type="ColorRect" parent="Root/Panel" unique_id=174559520]
@@ -103,12 +104,17 @@ offset_bottom = 350.0
 color = Color(0.3, 0.55, 0.95, 0.55)
 
 [node name="Fish" type="ColorRect" parent="Root/Panel/TrackBG" unique_id=1316780272]
+visible = false
 layout_mode = 0
 offset_left = 16.0
 offset_top = 190.0
 offset_right = 44.0
 offset_bottom = 210.0
 color = Color(0.9, 0.6, 0.2, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Root/Panel/TrackBG" unique_id=1976830899]
+position = Vector2(32, 198)
+texture = ExtResource("2_krtbv")
 
 [node name="CatchProgress" type="ProgressBar" parent="Root/Panel" unique_id=2006453400]
 layout_mode = 0
