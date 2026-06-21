@@ -1,6 +1,7 @@
 extends Node
 
 @onready var _label = $CanvasLayer/Control/Label
+@onready var journal_backdrop = $journal_backdrop
 
 func _on_static_body_3d_input_event(camera, event, event_position, normal, shape_idx):
 	if (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT):
@@ -14,4 +15,4 @@ func _on_static_body_3d_input_event(camera, event, event_position, normal, shape
 				_label.text += "???"
 			_label.text += " (" + shape + ", " + str(Inventory.is_found(shape)) + ")\n"
 		_label.text += "Overall: " + str(Inventory.found_count()) + "/12"
-		$CanvasLayer/Control.visible = true		
+		$"../Camera3D/CompendiumOverlay".visible = true
