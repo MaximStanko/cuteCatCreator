@@ -47,9 +47,5 @@ _data = {
 [node name="Sketchfab_Scene" parent="." index="1" unique_id=8773173 instance=ExtResource("2_pw0kq")]
 transform = Transform3D(-0.059595775, -9.685754e-10, -0.02594885, -0.009011502, 0.06095451, 0.020696385, 0.024333838, 0.022573158, -0.05588664, -0.00063063204, 0.19450894, -0.15901242)
 
-[node name="Sketchfab_Scene2" parent="." index="2" unique_id=1375927252 instance=ExtResource("3_ct2hb")]
-transform = Transform3D(10.831842, -0.42047232, 0, 0.42047232, 10.831842, 0, 0, 0, 10.84, 0.448, 0.539, -0.218)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3" unique_id=1813204319]
-libraries/ = SubResource("AnimationLibrary_3sm15")
-autoplay = &"spin"
+[node name="Sketchfab_Scene3" parent="." index="2" unique_id=1375927252 instance=ExtResource("3_3sm15")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -0.0020510256, 0.051663816, -0.29625708)
