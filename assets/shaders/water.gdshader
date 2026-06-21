@@ -26,6 +26,7 @@ uniform float lod_start : hint_range(0.1, 4.0) = 1.0;
 uniform float lod_end : hint_range(0.5, 16.0) = 12.0;
 uniform float far_roughness : hint_range(0.0, 1.0) = 0.6;
 uniform float max_flatten : hint_range(0.0, 1.0) = 0.5;
+uniform float low_poly_cell_size : hint_range(0.5, 12.0) = 1.0;
 
 vec2 hash22(vec2 p) {
 	p = vec2(dot(p, vec2(127.1, 311.7)), dot(p, vec2(269.5, 183.3)));
@@ -49,7 +50,7 @@ float fbm(vec2 p) {
 	float v = 0.0;
 	float a = 0.5;
 	mat2 m = mat2(vec2(0.80, 0.60), vec2(-0.60, 0.80));
-	for (int i = 0; i < 5; i++) {
+	for (int i = 0; i < 3; i++) {
 		v += a * perlin(p);
 		p = m * p * 2.0;
 		a *= 0.5;
@@ -58,6 +59,7 @@ float fbm(vec2 p) {
 }
 
 float wave_h(vec2 p, float t) {
+	p = floor(p / low_poly_cell_size) * low_poly_cell_size;
 	float h = fbm(p * wave_scale + vec2(t * 0.20, t * 0.13));
 	h += 0.5 * fbm(p * wave_scale * 2.1 + vec2(-t * 0.17, t * 0.23));
 	return h;
@@ -81,7 +83,7 @@ void fragment() {
 	float hz = wave_h(world_pos.xz + vec2(0.0, e), t_wave);
 	vec3 swell_n = vec3(-(hx - h) / e * wave_height, 1.0, -(hz - h) / e * wave_height);
 
-	vec2 ruv = world_pos.xz * ripple_scale;
+	vec2 ruv = floor(world_pos.xz / low_poly_cell_size) * low_poly_cell_size * ripple_scale;
 	vec2 warp = vec2(fbm(ruv * 0.4 + t_rip * 0.15), fbm(ruv * 0.4 + 7.3 - t_rip * 0.12));
 	ruv += warp * 3.0;
 	vec2 flow = vec2(t_rip, t_rip * 0.6);

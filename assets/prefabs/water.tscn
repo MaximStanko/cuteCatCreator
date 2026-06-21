@@ -10,20 +10,21 @@ shader_parameter/deep_color = Color(0.05, 0.2, 0.33, 1)
 shader_parameter/depth_fade = 1.6
 shader_parameter/water_opacity = 0.9
 shader_parameter/surface_opacity = 0.25
-shader_parameter/wave_height = 0.06
-shader_parameter/wave_scale = 1.4
-shader_parameter/wave_speed = 0.35
-shader_parameter/ripple_scale = 12.0
-shader_parameter/ripple_speed = 0.25
-shader_parameter/normal_strength = 0.35
-shader_parameter/water_roughness = 0.04
-shader_parameter/fresnel_power = 5.0
+shader_parameter/wave_height = 0.075
+shader_parameter/wave_scale = 1.05
+shader_parameter/wave_speed = 0.24
+shader_parameter/ripple_scale = 6.5
+shader_parameter/ripple_speed = 0.12
+shader_parameter/normal_strength = 0.22
+shader_parameter/water_roughness = 0.1
+shader_parameter/fresnel_power = 3.5
+shader_parameter/low_poly_cell_size = 1.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_water"]
 material = SubResource("ShaderMaterial_water")
 size = Vector2(24, 24)
-subdivide_width = 72
-subdivide_depth = 72
+subdivide_width = 36
+subdivide_depth = 36
 
 [node name="Water" type="MeshInstance3D" unique_id=1817398750]
 mesh = SubResource("PlaneMesh_water")
