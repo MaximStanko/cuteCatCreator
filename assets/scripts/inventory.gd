@@ -101,6 +101,12 @@ func found_count() -> int:
 		if found[shape_name]:
 			count += 1
 	return count
+	
+func print_found_dictionary() -> void:
+	var count := 1
+	for shape_name in found:
+		print(count, ": ", shape_name, " ", found[shape_name])
+		count += 1
 
 func _refresh() -> void:
 	for i in SLOT_COUNT:
