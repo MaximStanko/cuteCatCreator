@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cufgglnc3bw6x"]
+
+[ext_resource type="PackedScene" uid="uid://ckvk2ua1t21ms" path="res://scenes/music_player.tscn" id="1_723ne"]
+
+[node name="Audio" type="Node2D" unique_id=747127370]
+
+[node name="AudioStreamPlayer" parent="." unique_id=1305322910 instance=ExtResource("1_723ne")]
