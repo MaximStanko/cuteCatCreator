@@ -37,6 +37,8 @@ var _rows: Array[Label] = []
 @onready var slotNodes: Array[TextureRect] = [$slot1, $slot2, $slot3, $slot4]
 @onready var slotSurrounds: Array[Sprite2D] = [$Surround1, $Surround2, $Surround3, $Surround4]
 
+var is_cat_up = false
+
 func _ready() -> void:
 	slots.resize(SLOT_COUNT)
 	for i in SLOT_COUNT:
@@ -56,8 +58,14 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	
 	if event.is_action_pressed("rotate_item"):
+		if is_cat_up:
+			is_cat_up = false
+			get_tree().reload_current_scene()
 		rotate_item.emit(peek_held_tool())
 	if event.is_action_pressed("place_item"):
+		if is_cat_up:
+			is_cat_up = false
+			get_tree().reload_current_scene()
 		place_item.emit(peek_held_tool())
 	
 	for i in range(4):
