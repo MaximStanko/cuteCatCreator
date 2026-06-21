@@ -1,10 +1,10 @@
 shader_type spatial;
-render_mode cull_back, diffuse_lambert, specular_disabled;
+render_mode cull_back;
 
 uniform sampler2D DEPTH_TEXTURE : hint_depth_texture, filter_linear_mipmap;
 uniform sampler2D foam_tex : filter_linear_mipmap, repeat_enable, hint_default_black;
 
-// so viele juicy parameter
+// so viele juicy parameter!
 uniform vec3 shallow_color : source_color = vec3(0.27, 0.74, 0.86);
 uniform vec3 deep_color    : source_color = vec3(0.04, 0.28, 0.55);
 uniform vec3 foam_color    : source_color = vec3(0.95, 1.0, 1.0);
@@ -28,6 +28,14 @@ uniform float foam_aa        : hint_range(0.0, 8.0)   = 2.5;
 uniform float foam_secondary : hint_range(0.0, 1.0)   = 0.5;
 uniform float foam_glow      : hint_range(0.0, 1.0)   = 0.1;
 uniform float ambient_lift   : hint_range(0.0, 0.5)   = 0.06;
+
+uniform float day_factor    : hint_range(0.0, 1.0) = 1.0;
+uniform float night_emission : hint_range(0.0, 1.0) = 0.12;
+
+uniform float spec_power     : hint_range(1.0, 128.0) = 24.0;
+uniform float spec_threshold : hint_range(0.0, 1.0)   = 0.5;
+uniform float spec_softness  : hint_range(0.0, 0.3)   = 0.04;
+uniform float spec_strength  : hint_range(0.0, 4.0)   = 1.3;
 
 vec2 hash22(vec2 p) {
 	p = vec2(dot(p, vec2(127.1, 311.7)), dot(p, vec2(269.5, 183.3)));
@@ -98,7 +106,7 @@ void fragment() {
 	vec2 warp = vec2(fbm(base * 0.25 + tt * 0.04),
 					 fbm(base * 0.25 + 11.3 - tt * 0.05)) * foam_warp;
 	vec2 drift = vec2(tt * foam_speed, tt * foam_speed * 0.6);
-	mat2 rot = mat2(vec2(0.866, 0.5), vec2(-0.5, 0.866)); // decorrelate the layers
+	mat2 rot = mat2(vec2(0.866, 0.5), vec2(-0.5, 0.866)); 
 	vec2 uvA = base * foam_scale + warp + drift;
 	vec2 uvB = (rot * base) * foam_scale2 + warp * 0.7 - drift * 0.5;
 
@@ -114,6 +122,23 @@ void fragment() {
 	ALBEDO = col;
 	METALLIC = 0.0;
 	ROUGHNESS = 1.0;
-	EMISSION = col * ambient_lift + foam_color * foam * foam_glow;
+	float emit_scale = mix(night_emission, 1.0, day_factor);
+	EMISSION = (col * ambient_lift + foam_color * foam * foam_glow) * emit_scale;
 	ALPHA = clamp(max(mix(surface_opacity, water_opacity, depth_t), foam), 0.0, 1.0);
+}
+
+void light() {
+	float ndl = clamp(dot(NORMAL, LIGHT), 0.0, 1.0);
+	DIFFUSE_LIGHT += ALBEDO * LIGHT_COLOR * ATTENUATION * ndl;
+
+	vec3 H = normalize(LIGHT + VIEW);
+	float ndh = clamp(dot(NORMAL, H), 0.0, 1.0);
+	float spec = pow(ndh, spec_power);
+	spec = smoothstep(spec_threshold, spec_threshold + spec_softness, spec);
+	float foam_mask = 1.0 - smoothstep(0.55, 0.85, dot(ALBEDO, vec3(0.3333)));
+
+	vec3 light_world = normalize((INV_VIEW_MATRIX * vec4(LIGHT, 0.0)).xyz);
+	float above_horizon = smoothstep(0.0, 0.12, light_world.y);
+
+	SPECULAR_LIGHT += spec * spec_strength * foam_mask * above_horizon * LIGHT_COLOR * ATTENUATION;
 }

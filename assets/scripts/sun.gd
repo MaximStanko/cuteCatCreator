@@ -3,7 +3,7 @@ extends DirectionalLight3D
 @export var day_length: float = 180.0
 @export var arc_axis: Vector3 = Vector3(1.0, 0.0, 0.25)
 @export var running: bool = true
-const SPEEDUP = 2
+const SPEEDUP = 1
 
 var is_day = true
 

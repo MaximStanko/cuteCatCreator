@@ -21,10 +21,24 @@ uniform vec3 golden_tint : source_color = vec3(1.0, 0.74, 0.46);
 uniform float night_exposure : hint_range(0.0, 1.0) = 0.55;
 uniform float night_desat : hint_range(0.0, 1.0) = 0.78;
 
+uniform float aberration : hint_range(0.0, 0.02) = 0.0018;
+uniform float grain : hint_range(0.0, 0.1) = 0.025;
+uniform float grain_night_boost : hint_range(1.0, 4.0) = 2.0;
+
 const vec3 LUMA = vec3(0.2126, 0.7152, 0.0722);
 
+float hash(vec2 p) {
+	return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453);
+}
+
 void fragment() {
-	vec3 col = texture(screen_tex, SCREEN_UV).rgb;
+	vec2 dir = SCREEN_UV - 0.5;
+	float edge = dot(dir, dir);
+	vec2 ca = dir * aberration * edge * 4.0;
+	vec3 col;
+	col.r = texture(screen_tex, SCREEN_UV - ca).r;
+	col.g = texture(screen_tex, SCREEN_UV).g;
+	col.b = texture(screen_tex, SCREEN_UV + ca).b;
 
 	vec3 shadow_tint = mix(night_shadow_tint, day_shadow_tint, day_factor);
 	vec3 highlight_tint = mix(night_highlight_tint, day_highlight_tint, day_factor);
@@ -58,6 +72,12 @@ void fragment() {
 	vec3 vig_tint = mix(vig_cool, vig_warm, day_factor);
 	vec3 vig_col = mix(vec3(vig), vig_tint, vignette_warmth);
 	col *= vig_col;
+
+	float g = hash(SCREEN_UV + fract(TIME)) - 0.5;
+	col += g * grain * mix(grain_night_boost, 1.0, day_factor);
+
+	float dith = hash(floor(SCREEN_UV / SCREEN_PIXEL_SIZE)) - 0.5;
+	col += dith / 255.0;
 
 	COLOR = vec4(clamp(col, 0.0, 1.0), 1.0);
 }
