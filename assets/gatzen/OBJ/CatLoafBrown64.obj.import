@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bnr2q3dbgv1cs"
+path="res://.godot/imported/CatLoafBrown64.obj-ba95c555b8085ed0b3a34736d0ea15aa.mesh"
+
+[deps]
+
+files=["res://.godot/imported/CatLoafBrown64.obj-ba95c555b8085ed0b3a34736d0ea15aa.mesh"]
+
+source_file="res://assets/gatzen/OBJ/CatLoafBrown64.obj"
+dest_files=["res://.godot/imported/CatLoafBrown64.obj-ba95c555b8085ed0b3a34736d0ea15aa.mesh", "res://.godot/imported/CatLoafBrown64.obj-ba95c555b8085ed0b3a34736d0ea15aa.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

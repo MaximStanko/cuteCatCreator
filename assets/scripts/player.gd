@@ -23,7 +23,6 @@ var start_position: Vector3
 func _ready() -> void:#
 	global_position = GameManager.player_pos
 	rotation_degrees = GameManager.player_rot
-func _ready() -> void:
 	start_position = global_position
 	_play_animation(idle_animation)
 
