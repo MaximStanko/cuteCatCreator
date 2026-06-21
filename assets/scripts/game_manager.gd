@@ -7,3 +7,4 @@ var sun_location = Vector3(-58.9, -62.9, -23.7)
 
 signal sunset
 signal sunrise
+signal player_pickup(name)

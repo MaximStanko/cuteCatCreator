@@ -27,6 +27,7 @@ func _ready() -> void:#
 	_play_animation(idle_animation)
 	GameManager.sunrise.connect(_on_sunrise)
 	GameManager.sunset.connect(_on_sunset)
+	GameManager.player_pickup.connect(_on_pickup)
 
 func _physics_process(delta: float) -> void:
 	if global_position.y < fall_respawn_y:
@@ -38,6 +39,11 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	
+	if picking_up:
+		move_and_slide()
+		return
+
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
@@ -102,3 +108,17 @@ func _on_sunrise():
 
 func _on_sunset():
 	$Mage/Lantern.visible = true
+
+var item_name: String
+var picking_up = false
+
+func _on_pickup(pickupName):
+	print(pickupName)
+	picking_up = true
+	animation_player.play("Player Animationen/grab")
+	item_name = pickupName
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "Player Animationen/grab":
+		picking_up = false
+		Inventory.give_item(item_name)
