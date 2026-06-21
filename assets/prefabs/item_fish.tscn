@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://tyfnvdn8px14"]
+
+[ext_resource type="PackedScene" uid="uid://c1gq8bxf23nix" path="res://assets/ButterflyFish.fbx" id="1_1a45x"]
+
+[node name="Node3D" type="Node3D" unique_id=1845823456]
+
+[node name="ButterflyFish" parent="." unique_id=984287550 instance=ExtResource("1_1a45x")]
+transform = Transform3D(-1.0849619e-05, 0.0010848409, -0.559999, 0.559972, 0.005600344, -1.9887492e-12, 0.0056003337, -0.559971, -0.0010848951, -0.08083391, 0.1573773, 0.12237668)

@@ -17,6 +17,7 @@ func _on_area_3d_mouse_exited() -> void:
 	collider.shape.radius = 0.1
 
 func _on_area_3d_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
+	return
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			print("pressed")
