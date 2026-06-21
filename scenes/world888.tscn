@@ -132,7 +132,6 @@ layer = 101
 
 [node name="Water" parent="." unique_id=363647662 instance=ExtResource("9_xvndt")]
 transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, -10, 0)
-visible = false
 surface_material_override/0 = SubResource("ShaderMaterial_ct31b")
 
 [node name="PostProcess" type="CanvasLayer" parent="." unique_id=1771038300]
