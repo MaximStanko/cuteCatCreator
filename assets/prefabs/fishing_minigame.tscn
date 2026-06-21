@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://fmkhxkhruyi3"]
 
 [ext_resource type="Script" uid="uid://dyhh6c756g2sw" path="res://assets/scripts/fishing_minigame.gd" id="1_mg"]
+[ext_resource type="FontFile" uid="uid://c5ccru2a0y6nn" path="res://assets/font/OpenType (.otf)/Kaph-Regular.otf" id="2_k3yqj"]
 [ext_resource type="Texture2D" uid="uid://7r0wjnxe7xy8" path="res://assets/fish_sprites/Fish_Sprite_cyan.png" id="2_krtbv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
@@ -84,7 +85,19 @@ offset_left = 10.0
 offset_top = 24.0
 offset_right = 350.0
 offset_bottom = 54.0
+theme_override_fonts/font = ExtResource("2_k3yqj")
+theme_override_font_sizes/font_size = 22
 text = "Fishing - <NAME>"
+horizontal_alignment = 1
+
+[node name="Title" type="Label" parent="Root/Panel/Title" unique_id=668558089]
+layout_mode = 0
+offset_top = 540.0
+offset_right = 340.0
+offset_bottom = 570.0
+theme_override_fonts/font = ExtResource("2_k3yqj")
+theme_override_font_sizes/font_size = 14
+text = "Press [SPACE] to fish"
 horizontal_alignment = 1
 
 [node name="TrackBG" type="ColorRect" parent="Root/Panel" unique_id=174559520]
@@ -119,9 +132,9 @@ texture = ExtResource("2_krtbv")
 [node name="CatchProgress" type="ProgressBar" parent="Root/Panel" unique_id=2006453400]
 layout_mode = 0
 offset_left = 40.0
-offset_top = 511.0
+offset_top = 494.0
 offset_right = 320.0
-offset_bottom = 535.0
+offset_bottom = 518.0
 theme_override_styles/background = SubResource("StyleBoxFlat_barbg")
 theme_override_styles/fill = SubResource("StyleBoxFlat_green")
 max_value = 1.0
@@ -131,9 +144,9 @@ show_percentage = false
 [node name="EscapeBar" type="ProgressBar" parent="Root/Panel" unique_id=1850076945]
 layout_mode = 0
 offset_left = 40.0
-offset_top = 543.0
+offset_top = 526.0
 offset_right = 320.0
-offset_bottom = 567.0
+offset_bottom = 550.0
 theme_override_styles/background = SubResource("StyleBoxFlat_redbg")
 theme_override_styles/fill = SubResource("StyleBoxFlat_red")
 max_value = 1.0
