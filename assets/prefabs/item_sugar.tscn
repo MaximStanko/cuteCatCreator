@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bnso712xm2ygo"]
+
+[ext_resource type="PackedScene" uid="uid://day5mf2rag88i" path="res://assets/KayKit_Forest_Nature_Pack_1.0_EXTRA/Assets/gltf/Color8/Bush_2_E_Color8.gltf" id="1_ne46w"]
+
+[node name="Node3D" type="Node3D" unique_id=105084204]
+
+[node name="Bush_2_E_Color82" parent="." unique_id=1800629651 instance=ExtResource("1_ne46w")]
+transform = Transform3D(0.93, 0, 0, 0, 0.93, 0, 0, 0, 0.93, -0.13365698, -0.15345901, -0.09411639)

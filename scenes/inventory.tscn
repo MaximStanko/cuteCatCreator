@@ -1,11 +1,74 @@
 [gd_scene format=3 uid="uid://cdshgh5djakpk"]
 
 [ext_resource type="Script" uid="uid://dylmfafo7k36u" path="res://assets/scripts/inventory.gd" id="1_inventory"]
+[ext_resource type="Texture2D" uid="uid://dmls66nc1mgd3" path="res://assets/image_previews/bg.png" id="2_hj2ta"]
+[ext_resource type="Texture2D" uid="uid://dh5eyyya7gclq" path="res://assets/image_previews/surround.png" id="3_ty45s"]
 
 [node name="Inventory" type="CanvasLayer" unique_id=1219497659]
 script = ExtResource("1_inventory")
 
+[node name="slot5" type="TextureRect" parent="." unique_id=961929868]
+offset_left = 860.0
+offset_top = 43.0
+offset_right = 920.0
+offset_bottom = 103.0
+texture = ExtResource("2_hj2ta")
+expand_mode = 3
+
+[node name="slot6" type="TextureRect" parent="." unique_id=1909315863]
+offset_left = 930.0
+offset_top = 43.0
+offset_right = 990.0
+offset_bottom = 103.0
+texture = ExtResource("2_hj2ta")
+expand_mode = 3
+
+[node name="slot7" type="TextureRect" parent="." unique_id=170093158]
+offset_left = 1000.0
+offset_top = 43.0
+offset_right = 1060.0
+offset_bottom = 103.0
+texture = ExtResource("2_hj2ta")
+expand_mode = 3
+
+[node name="slot8" type="TextureRect" parent="." unique_id=857158083]
+offset_left = 1070.0
+offset_top = 43.0
+offset_right = 1130.0
+offset_bottom = 103.0
+texture = ExtResource("2_hj2ta")
+expand_mode = 3
+
+[node name="slot1" type="TextureRect" parent="." unique_id=112366075]
+offset_left = 860.0
+offset_top = 43.0
+offset_right = 920.0
+offset_bottom = 103.0
+expand_mode = 3
+
+[node name="slot2" type="TextureRect" parent="." unique_id=81089207]
+offset_left = 930.0
+offset_top = 43.0
+offset_right = 990.0
+offset_bottom = 103.0
+expand_mode = 3
+
+[node name="slot3" type="TextureRect" parent="." unique_id=1566397338]
+offset_left = 1000.0
+offset_top = 43.0
+offset_right = 1060.0
+offset_bottom = 103.0
+expand_mode = 3
+
+[node name="slot4" type="TextureRect" parent="." unique_id=147119197]
+offset_left = 1070.0
+offset_top = 43.0
+offset_right = 1130.0
+offset_bottom = 103.0
+expand_mode = 3
+
 [node name="Panel" type="PanelContainer" parent="." unique_id=1683881130]
+visible = false
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -17,3 +80,55 @@ grow_horizontal = 0
 
 [node name="VBox" type="VBoxContainer" parent="Panel" unique_id=540522860]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="." unique_id=253538878]
+offset_left = 886.0
+offset_top = 10.0
+offset_right = 926.0
+offset_bottom = 33.0
+text = "1"
+
+[node name="Label2" type="Label" parent="." unique_id=72341531]
+offset_left = 956.0
+offset_top = 10.0
+offset_right = 996.0
+offset_bottom = 33.0
+text = "2"
+
+[node name="Label3" type="Label" parent="." unique_id=1623420548]
+offset_left = 1026.0
+offset_top = 10.0
+offset_right = 1066.0
+offset_bottom = 33.0
+text = "3"
+
+[node name="Label4" type="Label" parent="." unique_id=926129637]
+offset_left = 1096.0
+offset_top = 10.0
+offset_right = 1136.0
+offset_bottom = 33.0
+text = "4"
+
+[node name="Surround1" type="Sprite2D" parent="." unique_id=1493418834]
+visible = false
+position = Vector2(890.5, 73)
+scale = Vector2(0.22333366, 0.22666666)
+texture = ExtResource("3_ty45s")
+
+[node name="Surround2" type="Sprite2D" parent="." unique_id=325717912]
+visible = false
+position = Vector2(960.5, 73)
+scale = Vector2(0.22333366, 0.22666666)
+texture = ExtResource("3_ty45s")
+
+[node name="Surround3" type="Sprite2D" parent="." unique_id=933755484]
+visible = false
+position = Vector2(1030.5, 73)
+scale = Vector2(0.22333366, 0.22666666)
+texture = ExtResource("3_ty45s")
+
+[node name="Surround4" type="Sprite2D" parent="." unique_id=1948709766]
+visible = false
+position = Vector2(1100.5, 73)
+scale = Vector2(0.22333366, 0.22666666)
+texture = ExtResource("3_ty45s")

@@ -1,11 +1,19 @@
 extends Node3D
 
 var magicEdgePrefab: PackedScene = preload("res://assets/prefabs/magic_edge.tscn")
+var magicEdgeIndicatorPrefab: PackedScene = preload("res://assets/prefabs/magic_edge_indicator.tscn")
+
+var itemCheese = preload("res://assets/prefabs/item_cheese.tscn")
+var itemGem = preload("res://assets/prefabs/item_gem.tscn")
+var itemFish = preload("res://assets/prefabs/item_fish.tscn")
+var itemSugar = preload("res://assets/prefabs/item_sugar.tscn")
 
 @export var summonButton: TextureButton
 @export var hexagonParentNode: Node3D
 @onready var hexagonVertices: Dictionary[int, Node]
 @onready var catAnimator = $CatContainer
+
+var hexagonItemInstances = [null, null, null, null, null, null, null]
 
 var currentItem: String = "full_edge"
 var currentOrientation: int = 0
@@ -170,13 +178,13 @@ var itemEdges: Dictionary = {
 
 func spawnMagicEdge(from: int, to: int, color: Color):
 	if magicEdges.get([from, to]) == null:
-		var magicEdge: Node = magicEdgePrefab.instantiate()
+		var magicEdge: Node = magicEdgeIndicatorPrefab.instantiate()
 		magicEdges.set([from, to], magicEdge)
 		
 		var from_pos: Vector3 = hexagonVertices[from].position
 		var to_pos: Vector3 = hexagonVertices[to].position
 		magicEdge.position = (from_pos + to_pos) / 2.0
-		magicEdge.rotation.y = - atan2(to_pos.z - from_pos.z, to_pos.x - from_pos.x)
+		magicEdge.rotation.y = PI - atan2(to_pos.z - from_pos.z, to_pos.x - from_pos.x)
 		magicEdge.set_light_color(color)
 		
 		add_child(magicEdge)
@@ -268,6 +276,8 @@ func handleSummonButton():
 
 func remove_vertex(index: int):
 	var edges = verticesUsed[index]
+	if hexagonItemInstances[index] != null:
+		hexagonItemInstances[index].queue_free()
 	if edges != null:
 		for edge in edges:
 			removeLockedMagicEdge(edge[0], edge[1])
@@ -280,9 +290,22 @@ func remove_vertex(index: int):
 func add_vertex(index: int, edges, tool):
 	verticesUsed[index] = edges
 	var item = tool
-	print(currentItem)
-	print(item)
 	if edges != null and item != "" and item != null:
+		var instance = null
+		match tool:
+			"full_edge":
+				instance = itemFish.instantiate()
+			"half_edge":
+				instance = itemGem.instantiate()
+			"cross":
+				instance = itemSugar.instantiate()
+			"single":
+				instance = itemCheese.instantiate()
+		if instance != null:
+			instance.global_position = hexagonVertices[index].global_position
+			instance.scale = Vector3(0.1, 0.1, 0.1)
+			add_child(instance)
+			hexagonItemInstances[index] = instance
 		for edge in edges:
 			spawnLockedMagicEdge(edge[0], edge[1], itemColors.get(item))
 		handleSummonButton()
@@ -358,6 +381,9 @@ func _refresh():
 		vertex_hovered(index)
 
 func _ready() -> void:
+	$Camera3D.position = Vector3(-0.187, 1.937, 0.907)
+	$Camera3D.rotation_degrees.x = -65.3
+	
 	summonButton.visible = false
 	
 	Inventory.rotate_item.connect(item_rotated)
@@ -386,7 +412,6 @@ func _process(delta: float) -> void:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		get_tree().change_scene_to_file("res://scenes/world888.tscn")
 
-
 func _on_summon_button_button_up() -> void:
 	var shape_name = checkShape()
 	if shape_name != null:
@@ -400,6 +425,3 @@ func _on_summon_button_button_up() -> void:
 		itemsUsed = [
 			null, null, null, null, null, null, null
 		]
-		for magicEdge in magicEdgesLocked:
-			if magicEdgesLocked[magicEdge] != null:
-				removeLockedMagicEdge(magicEdge[0], magicEdge[1])

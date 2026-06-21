@@ -14,8 +14,6 @@ material = SubResource("StandardMaterial3D_abt0b")
 top_radius = 0.02
 bottom_radius = 0.02
 height = 0.5
-cap_top = false
-cap_bottom = false
 
 [node name="MagicEdge" type="MeshInstance3D" unique_id=672046767]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)

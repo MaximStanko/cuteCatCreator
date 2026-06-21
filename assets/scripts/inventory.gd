@@ -7,10 +7,10 @@ signal change_selected_item
 const SLOT_COUNT := 4
 
 const TOOLS := {
-	"full_edge": {"symbol": "(C)", "items": ["Koi", "Trout", "Catfish", "Salmon", "Anchovy", "Pike", "Eel", "Tuna"]},
-	"half_edge": {"symbol": "(L)", "items": ["Diamond"]},
-	"cross":     {"symbol": "(X)", "items": ["Miaunkohle"]},
-	"single":    {"symbol": "(I)", "items": ["Pilz"]},
+	"full_edge": {"symbol": "(C)", "texture": preload("res://assets/image_previews/fish.png"), "items": ["Koi", "Trout", "Catfish", "Salmon", "Anchovy", "Pike", "Eel", "Tuna"]},
+	"half_edge": {"symbol": "(L)", "texture": preload("res://assets/image_previews/gem.png"), "items": ["Diamond"]},
+	"cross":     {"symbol": "(X)", "texture": preload("res://assets/image_previews/sugar.png"), "items": ["Miaunkohle"]},
+	"single":    {"symbol": "(I)", "texture": preload("res://assets/image_previews/cheese.png"), "items": ["Pilz"]},
 }
 
 var slots: Array[Dictionary] = []
@@ -34,6 +34,8 @@ var found: Dictionary = {
 var _rows: Array[Label] = []
 
 @onready var _vbox: VBoxContainer = $Panel/VBox
+@onready var slotNodes: Array[TextureRect] = [$slot1, $slot2, $slot3, $slot4]
+@onready var slotSurrounds: Array[Sprite2D] = [$Surround1, $Surround2, $Surround3, $Surround4]
 
 func _ready() -> void:
 	slots.resize(SLOT_COUNT)
@@ -46,6 +48,7 @@ func _ready() -> void:
 		var row := Label.new()
 		_vbox.add_child(row)
 		_rows.append(row)
+	_select_slot(0)
 	_refresh()
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -64,11 +67,15 @@ func _unhandled_input(event: InputEvent) -> void:
 		_discard()
 
 func _select_slot(index: int) -> void:
+	for surround in slotSurrounds:
+		surround.visible = false
 	current_slot = index
+	slotSurrounds[index].visible = true
 	_refresh()
 
 func _discard() -> void:
 	slots[current_slot] = {}
+	remove_item_preview(current_slot)
 	_refresh()
 
 func tool_for_item(item_name: String) -> String:
@@ -87,7 +94,13 @@ func take_held_item() -> String:
 	var item := slots[current_slot]
 	if item.is_empty() or tool_for_item(item.name) == "":
 		return ""
+	remove_item_preview(current_slot)
 	slots[current_slot] = {}
+	var og_current_slot = current_slot
+	while slots[current_slot].is_empty():
+		current_slot = (current_slot + 1) % 4
+		if current_slot == og_current_slot:
+			break
 	_refresh()
 	return item.name
 
@@ -95,10 +108,19 @@ func give_item(item_name: String) -> void:
 	for i in SLOT_COUNT:
 		if slots[i].is_empty():
 			slots[i] = {"name": item_name}
+			_select_slot(i)
+			add_item_preview(item_name, i)
 			_refresh()
 			return
 	slots[current_slot] = {"name": item_name}
+	add_item_preview(item_name, current_slot)
 	_refresh()
+
+func add_item_preview(item_name: String, slot_id: int):
+	slotNodes[slot_id].texture = TOOLS[tool_for_item(item_name)].texture
+
+func remove_item_preview(slot_id: int):
+	slotNodes[slot_id].texture = null
 
 func mark_found(shape_name: String) -> void:
 	if found.has(shape_name):
