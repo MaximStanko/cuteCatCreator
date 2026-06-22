@@ -13,6 +13,8 @@ func _on_area_3d_mouse_entered() -> void:
 	collider.shape.radius = 0.13
 
 func _on_area_3d_mouse_exited() -> void:
+	$Sprite3D.visible = false
+	$Sprite3D2.visible = false
 	vertex_unhovered.emit()
 	collider.shape.radius = 0.1
 
@@ -24,3 +26,15 @@ func _on_area_3d_input_event(camera: Node, event: InputEvent, event_position: Ve
 			vertex_pressed.emit()
 		if event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
 			item_rotated.emit()
+
+func show_cross():
+	$Sprite3D.visible = true
+
+func hide_cross():
+	$Sprite3D.visible = false
+
+func show_arrow():
+	$Sprite3D2.visible = true
+
+func hide_arrow():
+	$Sprite3D2.visible = false

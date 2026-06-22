@@ -7,6 +7,7 @@ var player_inside = false
 
 func _ready() -> void:
 	$Sprite3D.hide()
+	GameManager.player_picked_up.connect(_item_collected)
 
 func _on_body_shape_entered(body_rid: RID, body: Node3D, body_shape_index: int, local_shape_index: int) -> void:
 	if body.is_in_group("player"):
@@ -20,9 +21,11 @@ func _on_body_shape_exited(body_rid: RID, body: Node3D, body_shape_index: int, l
 		$Sprite3D.hide()
 
 func _collect_item():
-	item_sound.play()
 	GameManager.player_pickup.emit(pickupName)
-		
+
+func _item_collected():
+	item_sound.play()
+
 func _unhandled_key_input(event: InputEvent) -> void:
 	if not event.is_pressed() or event.is_echo() or !player_inside:
 		return

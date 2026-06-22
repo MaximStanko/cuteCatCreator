@@ -132,3 +132,8 @@ visible = false
 position = Vector2(1100.5, 73)
 scale = Vector2(0.22333366, 0.22666666)
 texture = ExtResource("3_ty45s")
+
+[connection signal="gui_input" from="slot1" to="." method="_on_slot_1_gui_input"]
+[connection signal="gui_input" from="slot2" to="." method="_on_slot_2_gui_input"]
+[connection signal="gui_input" from="slot3" to="." method="_on_slot_3_gui_input"]
+[connection signal="gui_input" from="slot4" to="." method="_on_slot_4_gui_input"]

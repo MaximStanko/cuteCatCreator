@@ -122,4 +122,5 @@ func _on_pickup(pickupName):
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "Player Animationen/grab":
 		picking_up = false
+		GameManager.player_picked_up.emit()
 		Inventory.give_item(item_name)

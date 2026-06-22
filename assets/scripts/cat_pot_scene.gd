@@ -231,7 +231,6 @@ func checkShape():
 	for rotationSummand in range(6):
 		for shape_name in shapes[vertex_count]:
 			edges.sort()
-			print(edges, shapes[vertex_count][shape_name])
 			if shapes[vertex_count][shape_name] == edges:
 				return shape_name
 		for i in range(vertex_count):
@@ -245,19 +244,27 @@ func checkShape():
 	for i in range(vertex_count):
 		if edges[i][0] == 2:
 			edges[i][0] = 6
+		elif edges[i][0] == 6:
+			edges[i][0] = 2
 		if edges[i][1] == 2:
 			edges[i][1] = 6
+		elif edges[i][1] == 6:
+			edges[i][1] = 2
 		if edges[i][0] == 3:
 			edges[i][0] = 5
+		elif edges[i][0] == 5:
+			edges[i][0] = 3
 		if edges[i][1] == 3:
 			edges[i][1] = 5
+		elif edges[i][1] == 5:
+			edges[i][1] = 3
+		
 		if edges[i][0] > edges[i][1]:
 			edges[i] = [edges[i][1], edges[i][0]]
 	
 	for rotationSummand in range(6):
 		for shape_name in shapes[vertex_count]:
 			edges.sort()
-			print(edges, shapes[vertex_count][shape_name])
 			if shapes[vertex_count][shape_name] == edges:
 				return shape_name
 		for i in range(vertex_count):
@@ -316,6 +323,7 @@ func vertex_pressed(tool):
 		return
 	print("Vertex " + str(index) + " pressed")
 	if verticesUsed[index] != null:
+		hexagonVertices[index].hide_arrow()
 		remove_vertex(index)
 		vertex_hovered(index)
 	else:
@@ -331,11 +339,13 @@ func vertex_pressed(tool):
 			return
 		itemsUsed[index] = item
 		add_vertex(index, full_edges, tool)
+		vertex_hovered(index)
 
 func vertex_hovered(index: int):
 	selectedVertex = index
 	print("Vertex " + str(index) + " hovered")
 	if verticesUsed[index] != null:
+		hexagonVertices[index].show_arrow()
 		return
 	currentItem = Inventory.peek_held_tool()
 	if currentItem == "":
@@ -345,12 +355,32 @@ func vertex_hovered(index: int):
 	currentTempOrientation = currentOrientation
 	if currentEdgePossibilities != null:
 		currentMaxOrientation = currentEdgePossibilities.size()
-		while currentEdgePossibilities[currentTempOrientation] == null:
+		var tempCurrentEdges = currentEdges
+		var startOrientation = currentTempOrientation
+		var while_continues = false
+		while true:
+			while_continues = true
+			if currentEdgePossibilities[currentTempOrientation] != null:
+				while_continues = false
+				tempCurrentEdges = currentEdgePossibilities[currentTempOrientation]
+				for edge in tempCurrentEdges:
+					if magicEdgesLocked.get([index, edge]) != null or magicEdgesLocked.get([edge, index]) != null:
+						while_continues = true
+						break
+			if while_continues == false:
+				break
 			currentTempOrientation = (currentTempOrientation + 1) % currentMaxOrientation
-		currentEdges = currentEdgePossibilities[currentTempOrientation]
-		for vertex_to in currentEdges:
-			spawnMagicEdge(index, vertex_to, itemColors[currentItem])
+			if currentTempOrientation == startOrientation:
+				hexagonVertices[index].show_cross()
+				currentMaxOrientation = 0
+				break
+		if currentMaxOrientation > 0:
+			hexagonVertices[index].hide_cross()
+			currentEdges = currentEdgePossibilities[currentTempOrientation]
+			for vertex_to in currentEdges:
+				spawnMagicEdge(index, vertex_to, itemColors[currentItem])
 	else:
+		hexagonVertices[index].show_cross()
 		currentMaxOrientation = 0
 
 func vertex_unhovered(index: int):
@@ -410,7 +440,7 @@ func _process(delta: float) -> void:
 				Inventory.give_item(item)
 		GameManager.player_rot = Vector3(0,38.8,0)
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		get_tree().change_scene_to_file("res://scenes/world888.tscn")
+		GameManager.change_to_world_scene()
 
 func _on_summon_button_button_up() -> void:
 	var shape_name = checkShape()

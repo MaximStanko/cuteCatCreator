@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d1ekalo2srbk5"]
 
 [ext_resource type="Script" uid="uid://drqytj6kssn8g" path="res://assets/scripts/fishing_spot.gd" id="1_spot"]
+[ext_resource type="Texture2D" uid="uid://dok50ysi1ytk7" path="res://assets/E.png" id="2_nwryv"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_arufc"]
 height = 1.0
@@ -32,6 +33,11 @@ outline_render_priority = 3
 text = "🐟"
 font_size = 128
 outline_size = 32
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1725557871]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 1.4687018, 0)
+billboard = 2
+texture = ExtResource("2_nwryv")
 
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
 [connection signal="body_shape_exited" from="." to="." method="_on_body_shape_exited"]

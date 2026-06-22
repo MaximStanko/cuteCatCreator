@@ -54,6 +54,17 @@ func _ready() -> void:
 	_refresh()
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("slots_cycle_down"):
+		current_slot = (current_slot + 1) % 4
+		_select_slot(current_slot)
+		_refresh()
+	if event.is_action_pressed("slots_cycle_up"):
+		current_slot -= 1
+		if current_slot < 0:
+			current_slot = 3
+		_select_slot(current_slot)
+		_refresh()
+	
 	if not event.is_pressed() or event.is_echo():
 		return
 	
@@ -109,6 +120,7 @@ func take_held_item() -> String:
 		current_slot = (current_slot + 1) % 4
 		if current_slot == og_current_slot:
 			break
+	_select_slot(current_slot)
 	_refresh()
 	return item.name
 
@@ -167,3 +179,19 @@ func _refresh() -> void:
 		_rows[i].text = "%s %d: %s" % [marker, i + 1, content]
 		_rows[i].modulate = Color(1, 1, 0.5) if i == current_slot else Color(1, 1, 1)
 	change_selected_item.emit()
+
+func _slot_input(event: InputEvent, index: int):
+	if event.is_action_pressed("gui_select"):
+		_select_slot(index)
+
+func _on_slot_1_gui_input(event: InputEvent) -> void:
+	_slot_input(event, 0)
+
+func _on_slot_2_gui_input(event: InputEvent) -> void:
+	_slot_input(event, 1)
+
+func _on_slot_3_gui_input(event: InputEvent) -> void:
+	_slot_input(event, 2)
+
+func _on_slot_4_gui_input(event: InputEvent) -> void:
+	_slot_input(event, 3)

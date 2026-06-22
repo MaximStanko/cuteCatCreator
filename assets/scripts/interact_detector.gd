@@ -1,7 +1,5 @@
 extends Area3D
 
-@export var inside_house: PackedScene
-
 var awayName = "name"
 
 var player_inside = false
@@ -29,4 +27,4 @@ func _unhandled_key_input(event: InputEvent) -> void:
 			GameManager.player_pos = $"../Player".global_position
 			GameManager.sun_location = $"../DirectionalLight3D".rotation_degrees
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			get_tree().change_scene_to_packed(inside_house)
+			GameManager.change_to_cat_pot_scene()
