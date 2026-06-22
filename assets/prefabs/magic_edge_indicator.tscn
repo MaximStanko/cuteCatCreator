@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://1gawjbauf0j2"]
+
+[ext_resource type="Script" uid="uid://drl7n62ssjimg" path="res://assets/scripts/magic_edge_indicator.gd" id="1_3q0dt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_efkkv"]
+emission_enabled = true
+emission = Color(0.6820442, 0.46019155, 0.56345844, 1)
+emission_energy_multiplier = 10.0
+grow_amount = 0.005
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_43mf2"]
+material = SubResource("StandardMaterial3D_efkkv")
+top_radius = 0.01
+bottom_radius = 0.01
+height = 0.01
+
+[node name="Node3D" type="Node3D" unique_id=1727870051]
+script = ExtResource("1_3q0dt")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="." unique_id=1865024262]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.25, 0, 0)
+transparency = 0.5
+amount = 25
+lifetime = 1.25
+preprocess = 1.25
+local_coords = true
+mesh = SubResource("CylinderMesh_43mf2")
+direction = Vector3(0, 1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 0.4
+initial_velocity_max = 0.4
