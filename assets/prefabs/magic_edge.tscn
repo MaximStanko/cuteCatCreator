@@ -11,6 +11,7 @@ emission_energy_multiplier = 14.11
 disable_receive_shadows = true
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_1t6eg"]
+resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_abt0b")
 top_radius = 0.02
 bottom_radius = 0.02
