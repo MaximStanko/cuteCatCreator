@@ -23,7 +23,7 @@ var found: Dictionary = {
 	"hexagon": {"found": false, "cat": "res://assets/gartz/chonk.tscn", "cat_name": "Chonker"},
 	"pacman": {"found": false, "cat": "res://assets/gartz/Gatzenhai.tscn", "cat_name": "Gadsenhai"},
 	"crooked_hourglass": {"found": false, "cat": "res://assets/gartz/gentlecat.tscn", "cat_name": "Gentlecat"},
-	"hourglass": {"found": false, "cat": "res://assets/gartz/heckse.tscn", "cat_name": "Gadsmagie"},
+	"hourglass": {"found": false, "cat": "res://assets/gartz/heckse.tscn", "cat_name": "Hexengadse"},
 	"crescent_moon": {"found": false, "cat": "res://assets/gartz/orange.tscn", "cat_name": "Orange Gadse"},
 	"raft": {"found": false, "cat": "res://assets/gartz/poempl.tscn", "cat_name": "Pömpel Gatse"},
 	"boat": {"found": false, "cat": "res://assets/gartz/rainbow.tscn", "cat_name": "Regenbogen Gadse"},

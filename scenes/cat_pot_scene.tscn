@@ -12,7 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://jihb0ebvvjue" path="res://assets/brackeys_particle_bundle/particles/alpha/star_01_a.png" id="7_qiqxt"]
 [ext_resource type="PackedScene" uid="uid://ch62xggqtb7lh" path="res://assets/prefabs/witch_table.tscn" id="8_kp424"]
 [ext_resource type="Texture2D" uid="uid://qus6wmp7vh07" path="res://assets/magic_hexagon.png" id="9_qiqxt"]
+[ext_resource type="Texture2D" uid="uid://bf8axj12a3t4r" path="res://assets/exit_door_transparent.png" id="10_2jfny"]
 [ext_resource type="AudioStream" uid="uid://crkavopfkj7tc" path="res://assets/sounds/cat_meow.mp3" id="10_d6674"]
+[ext_resource type="Texture2D" uid="uid://diiciuiyl23dr" path="res://assets/exit_door.png" id="11_4ggdk"]
 
 [sub_resource type="Animation" id="Animation_g1mu8"]
 length = 0.001
@@ -293,6 +295,7 @@ offset_right = 239.0
 offset_bottom = 256.0
 
 [node name="SummonButton" type="TextureButton" parent="CanvasLayer/Control" unique_id=272104811]
+visible = false
 layout_mode = 0
 offset_left = 361.0
 offset_top = 413.00003
@@ -313,6 +316,15 @@ offset_bottom = 614.99963
 text = "Summon Cat"
 label_settings = SubResource("LabelSettings_d6674")
 horizontal_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer" unique_id=759669525]
+offset_right = 130.0
+offset_bottom = 130.0
+texture_normal = ExtResource("10_2jfny")
+texture_pressed = ExtResource("11_4ggdk")
+texture_hover = ExtResource("11_4ggdk")
+ignore_texture_size = true
+stretch_mode = 4
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1395975908]
 transform = Transform3D(1, 0, 0, 0, 0.28884798, 0.957375, 0, -0.957375, 0.28884798, 0, 3.0728943, 0.42099386)
@@ -384,3 +396,4 @@ draw_pass_1 = SubResource("QuadMesh_8bitm")
 
 [connection signal="animation_finished" from="CatContainer/AnimationPlayer" to="CatContainer" method="_on_animation_player_animation_finished"]
 [connection signal="button_up" from="CanvasLayer/Control/SummonButton" to="." method="_on_summon_button_button_up"]
+[connection signal="button_down" from="CanvasLayer/TextureButton" to="." method="_on_texture_button_button_down"]

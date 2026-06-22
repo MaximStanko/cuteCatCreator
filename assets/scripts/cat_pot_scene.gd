@@ -337,6 +337,7 @@ func vertex_pressed(tool):
 		var item := Inventory.take_held_item()
 		if item == "":
 			return
+		vertex_unhovered(index)
 		itemsUsed[index] = item
 		add_vertex(index, full_edges, tool)
 		vertex_hovered(index)
@@ -457,3 +458,7 @@ func _on_summon_button_button_up() -> void:
 		itemsUsed = [
 			null, null, null, null, null, null, null
 		]
+
+
+func _on_texture_button_button_down() -> void:
+	GameManager.change_to_world_scene()
